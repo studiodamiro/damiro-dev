@@ -16,14 +16,16 @@ export const Page = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    pretext: { type: 'string' },
+    subtext: { type: 'string' },
     description: { type: 'string' },
   },
   computedFields,
 }));
 
-export const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `posts/**/*.md`,
+export const Works = defineDocumentType(() => ({
+  name: 'Works',
+  filePathPattern: `works/**/*.md`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -32,6 +34,19 @@ export const Post = defineDocumentType(() => ({
   },
   computedFields,
 }));
+
+export default makeSource({
+  contentDirPath: './content',
+  documentTypes: [Works, Page],
+  mdx: {
+    remarkPlugins: [remarkGfm], // Only works on remark-gfm v3.0.1, not the latest
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypePrettyCode, rehypePrettyCodeOptions],
+      [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
+    ],
+  },
+});
 
 const rehypePrettyCodeOptions = {
   theme: 'rose-pine',
@@ -49,16 +64,3 @@ const rehypePrettyCodeOptions = {
 const rehypeAutolinkHeadingsOptions = {
   properties: { className: ['anchor'] },
 };
-
-export default makeSource({
-  contentDirPath: './content',
-  documentTypes: [Post, Page],
-  mdx: {
-    remarkPlugins: [remarkGfm], // Only works on remark-gfm v3.0.1, not the latest
-    rehypePlugins: [
-      rehypeSlug,
-      [rehypePrettyCode, rehypePrettyCodeOptions],
-      [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
-    ],
-  },
-});

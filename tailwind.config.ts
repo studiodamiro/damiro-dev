@@ -25,14 +25,6 @@ module.exports = {
             lt: '#fa8072', // Salmon
             dk: '#880808', // Blood
           },
-          gray: {
-            // Shades of Zinc
-            bk: '#18181b', // 900
-            xd: '#27272a', // 800
-            dk: '#71717a', // 500
-            md: '#a1a1aa', // 400
-            lt: '#e4e4e7', // 200
-          },
         },
         fontFamily: {
           serif: ['Fauna One', 'serif'],

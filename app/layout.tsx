@@ -1,11 +1,13 @@
 import './globals.css';
 import Link from 'next/link';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { Fira_Sans } from 'next/font/google';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { cn } from '@/lib/utils';
+import Copyright from '@/components/Copyright';
+import Logo from '@/components/Logo';
 
-const font = Inter({
+const fira = Fira_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
@@ -24,22 +26,25 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          font.className,
-          'antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50'
+          fira.className,
+          'antialiased min-h-screen',
+          'bg-zinc-300 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400',
+          'transition-colors duration-500 ease-out'
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='max-w-2xl mx-auto py-10 px-4 prose-quoteless'>
-            <header>
-              <div className='flex items-center justify-between'>
+          <div className='max-w-2xl mx-auto py-10 px-4'>
+            <header className='flex items-center justify-between'>
+              <Logo color='#666666' />
+              <nav className='flex items-center ml-auto text-sm font-medium space-x-6'>
+                <Link href='/about'>About</Link>
+                <Link href='/works'>Works</Link>
+                <Link href='/contact'>Contact</Link>
                 <ThemeToggle />
-                <nav className='ml-auto text-sm font-medium space-x-6'>
-                  <Link href='/'>Home</Link>
-                  <Link href='/about'>About</Link>
-                </nav>
-              </div>
+              </nav>
             </header>
             <main>{children}</main>
+            <Copyright />
           </div>
         </ThemeProvider>
       </body>

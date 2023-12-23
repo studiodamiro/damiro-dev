@@ -24,27 +24,33 @@ export default async function PagePage({ params }: PageProps) {
 
   return (
     <article className='flex flex-col gap-8 py-8'>
+      {/* PAGE TITLE */}
       <h1
         style={{ textWrap: 'balance', color: color }}
-        className={cn('font-fauna text-8xl lowercase -ml-1', fauna.className)}
+        className={cn('font-fauna text-5xl md:text-8xl lowercase ml-[48px]', fauna.className)}
       >
         {page.title}
       </h1>
-      <div className='flex flex-col gap-2'>
+
+      {/* PRE TEXTS */}
+      <div className='flex flex-col gap-2 ml-[52px]'>
         <span style={{ textWrap: 'balance' }} className='text-sm uppercase tracking-widest font-semibold'>
           {page.pretext}
         </span>
-        <span
+
+        <p
           style={{ textWrap: 'balance' }}
-          className={cn('font-fauna text-4xl leading-tight -ml-0.5 text-zinc-500', fauna.className)}
+          className={cn('font-fauna text-2xl md:text-4xl leading-tight -ml-0.5 text-zinc-500', fauna.className)}
         >
-          {page.subtext}
-        </span>
-        <p style={{ textWrap: 'balance' }} className='text-xl'>
           {page.description}
         </p>
+        <span style={{ textWrap: 'balance' }} className='text-sm uppercase tracking-widest font-semibold'>
+          {page.subtext}
+        </span>
       </div>
-      <div className='prose dark:prose-invert prose-quoteless max-w-full text-zinc-700 dark:text-zinc-300'>
+
+      {/* BODY */}
+      <div className='prose dark:prose-invert prose-sm md:prose-base prose-quoteless max-w-full text-zinc-700 dark:text-zinc-300 ml-[52px]'>
         <Mdx code={page.body.code} />
       </div>
     </article>

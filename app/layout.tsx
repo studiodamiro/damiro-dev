@@ -6,6 +6,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { cn } from '@/lib/utils';
 import Copyright from '@/components/Copyright';
 import Logo from '@/components/Logo';
+import Navigation from '@/components/Navigation';
+import Header from '@/components/Header';
 
 const fira = Fira_Sans({
   subsets: ['latin'],
@@ -33,19 +35,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='max-w-2xl mx-auto py-10 px-4'>
-            <header className='flex items-center justify-between'>
-              <Logo color='#666666' />
-              <nav className='flex items-center ml-auto text-sm font-medium space-x-6'>
-                <Link href='/about'>About</Link>
-                <Link href='/works'>Works</Link>
-                <Link href='/contact'>Contact</Link>
-                <ThemeToggle />
-              </nav>
-            </header>
+          <Header />
+          <div className='flex min-h-screen items-center max-w-2xl md:max-w-3xl ml-0 p-4 md:p-8'>
             <main>{children}</main>
-            <Copyright />
           </div>
+          <Copyright rotate />
         </ThemeProvider>
       </body>
     </html>

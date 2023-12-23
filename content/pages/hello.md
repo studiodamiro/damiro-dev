@@ -1,7 +1,7 @@
 ---
-title: About
-pretext: A jack of all trades. Master of none.
-description: Oftentimes better than a master of one.
+title: Hello
+pretext: Welcome to the studio
+description: This is the digital playground of Dan from MNL PH.
 subtext:
 ---
 

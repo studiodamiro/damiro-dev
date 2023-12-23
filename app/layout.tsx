@@ -36,9 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <Header />
-          <div className='flex min-h-screen items-center max-w-2xl md:max-w-3xl ml-0 p-4 md:p-8'>
-            <main>{children}</main>
-          </div>
+          <main>{children}</main>
           <Copyright rotate />
         </ThemeProvider>
       </body>

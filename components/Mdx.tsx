@@ -1,6 +1,7 @@
 import NextImage, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Counter from './Counter';
+import MdxButton from './MdxButton';
 
 const components = {
   // Image using next/image
@@ -11,9 +12,8 @@ const components = {
     </div>
   ),
 
-  // Sample custom component
-  // USAGE: <Counter />
   Counter,
+  MdxButton,
 };
 
 interface MdxProps {

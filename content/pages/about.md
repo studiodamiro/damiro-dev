@@ -1,7 +1,7 @@
 ---
 title: About
 pretext: A jack of all trades. Master of none.
-description: Oftentimes better than a master of one.
+description: Technically, creative.
 subtext:
 ---
 

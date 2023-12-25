@@ -23,7 +23,7 @@ export default function Copyright({ logoColor = '#fa8072', rotate = false }: Cop
         <Link href='/' className={cn('opacity-80', rotate && 'rotate-180')}>
           Damiro
         </Link>
-        <Logo color={logoColor} />
+        <Logo />
         <Link href='/' className={cn('opacity-80 whitespace-nowrap', rotate && 'rotate-180')}>
           <span className='hidden md:inline'>All rights reserved </span>© 2023
         </Link>

@@ -9,9 +9,11 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
+import { useColor } from '@/providers/ColorProvider';
 
 export default function ContactForm() {
   const router = useRouter();
+  const { color } = useColor();
 
   const {
     register,
@@ -50,7 +52,7 @@ export default function ContactForm() {
         <input type='hidden' name='form-name' value='contact' />
         <input className='hidden' name='bot-field' />
 
-        <div className='w-4/5'>
+        <div className='w-full md:w-4/5'>
           <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
             <Label htmlFor='email'>Email</Label>
             {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
@@ -63,7 +65,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className='w-2/3'>
+        <div className='w-full md:w-2/3'>
           <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
             <Label htmlFor='name'>Name</Label>
             {errors.name && <span className='text-red-500'>{errors.name.message}</span>}
@@ -89,7 +91,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <Button type='submit' className='w-1/3 uppercase mt-2'>
+        <Button type='submit' className='w-1/3 uppercase mt-2 tracking-wider font-semibold'>
           Submit
         </Button>
       </form>

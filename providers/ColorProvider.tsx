@@ -4,13 +4,13 @@ import adjustHexColor from '@/lib/adjustHexColor';
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
 
 interface ColorProps {
-  priColor: string;
+  color: string;
   secColor?: string;
   priLightColor?: string;
   secLightColor?: string;
   priDarkColor?: string;
   secDarkColor?: string;
-  setPriColor?: Dispatch<SetStateAction<string>>;
+  setColor?: Dispatch<SetStateAction<string>>;
   setSecColor?: Dispatch<SetStateAction<string>>;
   setPriLightColor?: Dispatch<SetStateAction<string>>;
   setSecLightColor?: Dispatch<SetStateAction<string>>;
@@ -27,49 +27,35 @@ export const useColor = (): ColorProps => {
 };
 
 interface ColorProviderProps {
-  priColor: string;
-  secColor?: string;
-  priLightColor?: string;
-  secLightColor?: string;
-  priDarkColor?: string;
-  secDarkColor?: string;
-  setPriColor?: Dispatch<SetStateAction<string>>;
-  setSecColor?: Dispatch<SetStateAction<string>>;
-  setPriLightColor?: Dispatch<SetStateAction<string>>;
-  setSecLightColor?: Dispatch<SetStateAction<string>>;
-  setPriDarkColor?: Dispatch<SetStateAction<string>>;
-  setSecDarkColor?: Dispatch<SetStateAction<string>>;
   children: ReactNode;
 }
 
-export const ColorProvider = ({ children, priColor = '#fa8072cc', secColor = '#fa8072' }: ColorProviderProps) => {
-  const [priColors, setPriColor] = useState<string>(priColor);
-  const [secColors, setSecColor] = useState<string>(secColor);
+export const ColorProvider = ({ children }: ColorProviderProps) => {
+  const [color, setColor] = useState<string>('#ffffff');
+  const [secColor, setSecColor] = useState<string>('#cccccc');
 
-  const [priLightColor, setPriLightColor] = useState<string>(priColor);
-  const [secLightColor, setSecLightColor] = useState<string>(secColor);
-  const [priDarkColor, setPriDarkColor] = useState<string>(priColor);
-  const [secDarkColor, setSecDarkColor] = useState<string>(secColor);
-
-  useEffect(() => {}, []);
+  const [priLightColor, setPriLightColor] = useState<string>('#ffffff');
+  const [secLightColor, setSecLightColor] = useState<string>('#cccccc');
+  const [priDarkColor, setPriDarkColor] = useState<string>('#ffffff');
+  const [secDarkColor, setSecDarkColor] = useState<string>('#cccccc');
 
   useEffect(() => {
-    setPriLightColor(adjustHexColor(priColor, 'light', 20));
+    setPriLightColor(adjustHexColor(color, 'light', 20));
     setSecLightColor(adjustHexColor(secColor, 'light', 20));
-    setPriDarkColor(adjustHexColor(priColor, 'dark', 20));
+    setPriDarkColor(adjustHexColor(color, 'dark', 20));
     setSecDarkColor(adjustHexColor(secColor, 'dark', 20));
-  }, [priColor, secColor]);
+  }, [color, secColor]);
 
   return (
     <ColorContext.Provider
       value={{
-        priColor,
+        color,
         secColor,
         priLightColor,
         secLightColor,
         priDarkColor,
         secDarkColor,
-        setPriColor,
+        setColor,
         setSecColor,
         setPriLightColor,
         setSecLightColor,

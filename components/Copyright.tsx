@@ -11,7 +11,7 @@ type CopyrightProps = {
 
 export default function Copyright({ logoColor = '#fa8072', rotate = false }: CopyrightProps) {
   return (
-    <div className='fixed w-[800px] ml-0 bottom-0 p-4 md:p-8'>
+    <div className='fixed ml-0 bottom-0 p-4 md:p-8'>
       <div
         className={cn(
           'flex gap-6 min-w-full h-[116px] items-center justify-start text-4xl uppercase tracking-widest scale-[35%] origin-left absolute ',

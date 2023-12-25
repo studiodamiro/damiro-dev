@@ -1,6 +1,6 @@
 ---
 title: Contact
-pretext: Reach out
+pretext: You start a conversation
 description: I promise to write back.
 subtext:
 ---

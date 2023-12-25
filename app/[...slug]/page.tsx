@@ -1,23 +1,19 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { allPages } from 'contentlayer/generated';
-import SectionPrimary from '@/components/Main';
+import Main from '@/components/Main';
 
 type PageProps = {
   params: {
     slug: string[];
-    pretext?: string;
-    subtext?: string;
-    description?: string;
   };
 };
 
 export default async function PagePage({ params }: PageProps) {
-  const color = '#fa8072';
   const page = await getPageFromParams(params);
   if (!page) notFound();
 
-  return <SectionPrimary color={color} page={page} />;
+  return <Main page={page} />;
 }
 
 async function getPageFromParams(params: PageProps['params']) {

@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from 'react';
 import Link from 'next/link';
+import { useColor } from '@/providers/ColorProvider';
 
 type MdxButtonProps = {
   href: string;
@@ -9,8 +10,7 @@ type MdxButtonProps = {
 };
 
 export default function MdxButton({ href, children }: MdxButtonProps) {
-  const priColor = '#fa8072cc';
-  const secColor = '#fa8072';
+  const { color, secColor } = useColor();
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -18,8 +18,8 @@ export default function MdxButton({ href, children }: MdxButtonProps) {
       href={href}
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
-      style={{ backgroundColor: isHovered ? secColor : priColor }}
-      className='py-0.5 pl-3 pr-2.5 rounded-sm tracking-widest no-underline bg-opacity-50 hover:bg-opacity-100 transition-colors duration-300 ease-out'
+      style={{ backgroundColor: isHovered ? secColor : color }}
+      className='py-0.5 pl-3 pr-2.5 text-[0.85rem] font-medium rounded-sm tracking-widest no-underline bg-opacity-90 hover:bg-opacity-100 transition-colors duration-150 ease-out'
     >
       {children}
     </Link>

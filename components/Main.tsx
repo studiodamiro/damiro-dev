@@ -1,22 +1,32 @@
+'use client';
+
+import { useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Mdx } from '@/components/Mdx';
 import { Fauna_One } from 'next/font/google';
 import { Page } from '@/.contentlayer/generated';
+import { useColor } from '@/providers/ColorProvider';
 import ImageFadeIn from './ImageFadeIn';
 import ContactForm from './ContactForm';
 
 const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'] });
 
-type SectionPrimaryProps = {
+type MainProps = {
   page: Page;
   color?: string;
 };
 
-export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
+export default function Main({ page }: MainProps) {
+  const { color, setColor } = useColor();
+
+  useEffect(() => {
+    setColor && setColor('#ff0044'); // TODO: Change with page.color
+  }, []);
+
   return (
     <main className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0 justify-center'>
-      <span className='block lg:hidden w-full h-16 lg:h-[calc(100vh/3)]' />
-      <section className='flex flex-col gap-4 md:gap-8 pr-4 md:pr-8 ml-[70px] md:ml-[84px] h-full lg:h-screen'>
+      <span className='block lg:hidden w-full h-24 lg:h-[calc(100vh/3)]' />
+      <section className='flex flex-col gap-4 md:gap-8 pr-8 ml-[70px] md:ml-[84px] h-full lg:h-screen'>
         {page.slugAsParams === 'works' && <div className='w-full h-[calc(15vh)] lg:h-0 block lg:hidden' />}
 
         {/* PAGE TITLE */}
@@ -88,7 +98,7 @@ export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
         <section className='relative flex flex-col grow-1 items-start w-full pl-[70px] md:pl-[152px] lg:pl-0'>
           <span className='w-full h-8 lg:h-[calc(100vh/3)]' />
           {page.slugAsParams === 'contact' && (
-            <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 lg:pl-8 pr-8 pb-8 flex flex-col gap-4'>
+            <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 lg:pl-8 pr-4 md:pr-8 pb-8 flex flex-col gap-4'>
               <span className={cn('font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500', fauna.className)}>
                 Leave a message
               </span>

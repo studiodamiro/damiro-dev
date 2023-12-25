@@ -3,6 +3,7 @@ import { Mdx } from '@/components/Mdx';
 import { Fauna_One } from 'next/font/google';
 import { Page } from '@/.contentlayer/generated';
 import ImageFadeIn from './ImageFadeIn';
+import ContactForm from './ContactForm';
 
 const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'] });
 
@@ -14,6 +15,7 @@ type SectionPrimaryProps = {
 export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
   return (
     <main className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0 justify-center'>
+      <span className='block lg:hidden w-full h-16 lg:h-[calc(100vh/3)]' />
       <section className='flex flex-col gap-4 md:gap-8 pr-4 md:pr-8 ml-[70px] md:ml-[84px] h-full lg:h-screen'>
         {page.slugAsParams === 'works' && <div className='w-full h-[calc(15vh)] lg:h-0 block lg:hidden' />}
 
@@ -50,7 +52,7 @@ export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
         </div>
 
         {/* BODY */}
-        <div className='prose dark:prose-invert prose-md md:prose-base prose-quoteless max-w-5xl leading-loose ml-0 md:ml-[68px] text-zinc-700 dark:text-zinc-300'>
+        <div className='prose dark:prose-invert prose-md md:prose-base prose-quoteless max-w-xl md:max-w-2xl lg:max-w-5xl leading-loose ml-0 md:ml-[68px] text-zinc-700 dark:text-zinc-300'>
           <Mdx code={page.body.code} />
         </div>
       </section>
@@ -58,7 +60,7 @@ export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
       {/* ASIDE */}
       {page.slugAsParams === 'works' ? (
         <section className='relative flex flex-col items-start w-full min-h-screen pl-[70px] md:pl-[152px] lg:pl-0'>
-          <div className='w-full h-full lg:h-[calc(100vh/3)]' />
+          <div className='w-full h-20 lg:h-[calc(100vh/3)] bg-red-400/20' />
 
           {/* CONTENT */}
           <div className='prose dark:prose-invert prose-sm md:prose-base prose-quoteless max-w-4xl pl-0 py-0 lg:py-8 pb-8 pr-4 md:pr-8 mx-w-xl'>
@@ -83,9 +85,16 @@ export default function Main({ page, color = '#fa8072' }: SectionPrimaryProps) {
           </div>
         </section>
       ) : (
-        <section className='relative flex flex-col items-start w-full pl-[70px] md:pl-[152px] lg:pl-0'>
-          <div className='w-full h-1/3 hidden mb-8 lg:block' />
-          <div className='max-w-3xl pl-0 lg:pl-8 pr-8 pb-8'></div>
+        <section className='relative flex flex-col grow-1 items-start w-full pl-[70px] md:pl-[152px] lg:pl-0'>
+          <span className='w-full h-8 lg:h-[calc(100vh/3)]' />
+          {page.slugAsParams === 'contact' && (
+            <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 lg:pl-8 pr-8 pb-8 flex flex-col gap-4'>
+              <span className={cn('font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500', fauna.className)}>
+                Leave a message
+              </span>
+              <ContactForm />
+            </div>
+          )}
         </section>
       )}
     </main>

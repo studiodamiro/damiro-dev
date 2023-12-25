@@ -2,7 +2,7 @@
 
 Digital playground of Dan from MNL PH.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1208287e-45fa-47e4-8db2-f70cdb86f14d/deploy-status)](https://app.netlify.com/sites/damiro/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1b7e6eb-d2c4-4281-9a5e-21a6efc55895/deploy-status)](https://app.netlify.com/sites/damiro/deploys)
 
 ### Development using npm
 

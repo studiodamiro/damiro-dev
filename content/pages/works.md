@@ -1,6 +1,6 @@
 ---
 title: Works
-pretext:
+pretext: _
 description: Tales on every pixel
 subtext:
 ---

@@ -8,6 +8,7 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 export default function ContactForm() {
   const router = useRouter();
@@ -37,18 +38,22 @@ export default function ContactForm() {
   };
 
   return (
-    <div>
+    <div className='w-full h-full'>
       <form
         name='contact'
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
         onSubmit={handleSubmit(submitHandler)}
+        className='flex flex-col gap-2'
       >
         <input type='hidden' name='form-name' value='contact' />
         <input className='hidden' name='bot-field' />
-        <div>
-          <Label htmlFor='email'>Email</Label>
+        <div className='w-4/5'>
+          <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
+            <Label htmlFor='email'>Email</Label>
+            {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
+          </div>
           <Input
             required
             {...register('email')}
@@ -56,8 +61,11 @@ export default function ContactForm() {
             placeholder='you@email.com'
           />
         </div>
-        <div>
-          <Label htmlFor='name'>Name</Label>
+        <div className='w-2/3'>
+          <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
+            <Label htmlFor='name'>Name</Label>
+            {errors.name && <span className='text-red-500'>{errors.name.message}</span>}
+          </div>
           <Input
             required
             {...register('name')}
@@ -66,24 +74,20 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <Label htmlFor='message'>Movie Details</Label>
+          <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
+            <Label htmlFor='message'>Message</Label>
+            {errors.message && <span className='text-red-500'>{errors.message.message}</span>}
+          </div>
           <Textarea
             required
             {...register('message')}
             className={cn({ 'focus-visible:ring-red-500': errors.message })}
-            placeholder='Help me find it. What year was it released? Whose movie is it? Any links?'
+            placeholder='Message details ...'
           />
         </div>
-        <button
-          type='submit'
-          className={cn(
-            'relative mx-[2px] px-4 py-3 flex-none rounded-lg tracking-widest text-sm font-bold uppercase shadow-md items-center justify-center',
-            'bg-slate-900/70 dark:bg-white/70 dark:text-slate-900 text-white opacity-80 hover:opacity-100',
-            'transition-all duration-300 ease-out'
-          )}
-        >
-          Request Reflection
-        </button>
+        <Button type='submit' className='w-1/3 uppercase mt-2'>
+          Submit
+        </Button>
       </form>
     </div>
   );

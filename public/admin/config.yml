@@ -16,14 +16,18 @@ collections:
     slug: '{{fields.title}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Pretext', name: 'pretext', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Subtext', name: 'subtext', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: posts
-    label: Posts
-    folder: '/content/posts'
+  - name: works
+    label: Works
+    folder: '/content/works'
     create: true
     identifier_field: title
     slug: '{{fields.title}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

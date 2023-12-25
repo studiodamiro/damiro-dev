@@ -49,6 +49,7 @@ export default function ContactForm() {
       >
         <input type='hidden' name='form-name' value='contact' />
         <input className='hidden' name='bot-field' />
+
         <div className='w-4/5'>
           <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
             <Label htmlFor='email'>Email</Label>
@@ -61,6 +62,7 @@ export default function ContactForm() {
             placeholder='you@email.com'
           />
         </div>
+
         <div className='w-2/3'>
           <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
             <Label htmlFor='name'>Name</Label>
@@ -73,6 +75,7 @@ export default function ContactForm() {
             placeholder='What should I call you?'
           />
         </div>
+
         <div>
           <div className='flex flex-row gap-2 items-center uppercase tracking-wider text-xs py-1.5'>
             <Label htmlFor='message'>Message</Label>
@@ -85,6 +88,7 @@ export default function ContactForm() {
             placeholder='Message details ...'
           />
         </div>
+
         <Button type='submit' className='w-1/3 uppercase mt-2'>
           Submit
         </Button>

@@ -20,7 +20,7 @@ export default function Main({ page }: MainProps) {
   const { color, setColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor('#ff0044'); // TODO: Change with page.color
+    setColor && setColor('#b7a8cb'); // TODO: Change with page.color
   }, []);
 
   return (

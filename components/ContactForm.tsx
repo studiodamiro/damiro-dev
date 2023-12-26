@@ -9,11 +9,9 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
-import { useColor } from '@/providers/ColorProvider';
 
 export default function ContactForm() {
   const router = useRouter();
-  const { color } = useColor();
 
   const {
     register,
@@ -23,7 +21,7 @@ export default function ContactForm() {
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/placeholder.png', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'contact', ...data }).toString(),
@@ -58,10 +56,12 @@ export default function ContactForm() {
             {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
           </div>
           <Input
+            id='email'
             required
+            placeholder='you@email.com'
+            autoComplete='email'
             {...register('email')}
             className={cn({ 'focus-visible:ring-red-500': errors.email })}
-            placeholder='you@email.com'
           />
         </div>
 
@@ -71,10 +71,12 @@ export default function ContactForm() {
             {errors.name && <span className='text-red-500'>{errors.name.message}</span>}
           </div>
           <Input
+            id='name'
             required
+            placeholder='What should I call you?'
+            autoComplete='name'
             {...register('name')}
             className={cn({ 'focus-visible:ring-red-500': errors.name })}
-            placeholder='What should I call you?'
           />
         </div>
 
@@ -84,10 +86,11 @@ export default function ContactForm() {
             {errors.message && <span className='text-red-500'>{errors.message.message}</span>}
           </div>
           <Textarea
+            id='message'
             required
+            placeholder='Message details ...'
             {...register('message')}
             className={cn({ 'focus-visible:ring-red-500': errors.message })}
-            placeholder='Message details ...'
           />
         </div>
 

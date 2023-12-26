@@ -21,10 +21,10 @@ export default function ContactForm() {
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/placeholder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'contact', ...data }).toString(),
+        body: new URLSearchParams({ 'form-name': 'reach-me', ...data }).toString(),
       });
 
       if (response.ok) {
@@ -40,14 +40,14 @@ export default function ContactForm() {
   return (
     <div className='w-full h-full'>
       <form
-        name='contact'
+        name='reach-me'
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col gap-2'
       >
-        <input type='hidden' name='form-name' value='contact' />
+        <input type='hidden' name='form-name' value='reach-me' />
         <input className='hidden' name='bot-field' />
 
         <div className='w-full md:w-4/5'>

@@ -21,7 +21,7 @@ export default function ContactForm() {
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/placeholder.png', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'reach-me', ...data }).toString(),
@@ -44,7 +44,8 @@ export default function ContactForm() {
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        onSubmit={handleSubmit(submitHandler)}
+        action={'/message-sent'}
+        // onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col gap-2'
       >
         <input type='hidden' name='form-name' value='reach-me' />

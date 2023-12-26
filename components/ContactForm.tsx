@@ -21,7 +21,7 @@ export default function ContactForm() {
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
     try {
-      const response = await fetch('/placeholder', {
+      const response = await fetch('/placeholder.png', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'reach-me', ...data }).toString(),

@@ -24,7 +24,7 @@ export default function ContactForm() {
       const response = await fetch('/placeholder.png', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'reach-me', ...data }).toString(),
+        body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
       });
 
       if (response.ok) {
@@ -38,17 +38,22 @@ export default function ContactForm() {
   };
 
   return (
-    <div className='w-full h-full'>
+    <>
+      {/* A little help for the Netlify bots if you're not using a SSG */}
+      <form name='contact' data-netlify='true' data-netlify-honeypot='bot-field' hidden>
+        <input type='text' name='name' />
+        <input type='email' name='email' />
+        <textarea name='message'></textarea>
+      </form>
       <form
-        name='reach-me'
+        name='contact-form'
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        action={'/message-sent'}
-        // onSubmit={handleSubmit(submitHandler)}
+        onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col gap-2'
       >
-        <input type='hidden' name='form-name' value='reach-me' />
+        <input type='hidden' name='form-name' value='contact-form' />
         <input className='hidden' name='bot-field' />
 
         <div className='w-full md:w-4/5'>
@@ -99,6 +104,6 @@ export default function ContactForm() {
           Submit
         </Button>
       </form>
-    </div>
+    </>
   );
 }

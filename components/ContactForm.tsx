@@ -40,11 +40,12 @@ export default function ContactForm() {
   return (
     <>
       {/* A little help for the Netlify bots if you're not using a SSG */}
-      <form name='contact' data-netlify='true' data-netlify-honeypot='bot-field' hidden>
+      <form name='contact-form' data-netlify='true' data-netlify-honeypot='bot-field' hidden>
         <input type='text' name='name' />
         <input type='email' name='email' />
         <textarea name='message'></textarea>
       </form>
+
       <form
         name='contact-form'
         method='POST'

@@ -6,10 +6,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { ContactFormValidator, TContactFormValidator } from '@/lib/validators/contactForm';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
+import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
-import { FormEvent } from 'react';
 
 export default function ContactForm() {
   const router = useRouter();
@@ -21,13 +20,21 @@ export default function ContactForm() {
   } = useForm<TContactFormValidator>({ resolver: zodResolver(ContactFormValidator) });
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
-    })
-      .then(() => router.push('/message-sent'))
-      .catch((error) => console.error('Error:', error));
+    try {
+      const response = await fetch('/placeholder.png', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
+      });
+
+      if (response.ok) {
+        router.push('/success');
+      } else {
+        console.error('Error:', response.status);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

@@ -37,7 +37,7 @@ export default function ContactForm() {
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        onSubmit={() => handleSubmit}
+        onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col gap-2'
       >
         <input type='hidden' name='form-name' value='contact-form' />

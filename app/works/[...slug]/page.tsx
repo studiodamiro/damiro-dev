@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: WorkProps): Promise<Metadata>
   const work = await getWorkFromParams(params);
   if (!work) return {};
   return {
-    title: work.title,
+    title: work.company,
     description: work.description,
   };
 }

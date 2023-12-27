@@ -1,19 +1,19 @@
 import NextImage, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import Counter from './Counter';
 import MdxButton from './MdxButton';
 
 const components = {
-  // Image using next/image
-  // USAGE: <Image src="..." alt="..." />
+  MdxButton,
   Image: (props: ImageProps) => (
-    <div className='relative aspect-video object-cover object-center overflow-hidden rounded-lg items-center justify-center flex'>
-      <NextImage {...props} fill sizes='full' priority className='m-0 object-center object-cover' />
+    <div className='relative flex aspect-video rounded-md overflow-hidden'>
+      <NextImage
+        {...props}
+        fill
+        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+        className='-translate-y-8'
+      />
     </div>
   ),
-
-  Counter,
-  MdxButton,
 };
 
 interface MdxProps {

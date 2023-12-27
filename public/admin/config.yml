@@ -24,10 +24,29 @@ collections:
     label: Works
     folder: '/content/works'
     create: true
+    identifier_field: company
+    slug: '{{fields.company}}'
+    fields:
+      - { label: 'Company', name: 'company', widget: 'string' }
+      - { label: 'Pretext', name: 'pretext', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Subtext', name: 'subtext', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Works', name: 'works', widget: 'string' }
+      - { label: 'Technologies', name: 'technologies', widget: 'string' }
+      - { label: 'Links', name: 'links', widget: 'string' }
+      - { label: 'Colors', name: 'colors', widget: 'string' }
+  - name: musings
+    label: Musings
+    folder: '/content/musings'
+    create: true
     identifier_field: title
     slug: '{{fields.title}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Pretext', name: 'pretext', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Subtext', name: 'subtext', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Colors', name: 'colors', widget: 'string' }

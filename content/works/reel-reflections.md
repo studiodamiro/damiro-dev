@@ -1,9 +1,10 @@
 ---
-title: Reel Reflections
+company: Reel Reflections
+pretext: Reel Reflections
 description: A not so ordinary blog for reflections to the movies we've seen.
 date: 2023-03-04
-work: identity, web development
+works: web devt, identity
 technologies: reactjs, tailwind, netlify, nextjs
 links: reel-reflections.netlify.app
-colors: ff0000, 0000ff
+colors: C1BB1B, 736F00
 ---

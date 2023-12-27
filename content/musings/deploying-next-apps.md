@@ -8,8 +8,6 @@ Lets try `.md` files. Mds with Mdx capabilities! Are we live?
 
 ![This is a new image with a title](/images/blog-post-1.jpg 'This is the title of the image')
 
-<Counter />
-
 Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
 
 ```js

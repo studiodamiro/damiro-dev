@@ -11,17 +11,17 @@ type SectionWriteupProps = {
 
 export default function SectionWriteup({ title, preText, description, subText, color, children }: SectionWriteupProps) {
   return (
-    <section className='flex flex-col gap-4 md:gap-8 pr-8 ml-[70px] md:ml-[84px] h-full lg:h-screen'>
+    <section className='flex flex-col gap-4 md:gap-8 pr-4 md:pr-8 pl-[70px] md:pl-[84px] w-full lg:w-1/2 h-full lg:h-screen'>
       {/* PAGE TITLE */}
       <h1
         style={{ textWrap: 'balance', color: color }}
-        className='h-full lg:h-1/3 flex items-end font-fauna lowercase text-5xl md:text-8xl ml-[-4px] md:ml-[-6px] mb-8 lg:mb-0'
+        className='h-[200px] md:h-[300px] lg:h-[300px] flex items-end font-fauna lowercase text-5xl md:text-8xl -ml-[4px] md:ml-[-6px] mb-8'
       >
         {title}
       </h1>
 
       {/* PRE TEXTS */}
-      <div className='relative flex flex-col gap-2 ml-0 md:ml-[68px]'>
+      <div className='relative flex flex-col gap-2 pl-0 md:pl-[68px]'>
         <span style={{ textWrap: 'balance' }} className='text-sm uppercase tracking-widest font-semibold'>
           {preText}
         </span>
@@ -39,7 +39,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
       </div>
 
       {/* BODY */}
-      <div className='prose dark:prose-invert prose-md md:prose-base prose-quoteless max-w-xl md:max-w-2xl lg:max-w-5xl leading-loose ml-0 md:ml-[68px] text-zinc-700 dark:text-zinc-300'>
+      <div className='prose dark:prose-invert prose-sm md:prose-base prose-quoteless leading-loose pl-0 md:pl-[68px] text-zinc-700 dark:text-zinc-300 max-w-2xl'>
         {children}
       </div>
     </section>

@@ -38,7 +38,7 @@ export default function PageContact() {
   };
 
   return (
-    <>
+    <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 md:pl-[68px] lg:pl-8 pr-4 md:pr-8 pb-8 flex flex-col gap-4'>
       <span className='font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500'>Leave a message</span>
       <form
         name='contact-form'
@@ -99,6 +99,6 @@ export default function PageContact() {
           Send
         </Button>
       </form>
-    </>
+    </div>
   );
 }

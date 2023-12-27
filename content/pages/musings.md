@@ -1,7 +1,7 @@
 ---
-title: Works
+title: Musings
 pretext: _
-description: Tales on every pixel
+description: Stories behind every project
 subtext:
 ---
 

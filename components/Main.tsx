@@ -35,14 +35,19 @@ export default function Main({ page }: MainProps) {
             <PageWorks />
           </SectionAside>
         );
+      case 'hello':
+        return (
+          <SectionAside>
+            <PageWorks />
+          </SectionAside>
+        );
       default:
         return <SectionAside />;
     }
   };
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0 justify-center'>
-      <span className='block lg:hidden w-full h-24' />
+    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
       <SectionWriteup
         title={page.title}
         description={page.description}

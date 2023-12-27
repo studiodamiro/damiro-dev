@@ -28,16 +28,37 @@ export const Works = defineDocumentType(() => ({
   filePathPattern: `works/**/*.md`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
+    company: { type: 'string', required: true },
+    pretext: { type: 'string' },
+    subtext: { type: 'string' },
     description: { type: 'string' },
     date: { type: 'date', required: true },
+    works: { type: 'string', required: true },
+    technologies: { type: 'string', required: true },
+    links: { type: 'string' },
+    colors: { type: 'string', required: true },
+  },
+  computedFields,
+}));
+
+export const Musings = defineDocumentType(() => ({
+  name: 'Musing',
+  filePathPattern: `musings/**/*.md`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    pretext: { type: 'string' },
+    subtext: { type: 'string' },
+    description: { type: 'string' },
+    date: { type: 'date', required: true },
+    colors: { type: 'string' },
   },
   computedFields,
 }));
 
 export default makeSource({
   contentDirPath: './content',
-  documentTypes: [Works, Page],
+  documentTypes: [Musings, Works, Page],
   mdx: {
     remarkPlugins: [remarkGfm], // Only works on remark-gfm v3.0.1, not the latest
     rehypePlugins: [

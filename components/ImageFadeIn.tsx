@@ -12,7 +12,7 @@ interface ImageFadeInProps {
   className?: string;
 }
 
-export default function ImageFadeIn({ src, alt, priority = false, className }: ImageFadeInProps) {
+export function ImageFadeIn({ src, alt, priority = false, className }: ImageFadeInProps) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   return (

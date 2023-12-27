@@ -31,13 +31,13 @@ export default function Main({ page }: MainProps) {
         );
       case 'works':
         return (
-          <SectionAside paddedTop={false}>
+          <SectionAside>
             <PageWorks />
           </SectionAside>
         );
       case 'hello':
         return (
-          <SectionAside>
+          <SectionAside paddedTop={false}>
             <PageWorks />
           </SectionAside>
         );

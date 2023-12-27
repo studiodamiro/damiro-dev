@@ -5,6 +5,7 @@ import { Work } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import SectionWriteup from './SectionWriteup';
 import PageWorks from './PageWorks';
+import SectionAside from './SectionAside';
 
 type MainProps = {
   page: Work;
@@ -19,14 +20,22 @@ export default function MainWorks({ page }: MainProps) {
   }, []);
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0 justify-center'>
-      <span className='block lg:hidden w-full h-24' />
-      <SectionWriteup title={page.works.split(', ')[0]} description={page.company} color={color} />
-      <section className='relative flex flex-col grow-1 items-start w-full pl-[70px] md:pl-[152px] lg:pl-0'>
-        <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 lg:pl-8 pr-4 md:pr-8 pb-8 flex flex-col gap-4'>
-          <PageWorks />
-        </div>
-      </section>
+    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
+      <SectionWriteup
+        title={page.works.split(', ')[0]}
+        description={page.description}
+        subText={page.subtext}
+        preText={page.company}
+        color={color}
+      >
+        <span>TECHNOLOGIES:</span>
+        {page.technologies.split(', ').map((tech, index) => (
+          <span key={index}>{tech}</span>
+        ))}
+      </SectionWriteup>
+      <SectionAside>
+        <PageWorks />
+      </SectionAside>
     </main>
   );
 }

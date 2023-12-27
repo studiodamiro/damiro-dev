@@ -15,7 +15,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
       {/* PAGE TITLE */}
       <h1
         style={{ textWrap: 'balance', color: color }}
-        className='h-[200px] md:h-[300px] lg:h-[300px] flex items-end font-fauna lowercase text-5xl md:text-8xl -ml-[4px] md:ml-[-6px] mb-8'
+        className='h-[200px] md:h-[300px] lg:h-[300px] flex items-end font-fauna opacity-20 lowercase text-5xl md:text-8xl -ml-[4px] md:ml-[-6px] mb-0 whitespace-nowrap'
       >
         {title}
       </h1>

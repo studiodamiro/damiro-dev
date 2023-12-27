@@ -102,6 +102,11 @@ export default function Main({ page }: MainProps) {
               <span className={cn('font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500', fauna.className)}>
                 Leave a message
               </span>
+              <form name='contact-form' data-netlify='true' data-netlify-honeypot='bot-field' hidden>
+                <input type='text' name='name' />
+                <input type='email' name='email' />
+                <textarea name='message'></textarea>
+              </form>
               <ContactForm />
             </div>
           )}

@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { ReactNode } from 'react';
 import { Fauna_One, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { cn } from '@/lib/utils';
@@ -16,7 +17,7 @@ export const metadata = {
 };
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {

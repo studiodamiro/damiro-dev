@@ -10,7 +10,7 @@ import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
 
-export default function ContactForm() {
+export default function PageContact() {
   const router = useRouter();
 
   const {
@@ -39,6 +39,7 @@ export default function ContactForm() {
 
   return (
     <>
+      <span className='font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500'>Leave a message</span>
       <form
         name='contact-form'
         method='POST'
@@ -94,7 +95,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <Button type='submit' className='w-1/3 uppercase mt-2 tracking-wider font-semibold'>
+        <Button type='submit' className='w-1/3 uppercase mt-2 -ml-[2px] tracking-wider font-semibold'>
           Send
         </Button>
       </form>

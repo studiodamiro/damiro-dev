@@ -19,7 +19,7 @@ export default function MdxButton({ href, children }: MdxButtonProps) {
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
       style={{ backgroundColor: isHovered ? secColor : color }}
-      className='py-0.5 pl-3 pr-2.5 text-[0.85rem] font-medium rounded-sm tracking-widest no-underline bg-opacity-90 hover:bg-opacity-100 transition-colors duration-150 ease-out'
+      className='py-1 pl-3 pr-2.5 text-[0.85rem] font-medium rounded-sm tracking-widest no-underline bg-opacity-90 hover:bg-opacity-100 transition-colors duration-150 ease-out'
     >
       {children}
     </Link>

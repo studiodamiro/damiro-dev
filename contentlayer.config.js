@@ -24,7 +24,7 @@ export const Page = defineDocumentType(() => ({
 }));
 
 export const Works = defineDocumentType(() => ({
-  name: 'Works',
+  name: 'Work',
   filePathPattern: `works/**/*.md`,
   contentType: 'mdx',
   fields: {

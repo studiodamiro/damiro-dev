@@ -9,6 +9,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
+import { FormEvent } from 'react';
 
 export default function ContactForm() {
   const router = useRouter();
@@ -20,38 +21,41 @@ export default function ContactForm() {
   } = useForm<TContactFormValidator>({ resolver: zodResolver(ContactFormValidator) });
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
-    try {
-      const response = await fetch('/placeholder.png', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
-      });
+  //   try {
+  //     const response = await fetch('/placeholder.png', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //       body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
+  //     });
 
-      if (response.ok) {
-        router.push('/message-sent');
-      } else {
-        console.error('Error:', response.status);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  //     if (response.ok) {
+  //       router.push('/message-sent');
+  //     } else {
+  //       console.error('Error:', response.status);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+  const handleSubmit = () => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
+    })
+    .then(() => router.push('/message-sent'))
+    .catch((error) => console.error('Error:', error));
+  }
 
   return (
     <>
-      {/* A little help for the Netlify bots if you're not using a SSG */}
-      <form name='contact-form' data-netlify='true' data-netlify-honeypot='bot-field' hidden>
-        <input type='text' name='name' />
-        <input type='email' name='email' />
-        <textarea name='message'></textarea>
-      </form>
-
       <form
         name='contact-form'
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        onSubmit={handleSubmit(submitHandler)}
+        onSubmit={handleSubmit}
         className='flex flex-col gap-2'
       >
         <input type='hidden' name='form-name' value='contact-form' />
@@ -102,7 +106,7 @@ export default function ContactForm() {
         </div>
 
         <Button type='submit' className='w-1/3 uppercase mt-2 tracking-wider font-semibold'>
-          Submit
+          Send
         </Button>
       </form>
     </>

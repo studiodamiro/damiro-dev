@@ -21,32 +21,14 @@ export default function ContactForm() {
   } = useForm<TContactFormValidator>({ resolver: zodResolver(ContactFormValidator) });
 
   const submitHandler: SubmitHandler<TContactFormValidator> = async (data) => {
-  //   try {
-  //     const response = await fetch('/placeholder.png', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //       body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
-  //     });
-
-  //     if (response.ok) {
-  //       router.push('/message-sent');
-  //     } else {
-  //       console.error('Error:', response.status);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
-
-  const handleSubmit = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ 'form-name': 'contact-form', ...data }).toString(),
     })
-    .then(() => router.push('/message-sent'))
-    .catch((error) => console.error('Error:', error));
-  }
+      .then(() => router.push('/message-sent'))
+      .catch((error) => console.error('Error:', error));
+  };
 
   return (
     <>
@@ -55,7 +37,7 @@ export default function ContactForm() {
         method='POST'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        onSubmit={handleSubmit}
+        onSubmit={() => handleSubmit}
         className='flex flex-col gap-2'
       >
         <input type='hidden' name='form-name' value='contact-form' />

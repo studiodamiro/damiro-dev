@@ -13,6 +13,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        fira: ['var(--font-fira)'],
+        fauna: ['var(--font-fauna)'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

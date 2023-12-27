@@ -1,15 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { cn } from '@/lib/utils';
 import { Mdx } from '@/components/Mdx';
-import { Fauna_One } from 'next/font/google';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
+import { cn } from '@/lib/utils';
 import ImageFadeIn from './ImageFadeIn';
 import ContactForm from './ContactForm';
-
-const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'] });
 
 type MainProps = {
   page: Page;
@@ -32,10 +29,7 @@ export default function Main({ page }: MainProps) {
         {/* PAGE TITLE */}
         <h1
           style={{ textWrap: 'balance', color: color }}
-          className={cn(
-            'h-full lg:h-1/3 flex items-end font-fauna lowercase text-5xl md:text-8xl ml-[-4px] md:ml-[-6px] mb-8 lg:mb-0',
-            fauna.className
-          )}
+          className='h-full lg:h-1/3 flex items-end font-fauna lowercase text-5xl md:text-8xl ml-[-4px] md:ml-[-6px] mb-8 lg:mb-0'
         >
           {page.title}
         </h1>
@@ -48,10 +42,7 @@ export default function Main({ page }: MainProps) {
 
           <p
             style={{ textWrap: 'balance' }}
-            className={cn(
-              'font-fauna text-2xl md:text-4xl -ml-0.5 leading-[35px] md:leading-[50px] lg:leading-[50px] text-zinc-500',
-              fauna.className
-            )}
+            className='font-fauna text-2xl md:text-4xl -ml-0.5 leading-[35px] md:leading-[50px] lg:leading-[50px] text-zinc-500'
           >
             {page.description}
           </p>
@@ -99,9 +90,7 @@ export default function Main({ page }: MainProps) {
           <span className='w-full h-8 lg:h-[calc(100vh/3)]' />
           {page.slugAsParams === 'contact' && (
             <div className='w-full md:w-4/5 lg:w-full xl:w-2/3 pl-0 lg:pl-8 pr-4 md:pr-8 pb-8 flex flex-col gap-4'>
-              <span className={cn('font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500', fauna.className)}>
-                Leave a message
-              </span>
+              <span className='font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500'>Leave a message</span>
               <ContactForm />
             </div>
           )}

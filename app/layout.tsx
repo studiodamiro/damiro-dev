@@ -1,16 +1,14 @@
 import './globals.css';
 
-import { Fira_Sans } from 'next/font/google';
+import { Fauna_One, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { cn } from '@/lib/utils';
 import { ColorProvider } from '@/providers/ColorProvider';
 import Copyright from '@/components/Copyright';
 import Header from '@/components/Header';
 
-const fira = Fira_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-});
+const fira = Fira_Sans({ subsets: ['latin'], weight: ['400', '700'], display: 'swap', variable: '--font-fira' });
+const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'], display: 'swap', variable: '--font-fauna' });
 
 export const metadata = {
   title: 'Damiro',
@@ -26,8 +24,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          fira.className,
-          'antialiased min-h-screen',
+          fira.variable,
+          fauna.variable,
+          'antialiased min-h-screen font-fira',
           'bg-zinc-300 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400',
           'transition-colors duration-500 ease-out'
         )}

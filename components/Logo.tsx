@@ -1,11 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useColor } from '@/providers/ColorProvider';
-import { Fauna_One } from 'next/font/google';
-import Link from 'next/link';
-
-const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'] });
 
 type LogoProps = {
   damiro?: boolean;
@@ -41,8 +38,7 @@ export default function Logo({ damiro = false, className }: LogoProps) {
         style={{ color: color }}
         className={cn(
           !damiro && 'hidden',
-          fauna.className,
-          'relative text-3xl translate-x-full -ml-8 transition-colors duration-300 ease-out'
+          'relative text-3xl translate-x-full -ml-8 transition-colors duration-300 ease-out font-fauna'
         )}
       >
         Damiro

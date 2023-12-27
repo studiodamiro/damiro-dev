@@ -28,7 +28,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        router.push('/success');
+        router.push('/message-sent');
       } else {
         console.error('Error:', response.status);
       }

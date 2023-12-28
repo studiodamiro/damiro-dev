@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export default function PageWorks() {
   return (
-    <section className='relative flex flex-col items-start bg-red-500/20'>
+    <section className='relative flex flex-col items-start'>
       {allWorks.map((work) => (
         <Link href={work.slug} key={work.slug}>
-          <span>{work.slug}</span>
+          <span>{work.company}</span>
         </Link>
       ))}
     </section>

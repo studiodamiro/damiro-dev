@@ -1,9 +1,9 @@
 ---
-company: Begca Ko Philippines Inc
+company: Begca Ko
 description: Sustainable engineering solutions, for a better tomorrow.
 date: 2023-03-04
 works: identity, branding, web devt
-technologies: tailwind
+technologies: Tailwind CSS, Netlify
 links: begcako.com
 colors: ff0000, 0000ff
 ---

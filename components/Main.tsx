@@ -8,6 +8,7 @@ import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
 import PageContact from './PageContact';
 import PageWorks from './PageWorks';
+import PageMusings from './PageMusings';
 
 type MainProps = {
   page: Page;
@@ -35,9 +36,15 @@ export default function Main({ page }: MainProps) {
             <PageWorks />
           </SectionAside>
         );
+      case 'musings':
+        return (
+          <SectionAside>
+            <PageMusings />
+          </SectionAside>
+        );
       case 'hello':
         return (
-          <SectionAside paddedTop={false}>
+          <SectionAside>
             <PageWorks />
           </SectionAside>
         );

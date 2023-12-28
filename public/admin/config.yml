@@ -36,6 +36,7 @@ collections:
       - { label: 'Technologies', name: 'technologies', widget: 'string' }
       - { label: 'Links', name: 'links', widget: 'string' }
       - { label: 'Colors', name: 'colors', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: musings
     label: Musings
     folder: '/content/musings'
@@ -48,5 +49,5 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Subtext', name: 'subtext', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Colors', name: 'colors', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

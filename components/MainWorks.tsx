@@ -6,6 +6,8 @@ import { useColor } from '@/providers/ColorProvider';
 import SectionWriteup from './SectionWriteup';
 import PageWorks from './PageWorks';
 import SectionAside from './SectionAside';
+import { Mdx } from './Mdx';
+import { Button } from './ui/button';
 
 type MainProps = {
   page: Work;
@@ -28,10 +30,37 @@ export default function MainWorks({ page }: MainProps) {
         preText={page.company}
         color={color}
       >
-        <span>TECHNOLOGIES:</span>
-        {page.technologies.split(', ').map((tech, index) => (
-          <span key={index}>{tech}</span>
-        ))}
+        <Mdx code={page.body.code} />
+        <div className='flex flex-col gap-2'>
+          <span
+            style={{ textWrap: 'balance' }}
+            className='text-sm uppercase tracking-widest font-semibold text-zinc-600 dark:text-zinc-400'
+          >
+            Technologies
+          </span>
+          <div className='flex flex-wrap gap-2'>
+            {page.technologies.split(', ').map((technology, index) => (
+              <div key={index} className='py-0.5 px-2 bg-zinc-700/30 rounded-md text-xs md:text-sm'>
+                {technology}
+              </div>
+            ))}
+          </div>
+          <span
+            style={{ textWrap: 'balance' }}
+            className='text-sm uppercase tracking-widest font-semibold text-zinc-600 dark:text-zinc-400 mt-6'
+          >
+            Project Links
+          </span>
+          <div className='flex flex-wrap gap-2'>
+            {page.links?.split(', ').map((link, index) => (
+              <Button key={index} asChild>
+                <a href={`https://${link}`} target='_blank'>
+                  {link}
+                </a>
+              </Button>
+            ))}
+          </div>
+        </div>
       </SectionWriteup>
       <SectionAside>
         <PageWorks />

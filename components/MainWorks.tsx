@@ -35,7 +35,7 @@ export default function MainWorks({ page }: MainProps) {
         color={color}
       >
         <Mdx code={page.body.code} />
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 mt-8'>
           <span
             style={{ textWrap: 'balance' }}
             className='text-sm uppercase tracking-widest font-semibold text-zinc-600 dark:text-zinc-400'

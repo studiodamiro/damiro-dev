@@ -1,7 +1,7 @@
 import { allMusings } from '@/.contentlayer/generated';
 import Link from 'next/link';
 
-export default function PageMusings() {
+export default function AsideMusings() {
   return (
     <section className='relative flex flex-col items-start'>
       {allMusings.map((musing) => (

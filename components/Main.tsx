@@ -19,7 +19,7 @@ export default function Main({ page }: MainProps) {
   const { color, setColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor('#71717a'); // TODO: Change with page.color
+    setColor && setColor('#71717a');
   }, []);
 
   const renderAsideComponent = () => {

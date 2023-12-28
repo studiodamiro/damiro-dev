@@ -1,9 +1,8 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
 import Link from 'next/link';
+import { ReactNode, useState } from 'react';
 import { useColor } from '@/providers/ColorProvider';
-import { useTheme } from 'next-themes';
 import { isDarkColor } from '@/lib/isDarkColor';
 
 type MdxButtonProps = {
@@ -12,7 +11,6 @@ type MdxButtonProps = {
 };
 
 export default function MdxButton({ href, children }: MdxButtonProps) {
-  const { theme } = useTheme();
   const { color, lightColor, darkColor } = useColor();
   const [isHovered, setIsHovered] = useState(false);
 

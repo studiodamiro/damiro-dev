@@ -9,6 +9,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
+import { IoMailOutline } from 'react-icons/io5';
 
 export default function PageContact() {
   const router = useRouter();
@@ -96,6 +97,7 @@ export default function PageContact() {
         </div>
 
         <Button type='submit' className='w-1/3 uppercase mt-2 -ml-[2px] tracking-wider font-semibold'>
+          {/* <IoMailOutline className='mr-2 scale-105' /> */}
           Send
         </Button>
       </form>

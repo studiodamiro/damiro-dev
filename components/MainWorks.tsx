@@ -8,6 +8,8 @@ import PageWorks from './PageWorks';
 import SectionAside from './SectionAside';
 import { Mdx } from './Mdx';
 import { Button } from './ui/button';
+import { FaLink } from 'react-icons/fa6';
+import Link from 'next/link';
 
 type MainProps = {
   page: Work;
@@ -53,8 +55,13 @@ export default function MainWorks({ page }: MainProps) {
           </span>
           <div className='flex flex-wrap gap-2'>
             {page.links?.split(', ').map((link, index) => (
-              <Button key={index} asChild>
-                <a href={`https://${link}`} target='_blank'>
+              <Button key={index} className='gap-2'>
+                <FaLink className='dark:text-zinc-800 text-zinc-200' />
+                <a
+                  href={`https://${link}`}
+                  target='_blank'
+                  className='dark:text-zinc-800 text-zinc-200 no-underline tracking-wider'
+                >
                   {link}
                 </a>
               </Button>

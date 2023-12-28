@@ -11,7 +11,7 @@ import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
 import { IoMailOutline } from 'react-icons/io5';
 
-export default function PageContact() {
+export default function AsideContact() {
   const router = useRouter();
 
   const {

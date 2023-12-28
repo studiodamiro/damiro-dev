@@ -1,7 +1,7 @@
 import { allWorks } from '@/.contentlayer/generated';
 import Link from 'next/link';
 
-export default function PageWorks() {
+export default function AsideWorks() {
   return (
     <section className='relative flex flex-col items-start'>
       {allWorks.map((work) => (

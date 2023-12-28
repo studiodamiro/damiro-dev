@@ -6,9 +6,9 @@ import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
-import PageContact from './PageContact';
-import PageWorks from './PageWorks';
-import PageMusings from './PageMusings';
+import AsideContact from './AsideContact';
+import AsideWorks from './AsideWorks';
+import AsideMusings from './AsideMusings';
 
 type MainProps = {
   page: Page;
@@ -27,25 +27,25 @@ export default function Main({ page }: MainProps) {
       case 'contact':
         return (
           <SectionAside>
-            <PageContact />
+            <AsideContact />
           </SectionAside>
         );
       case 'works':
         return (
           <SectionAside>
-            <PageWorks />
+            <AsideWorks />
           </SectionAside>
         );
       case 'musings':
         return (
           <SectionAside>
-            <PageMusings />
+            <AsideMusings />
           </SectionAside>
         );
       case 'hello':
         return (
           <SectionAside>
-            <PageWorks />
+            <AsideWorks />
           </SectionAside>
         );
       default:

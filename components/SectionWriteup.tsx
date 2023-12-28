@@ -31,7 +31,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
 
         <p
           style={{ textWrap: 'balance' }}
-          className='font-fauna text-2xl md:text-4xl -ml-0.5 leading-[35px] md:leading-[50px] lg:leading-[50px] text-zinc-500'
+          className='font-fauna text-2xl md:text-4xl -ml-0.5 leading-[35px] md:leading-[50px] lg:leading-[50px] max-w-prose text-zinc-500'
         >
           {description}
         </p>
@@ -42,7 +42,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
       </div>
 
       {/* BODY */}
-      <div className='prose dark:prose-invert prose-sm md:prose-base prose-quoteless leading-loose pl-0 md:pl-[68px] text-zinc-700 dark:text-zinc-300'>
+      <div className='prose dark:prose-invert prose-sm md:prose-base prose-quoteless max-w-prose leading-loose pl-0 md:pl-[68px] text-zinc-700 dark:text-zinc-300'>
         {children}
       </div>
     </section>

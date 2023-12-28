@@ -5,8 +5,6 @@ import { Mdx } from './Mdx';
 import { useEffect } from 'react';
 import { useColor } from '@/providers/ColorProvider';
 import SectionWriteup from './SectionWriteup';
-import SectionAside from './SectionAside';
-import PageMusings from './PageMusings';
 
 type MainProps = {
   page: Musing;

@@ -1,15 +1,17 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
-import SectionWriteup from './SectionWriteup';
-import PageWorks from './PageWorks';
-import SectionAside from './SectionAside';
 import { Mdx } from './Mdx';
-import { Button } from './ui/button';
+import { buttonVariants } from './ui/button';
 import { FaLink } from 'react-icons/fa6';
-import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import SectionWriteup from './SectionWriteup';
+import SectionAside from './SectionAside';
+import AsideWorks from './AsideWorks';
+import TechPill from './TechPill';
 
 type MainProps = {
   page: Work;
@@ -42,9 +44,7 @@ export default function MainWorks({ page }: MainProps) {
           </span>
           <div className='flex flex-wrap gap-2'>
             {page.technologies.split(', ').map((technology, index) => (
-              <div key={index} className='py-0.5 px-2 bg-zinc-700/30 rounded-md text-xs md:text-sm'>
-                {technology}
-              </div>
+              <TechPill key={index} tech={technology} />
             ))}
           </div>
           <span
@@ -55,22 +55,21 @@ export default function MainWorks({ page }: MainProps) {
           </span>
           <div className='flex flex-wrap gap-2'>
             {page.links?.split(', ').map((link, index) => (
-              <Button key={index} className='gap-2'>
-                <FaLink className='dark:text-zinc-800 text-zinc-200' />
-                <a
-                  href={`https://${link}`}
-                  target='_blank'
-                  className='dark:text-zinc-800 text-zinc-200 no-underline tracking-wider'
-                >
-                  {link}
-                </a>
-              </Button>
+              <Link
+                key={index}
+                href={`https://${link}`}
+                target='_blank'
+                className={cn(buttonVariants(), 'no-underline gap-2 tracking-wider')}
+              >
+                <FaLink />
+                {link}
+              </Link>
             ))}
           </div>
         </div>
       </SectionWriteup>
       <SectionAside>
-        <PageWorks />
+        <AsideWorks />
       </SectionAside>
     </main>
   );

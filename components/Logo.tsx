@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useColor } from '@/providers/ColorProvider';
+import { useTheme } from 'next-themes';
 
 type LogoProps = {
   damiro?: boolean;
@@ -10,7 +11,8 @@ type LogoProps = {
 };
 
 export default function Logo({ damiro = false, className }: LogoProps) {
-  const { color } = useColor();
+  const { theme } = useTheme();
+  const { color, lightColor, darkColor } = useColor();
 
   return (
     <Link
@@ -22,20 +24,20 @@ export default function Logo({ damiro = false, className }: LogoProps) {
     >
       <div className='absolute w-[54px] aspect-square'>
         <div
-          style={{ borderColor: color }}
+          style={{ borderColor: theme === 'dark' ? lightColor : darkColor }}
           className='absolute w-[54px] aspect-square rounded-full border-[2px] transition-colors duration-300 ease-out'
         />
         <div
-          style={{ borderColor: color }}
+          style={{ borderColor: theme === 'dark' ? lightColor : darkColor }}
           className='absolute w-[42px] aspect-square rounded-full border-[2px] left-0 top-1/2 -translate-y-1/2 transition-colors duration-300 ease-out'
         />
         <div
-          style={{ borderColor: color }}
+          style={{ borderColor: theme === 'dark' ? lightColor : darkColor }}
           className='absolute w-[30px] aspect-square rounded-full border-[2px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-colors duration-300 ease-out'
         />
       </div>
       <span
-        style={{ color: color }}
+        style={{ color: theme === 'dark' ? lightColor : darkColor }}
         className={cn(
           !damiro && 'hidden',
           'relative text-3xl translate-x-full -ml-8 transition-colors duration-300 ease-out font-fauna'

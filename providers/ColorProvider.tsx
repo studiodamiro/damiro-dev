@@ -6,15 +6,15 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffe
 interface ColorProps {
   color: string;
   secColor?: string;
-  priLightColor?: string;
+  lightColor?: string;
   secLightColor?: string;
-  priDarkColor?: string;
+  darkColor?: string;
   secDarkColor?: string;
   setColor?: Dispatch<SetStateAction<string>>;
   setSecColor?: Dispatch<SetStateAction<string>>;
-  setPriLightColor?: Dispatch<SetStateAction<string>>;
+  setLightColor?: Dispatch<SetStateAction<string>>;
   setSecLightColor?: Dispatch<SetStateAction<string>>;
-  setPriDarkColor?: Dispatch<SetStateAction<string>>;
+  setDarkColor?: Dispatch<SetStateAction<string>>;
   setSecDarkColor?: Dispatch<SetStateAction<string>>;
 }
 
@@ -31,18 +31,19 @@ interface ColorProviderProps {
 }
 
 export const ColorProvider = ({ children }: ColorProviderProps) => {
-  const [color, setColor] = useState<string>('#ffffff');
-  const [secColor, setSecColor] = useState<string>('#cccccc');
+  const [color, setColor] = useState<string>('#71717a');
+  const [lightColor, setLightColor] = useState<string>('#71717a');
+  const [darkColor, setDarkColor] = useState<string>('#71717a');
 
-  const [priLightColor, setPriLightColor] = useState<string>('#ffffff');
-  const [secLightColor, setSecLightColor] = useState<string>('#cccccc');
-  const [priDarkColor, setPriDarkColor] = useState<string>('#ffffff');
-  const [secDarkColor, setSecDarkColor] = useState<string>('#cccccc');
+  const [secColor, setSecColor] = useState<string>('#3f3f46');
+  const [secLightColor, setSecLightColor] = useState<string>('#3f3f46');
+  const [secDarkColor, setSecDarkColor] = useState<string>('#3f3f46');
 
   useEffect(() => {
-    setPriLightColor(adjustHexColor(color, 'light', 20));
+    setLightColor(adjustHexColor(color, 'light', 70));
+    setDarkColor(adjustHexColor(color, 'dark', 30));
+
     setSecLightColor(adjustHexColor(secColor, 'light', 20));
-    setPriDarkColor(adjustHexColor(color, 'dark', 20));
     setSecDarkColor(adjustHexColor(secColor, 'dark', 20));
   }, [color, secColor]);
 
@@ -50,16 +51,16 @@ export const ColorProvider = ({ children }: ColorProviderProps) => {
     <ColorContext.Provider
       value={{
         color,
-        secColor,
-        priLightColor,
+        lightColor,
+        darkColor,
         secLightColor,
-        priDarkColor,
+        secColor,
         secDarkColor,
         setColor,
+        setLightColor,
+        setDarkColor,
         setSecColor,
-        setPriLightColor,
         setSecLightColor,
-        setPriDarkColor,
         setSecDarkColor,
       }}
     >

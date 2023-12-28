@@ -21,10 +21,10 @@ export default function MainMusings({ page }: MainProps) {
   return (
     <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
       <SectionWriteup
-        title={'musings'}
-        description={page.title}
-        subText={page.subtext}
+        title={page.title}
         preText={page.pretext}
+        description={page.description}
+        subText={page.subtext}
         color={color}
       >
         <Mdx code={page.body.code} />

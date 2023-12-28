@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
@@ -16,10 +18,11 @@ type MainProps = {
 };
 
 export default function Main({ page }: MainProps) {
+  const path = usePathname();
   const { color, setColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor('#71717a');
+    setColor && setColor('#71717a'); // Default primary color
   }, []);
 
   const renderAsideComponent = () => {
@@ -54,17 +57,26 @@ export default function Main({ page }: MainProps) {
   };
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
-      <SectionWriteup
-        title={page.title}
-        description={page.description}
-        subText={page.subtext}
-        preText={page.pretext}
-        color={color}
+    <AnimatePresence mode='wait' initial={false}>
+      <motion.main
+        key={path}
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -50, opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0'
       >
-        <Mdx code={page.body.code} />
-      </SectionWriteup>
-      {renderAsideComponent()}
-    </main>
+        <SectionWriteup
+          title={page.title}
+          description={page.description}
+          subText={page.subtext}
+          preText={page.pretext}
+          color={color}
+        >
+          <Mdx code={page.body.code} />
+        </SectionWriteup>
+        {renderAsideComponent()}
+      </motion.main>
+    </AnimatePresence>
   );
 }

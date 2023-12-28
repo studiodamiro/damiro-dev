@@ -39,8 +39,8 @@ export default function AsideContact() {
   };
 
   return (
-    <div className='w-full md:w-4/5 lg:w-full xl:w-4/5 pl-0 md:pl-[68px] lg:pl-8 pr-4 md:pr-8 pb-8 flex flex-col gap-4'>
-      <span className='font-fauna text-lg md:text-2xl -mx-0.5 text-zinc-500'>Leave a message</span>
+    <div className='w-full md:w-4/5 lg:w-full xl:w-4/5 pl-0 md:pl-[68px] lg:pl-0 pr-4 md:pr-8 flex flex-col gap-4'>
+      <span className='font-fauna text-md md:text-xl -mx-0.5 text-zinc-500'>Leave a message</span>
       <form
         name='contact-form'
         method='POST'

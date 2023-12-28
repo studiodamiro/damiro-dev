@@ -35,6 +35,7 @@ collections:
       - { label: 'Works', name: 'works', widget: 'string' }
       - { label: 'Technologies', name: 'technologies', widget: 'string' }
       - { label: 'Links', name: 'links', widget: 'string' }
+      - { label: 'Repository', name: 'repo', widget: 'string' }
       - { label: 'Colors', name: 'colors', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: musings

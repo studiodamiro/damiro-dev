@@ -1,11 +1,12 @@
 ---
 company: Reel Reflections
 pretext: Reel Reflections
-description: A not so ordinary movie blog that we call reflections.
+description: A not so ordinary movie blog
 date: 2023-03-04
-works: web devt, identity
+works: web dev't, identity
 technologies: React JS, Tailwind CSS, Netlify, Next JS, Framer Motion, NPM, Node JS
-links: reel-reflections.netlify.app
+links: reel-reflections.netlify.app, reel-reflections
+repo: reel-reflections
 colors: C1BB1B, 736F00
 ---
 

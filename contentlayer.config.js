@@ -36,6 +36,7 @@ export const Works = defineDocumentType(() => ({
     works: { type: 'string', required: true },
     technologies: { type: 'string', required: true },
     links: { type: 'string' },
+    repo: { type: 'string' },
     colors: { type: 'string', required: true },
   },
   computedFields,

@@ -3,11 +3,11 @@ import { SiTailwindcss, SiNetlify, SiVite, SiNpm } from 'react-icons/si';
 import { TbBrandNextjs, TbBrandFramerMotion } from 'react-icons/tb';
 import { IoLogoElectron } from 'react-icons/io5';
 
-type TechPillProps = {
+type PillTechProps = {
   tech: string;
 };
 
-export default function TechPill({ tech }: TechPillProps) {
+export default function PillTech({ tech }: PillTechProps) {
   const techIcons = {
     'React JS': <FaReact />,
     'Tailwind CSS': <SiTailwindcss />,

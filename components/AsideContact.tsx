@@ -9,7 +9,6 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
-import { IoMailOutline } from 'react-icons/io5';
 
 export default function AsideContact() {
   const router = useRouter();
@@ -39,8 +38,10 @@ export default function AsideContact() {
   };
 
   return (
-    <div className='w-full md:w-4/5 lg:w-full xl:w-4/5 pl-0 md:pl-[68px] lg:pl-0 pr-4 md:pr-8 flex flex-col gap-4'>
-      <span className='font-fauna text-md md:text-xl -mx-0.5 text-zinc-500'>Leave a message</span>
+    <div className='flex flex-col w-full md:w-4/5 lg:w-full xl:w-4/5 pl-0 md:pl-[68px] lg:pl-0 pr-4 md:pr-8'>
+      <div className='h-8 w-full hidden lg:block' />
+      <span className='allcap-span'>Or at least</span>
+      <span className='font-fauna text-md md:text-xl -mx-[1px] mb-4 text-zinc-500'>Leave a message</span>
       <form
         name='contact-form'
         method='POST'
@@ -96,8 +97,7 @@ export default function AsideContact() {
           />
         </div>
 
-        <Button type='submit' className='w-1/3 uppercase mt-2 -ml-[2px] tracking-wider font-semibold'>
-          {/* <IoMailOutline className='mr-2 scale-105' /> */}
+        <Button type='submit' className='w-1/3 uppercase mt-2 -ml-[1px] tracking-wider font-semibold'>
           Send
         </Button>
       </form>

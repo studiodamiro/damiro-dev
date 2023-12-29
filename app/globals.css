@@ -51,13 +51,23 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-fauna;
+  }
+}
+
+@layer components {
+  .allcap-span {
+    @apply text-zinc-800 dark:text-zinc-200 uppercase tracking-widest text-xs md:text-sm font-semibold;
   }
 }

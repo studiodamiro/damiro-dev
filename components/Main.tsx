@@ -64,7 +64,7 @@ export default function Main({ page }: MainProps) {
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: -50, opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className='w-full min-h-screen flex flex-col lg:flex-row gap-8 lg:gap-0'
+        className='w-full min-h-screen flex flex-col lg:flex-row'
       >
         <SectionWriteup
           title={page.title}

@@ -1,9 +1,11 @@
 import NextImage, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import MdxButton from './MdxButton';
+import ListSocial from './ListSocial';
 
 const components = {
   MdxButton,
+  ListSocial,
   Image: (props: ImageProps) => (
     <div className='relative flex aspect-video rounded-md overflow-hidden'>
       <NextImage

@@ -8,8 +8,8 @@ type SectionAsideProps = {
 
 export default function SectionAside({ children, paddedTop = true }: SectionAsideProps) {
   return (
-    <section className='relative flex flex-col items-start w-full pl-[70px] md:pl-[84px] lg:pl-0 mb-8 lg:mb-0'>
-      <span className={cn('w-full h-0', paddedTop && 'lg:h-[calc(100vh/3)]')} />
+    <section className='flex flex-col pr-4 md:pr-8 pl-[70px] md:pl-[84px] lg:pl-8 w-full h-auto lg:pt-20 pb-8'>
+      {paddedTop && <span className='hidden lg:block w-full h-0 lg:h-[200px]' />}
       {children}
     </section>
   );

@@ -1,16 +1,29 @@
+import { ReactNode, useEffect } from 'react';
+import useMeasure from 'react-use-measure';
 import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
 
 type SectionAsideProps = {
   paddedTop?: boolean;
+  fixed?: boolean;
   children?: ReactNode;
 };
 
-export default function SectionAside({ children, paddedTop = true }: SectionAsideProps) {
+export default function SectionAside({ children, paddedTop = false, fixed = false }: SectionAsideProps) {
+  let [ref, { width }] = useMeasure();
+
   return (
-    <section className='flex flex-col pr-4 md:pr-8 pl-[70px] md:pl-[84px] lg:pl-8 w-full h-auto lg:pt-20 pb-8'>
-      {paddedTop && <span className='hidden lg:block w-full h-0 lg:h-[200px]' />}
-      {children}
-    </section>
+    <>
+      <section ref={ref} className='flex w-full h-full bg-red-500' />
+      <section
+        style={{ width: `${width}px` }}
+        className={cn(
+          fixed ? 'lg:fixed' : 'lg:absolute pr-4 md:pr-8 pl-[70px] md:pl-[84px] lg:pl-8 lg:pt-20 pb-8',
+          'relative right-0 h-full'
+        )}
+      >
+        {paddedTop && <span className='hidden lg:block w-full h-0 lg:h-[200px]' />}
+        {children}
+      </section>
+    </>
   );
 }

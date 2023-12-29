@@ -29,13 +29,13 @@ export default function Main({ page }: MainProps) {
     switch (page.slugAsParams) {
       case 'contact':
         return (
-          <SectionAside>
+          <SectionAside paddedTop>
             <AsideContact />
           </SectionAside>
         );
       case 'works':
         return (
-          <SectionAside>
+          <SectionAside fixed paddedTop={false}>
             <AsideWorks />
           </SectionAside>
         );
@@ -47,7 +47,7 @@ export default function Main({ page }: MainProps) {
         );
       case 'hello':
         return (
-          <SectionAside>
+          <SectionAside paddedTop={false}>
             <AsideWorks />
           </SectionAside>
         );

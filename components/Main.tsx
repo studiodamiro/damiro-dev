@@ -4,14 +4,12 @@ import { useEffect } from 'react';
 import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
-import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
 import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
-import Curtain from './Curtain.1';
 
 type MainProps = {
   page: Page;

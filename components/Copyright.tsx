@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
+import { usePath } from '@/providers/PathProvider';
 
 type CopyrightProps = {
   logoColor?: string;
@@ -10,23 +11,28 @@ type CopyrightProps = {
 };
 
 export default function Copyright({ logoColor = '#fa8072', rotate = false }: CopyrightProps) {
+  const { setPath } = usePath();
+
   return (
-    <div className='fixed ml-0 bottom-0 p-4 md:p-8'>
+    <div className='fixed ml-0 bottom-0 p-4 md:p-8 z-30'>
       <div
         className={cn(
-          'flex gap-6 min-w-full h-[116px] items-center justify-start text-4xl uppercase tracking-widest scale-[35%] origin-left absolute ',
+          'flex gap-6 min-w-full h-[116px] items-center justify-start text-4xl uppercase tracking-widest scale-[35%] origin-left absolute',
           rotate
             ? 'flex-row-reverse origin-bottom-right rotate-90 -translate-y-full -translate-x-full -bottom-20'
             : 'flex-row -bottom-8'
         )}
       >
-        <Link href='/' className={cn('opacity-80', rotate && 'rotate-180')}>
+        <div onClick={() => setPath('/works')} className={cn('opacity-80 cursor-pointer', rotate && 'rotate-180')}>
           Damiro
-        </Link>
+        </div>
         <Logo />
-        <Link href='/' className={cn('opacity-80 whitespace-nowrap', rotate && 'rotate-180')}>
+        <div
+          onClick={() => setPath('/contact')}
+          className={cn('opacity-80 whitespace-nowrap cursor-pointer', rotate && 'rotate-180')}
+        >
           <span className='hidden md:inline'>All rights reserved </span>© 2023
-        </Link>
+        </div>
       </div>
     </div>
   );

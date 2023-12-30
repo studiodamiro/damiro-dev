@@ -1,7 +1,7 @@
 'use client';
 
-import adjustHexColor from '@/lib/adjustHexColor';
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
+import adjustHexColor from '@/lib/adjustHexColor';
 
 interface ColorProps {
   color: string;
@@ -30,11 +30,10 @@ interface ColorProviderProps {
   children: ReactNode;
 }
 
-export const ColorProvider = ({ children }: ColorProviderProps) => {
+export function ColorProvider({ children }: ColorProviderProps) {
   const [color, setColor] = useState<string>('#71717a');
   const [lightColor, setLightColor] = useState<string>('#71717a');
   const [darkColor, setDarkColor] = useState<string>('#71717a');
-
   const [secColor, setSecColor] = useState<string>('#3f3f46');
   const [secLightColor, setSecLightColor] = useState<string>('#3f3f46');
   const [secDarkColor, setSecDarkColor] = useState<string>('#3f3f46');
@@ -42,7 +41,6 @@ export const ColorProvider = ({ children }: ColorProviderProps) => {
   useEffect(() => {
     setLightColor(adjustHexColor(color, 'light', 70));
     setDarkColor(adjustHexColor(color, 'dark', 30));
-
     setSecLightColor(adjustHexColor(secColor, 'light', 20));
     setSecDarkColor(adjustHexColor(secColor, 'dark', 20));
   }, [color, secColor]);
@@ -67,4 +65,4 @@ export const ColorProvider = ({ children }: ColorProviderProps) => {
       {children}
     </ColorContext.Provider>
   );
-};
+}

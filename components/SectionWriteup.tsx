@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { useColor } from '@/providers/ColorProvider';
-import { cn } from '@/lib/utils';
 
 type SectionWriteupProps = {
   title: string;
@@ -15,7 +14,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
   const { color } = useColor();
 
   return (
-    <section className='flex flex-col gap-10 pr-4 md:pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pt-20 pb-10'>
+    <section className='flex flex-col gap-10 pr-4 md:pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pt-20 pb-10 z-0'>
       {/* PAGE TITLE */}
       <h1
         style={{ color: color }}
@@ -25,7 +24,7 @@ export default function SectionWriteup({ title, preText, description, subText, c
       </h1>
 
       {/* PRE TEXTS */}
-      <div className='relative flex flex-col pl-0 md:pl-[68px]'>
+      <div className='relative flex flex-col pl-0 md:pl-[68px] z-[-1]'>
         {preText && (
           <span style={{ textWrap: 'balance' }} className='allcap-span'>
             {preText}

@@ -11,6 +11,7 @@ import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
 import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
+import Curtain from './Curtain.1';
 
 type MainProps = {
   page: Page;
@@ -57,26 +58,17 @@ export default function Main({ page }: MainProps) {
   };
 
   return (
-    <AnimatePresence mode='wait' initial={false}>
-      <motion.main
-        key={path}
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -50, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className='w-full min-h-screen flex flex-col lg:flex-row'
+    <main className='w-full min-h-screen flex flex-col lg:flex-row'>
+      <SectionWriteup
+        title={page.title}
+        description={page.description}
+        subText={page.subtext}
+        preText={page.pretext}
+        color={color}
       >
-        <SectionWriteup
-          title={page.title}
-          description={page.description}
-          subText={page.subtext}
-          preText={page.pretext}
-          color={color}
-        >
-          <Mdx code={page.body.code} />
-        </SectionWriteup>
-        {renderAsideComponent()}
-      </motion.main>
-    </AnimatePresence>
+        <Mdx code={page.body.code} />
+      </SectionWriteup>
+      {renderAsideComponent()}
+    </main>
   );
 }

@@ -21,7 +21,7 @@ interface WidthProviderProps {
   children: ReactNode;
 }
 
-export const WidthProvider = ({ children }: WidthProviderProps) => {
+export function WidthProvider({ children }: WidthProviderProps) {
   const [windowWidth, setWindowWidth] = useState<number>(1200);
   const [breakpoint, setBreakpoint] = useState<string>('md');
 
@@ -69,7 +69,7 @@ export const WidthProvider = ({ children }: WidthProviderProps) => {
       {children}
     </WidthContext.Provider>
   );
-};
+}
 
 // Debounce utility function
 const debounce = (callback: (...args: any[]) => void, delay: number) => {

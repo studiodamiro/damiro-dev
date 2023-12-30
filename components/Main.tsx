@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
-import { usePathname } from 'next/navigation';
+import { usePath } from '@/providers/PathProvider';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
@@ -17,11 +17,12 @@ type MainProps = {
 };
 
 export default function Main({ page }: MainProps) {
-  const path = usePathname();
+  const { setCover } = usePath();
   const { color, setColor } = useColor();
 
   useEffect(() => {
     setColor && setColor('#71717a'); // Default primary color
+    setCover(false);
   }, []);
 
   const renderAsideComponent = () => {

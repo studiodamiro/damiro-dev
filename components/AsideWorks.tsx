@@ -8,7 +8,7 @@ export default function AsideWorks() {
     <section className='relative flex flex-col items-start justify-center bg-red-500/20 h-full w-full'>
       {allWorks.map((work) => (
         <span key={work.slug} onClick={() => setPath(work.slug)} className='cursor-pointer'>
-          <span>{work.company}</span>
+          {work.company}
         </span>
       ))}
     </section>

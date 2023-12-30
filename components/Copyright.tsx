@@ -1,16 +1,14 @@
 'use client';
 
-import Link from 'next/link';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
 import { usePath } from '@/providers/PathProvider';
 
 type CopyrightProps = {
-  logoColor?: string;
   rotate?: boolean;
 };
 
-export default function Copyright({ logoColor = '#fa8072', rotate = false }: CopyrightProps) {
+export default function Copyright({ rotate = false }: CopyrightProps) {
   const { setPath } = usePath();
 
   return (
@@ -23,6 +21,7 @@ export default function Copyright({ logoColor = '#fa8072', rotate = false }: Cop
             : 'flex-row -bottom-8'
         )}
       >
+        {/* TODO: CHECK LINKS */}
         <div onClick={() => setPath('/works')} className={cn('opacity-80 cursor-pointer', rotate && 'rotate-180')}>
           Damiro
         </div>

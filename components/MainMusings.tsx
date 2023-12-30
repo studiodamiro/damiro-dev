@@ -4,6 +4,7 @@ import { Musing } from '@/.contentlayer/generated';
 import { Mdx } from './Mdx';
 import { useEffect } from 'react';
 import { useColor } from '@/providers/ColorProvider';
+import { usePath } from '@/providers/PathProvider';
 import SectionWriteup from './SectionWriteup';
 
 type MainProps = {
@@ -12,10 +13,12 @@ type MainProps = {
 };
 
 export default function MainMusings({ page }: MainProps) {
+  const { setCover } = usePath();
   const { color, setColor } = useColor();
 
   useEffect(() => {
     setColor && setColor(`#${page.colors?.split(', ')[0]}`);
+    setCover(false);
   }, []);
 
   return (

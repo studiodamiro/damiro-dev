@@ -5,7 +5,9 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useStat
 
 interface PathProps {
   path: string;
+  cover: boolean;
   setPath: Dispatch<SetStateAction<string>>;
+  setCover: Dispatch<SetStateAction<boolean>>;
 }
 
 const PathContext = createContext<PathProps | undefined>(undefined);
@@ -23,5 +25,6 @@ interface PathProviderProps {
 export default function PathProvider({ children }: PathProviderProps) {
   const url = usePathname();
   const [path, setPath] = useState<string>(url);
-  return <PathContext.Provider value={{ path, setPath }}>{children}</PathContext.Provider>;
+  const [cover, setCover] = useState<boolean>(true);
+  return <PathContext.Provider value={{ path, cover, setPath, setCover }}>{children}</PathContext.Provider>;
 }

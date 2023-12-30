@@ -3,17 +3,15 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePath } from '@/providers/PathProvider';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import mouseFollower from '@/lib/mouseFollower';
 
 export default function Curtain() {
   const mouse = mouseFollower();
 
   const route = useRouter();
-  const url = usePathname();
-  const { path } = usePath();
+  const { path, cover, setCover } = usePath();
 
-  const [cover, setCover] = useState(true);
   const [init, setInit] = useState(true);
   const [hypotenous, setHypotenous] = useState(0);
 
@@ -37,9 +35,6 @@ export default function Curtain() {
     setCover(true);
     setTimeout(() => {
       route.push(path);
-      setTimeout(() => {
-        setCover(false);
-      }, duration * 1000);
     }, duration * 1000);
   }, [path]);
 
@@ -56,7 +51,7 @@ export default function Curtain() {
             width: radius * 2,
             height: radius * 2,
           }}
-          className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100'
+          className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 ring ring-transparent'
         />
       ) : (
         <motion.div
@@ -68,7 +63,7 @@ export default function Curtain() {
             width: radius * 2,
             height: radius * 2,
           }}
-          className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none'
+          className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none ring ring-transparent'
         />
       )}
     </>

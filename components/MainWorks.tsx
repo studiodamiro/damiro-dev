@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import { Mdx } from './Mdx';
+import { usePath } from '@/providers/PathProvider';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import AsideWorks from './AsideWorks';
@@ -16,10 +17,12 @@ type MainProps = {
 };
 
 export default function MainWorks({ page }: MainProps) {
+  const { setCover } = usePath();
   const { color, setColor } = useColor();
 
   useEffect(() => {
     setColor && setColor(`#${page.colors.split(', ')[0]}`);
+    setCover(false);
   }, []);
 
   return (

@@ -13,7 +13,7 @@ export default function Curtain() {
   const [init, setInit] = useState(true);
   const [hypotenous, setHypotenous] = useState(0);
 
-  const duration = 0.5;
+  const duration = 0.3;
   const radius = 1;
 
   // INITIALIZE

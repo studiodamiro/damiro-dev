@@ -1,12 +1,37 @@
-import Link from 'next/link';
-import { ThemeToggle } from './ThemeToggle';
+'use client';
 
-export default function Navigation() {
+import { usePath } from '@/providers/PathProvider';
+import { ThemeToggle } from './ThemeToggle';
+import { cn } from '@/lib/utils';
+
+export default function Navigation({ className }: { className?: string }) {
+  const { setPath } = usePath();
+
   return (
-    <nav className='absolute z-50 right-4 md:right-8 flex items-center ml-auto text-sm font-medium space-x-6'>
-      {/* <Link href='/about'>a</Link>
-      <Link href='/works'>w</Link>
-      <Link href='/contact'>c</Link> */}
+    <nav
+      className={cn(
+        'flex gap-2 md:gap-4 items-center justify-center text-sm font-medium text-zinc-800 dark:text-zinc-200',
+        className
+      )}
+    >
+      <span
+        onClick={() => setPath('/about')}
+        className='cursor-pointer bg-red-500 flex items-center justify-center h-6 aspect-square'
+      >
+        a
+      </span>
+      <span
+        onClick={() => setPath('/works')}
+        className='cursor-pointer bg-red-500 flex items-center justify-center h-6 aspect-square'
+      >
+        w
+      </span>
+      <span
+        onClick={() => setPath('/contact')}
+        className='cursor-pointer bg-red-500 flex items-center justify-center h-6 aspect-square'
+      >
+        c
+      </span>
       <ThemeToggle />
     </nav>
   );

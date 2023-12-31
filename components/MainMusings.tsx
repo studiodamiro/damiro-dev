@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { useColor } from '@/providers/ColorProvider';
 import { usePath } from '@/providers/PathProvider';
 import SectionWriteup from './SectionWriteup';
+import SectionAside from './SectionAside';
+import AsideMusings from './AsideMusings';
 
 type MainProps = {
   page: Musing;
@@ -35,6 +37,9 @@ export default function MainMusings({ page }: MainProps) {
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>
+      <SectionAside fixed paddedTop={false}>
+        <AsideMusings />
+      </SectionAside>
     </main>
   );
 }

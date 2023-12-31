@@ -28,7 +28,7 @@ export default function ListProject({ page }: ListProjectProps) {
             )}
           >
             <span className='sr-only'>Git Repository</span>
-            <FaGit className='scale-[2.2]' />
+            <FaGit className='absolute h-4 aspect-square' />
           </Link>
         )}
         {page.links?.split(', ').map((link, index) => (

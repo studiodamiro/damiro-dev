@@ -8,41 +8,34 @@ import mouseFollower from '@/lib/mouseFollower';
 
 export default function Curtain() {
   const mouse = mouseFollower();
-
   const route = useRouter();
   const { path, cover, setCover } = usePath();
-
   const [init, setInit] = useState(true);
   const [hypotenous, setHypotenous] = useState(0);
 
   const duration = 0.5;
   const radius = 1;
 
+  // INITIALIZE
   useEffect(() => {
     const handleResize = () => setHypotenous(Math.hypot(window.innerWidth, window.innerHeight));
+    const timer = setTimeout(() => setInit(false), duration * 1000);
+
     handleResize(); // Set the initial value on mount
     window.addEventListener('resize', handleResize);
 
-    // setCover(true);
-    console.log('cover:', cover);
-    const timer = setTimeout(() => {
-      setInit(false);
-      console.log('cover:', cover);
-    }, duration * 1000);
-
     return () => {
+      // cleanup
       window.removeEventListener('resize', handleResize);
       clearTimeout(timer);
     };
   }, []);
 
+  // DETECT ROUTE
   useEffect(() => {
     setCover(true);
-    const timer = setTimeout(() => {
-      route.push(path);
-    }, duration * 1000);
-
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => route.push(path), duration * 1000);
+    return () => clearTimeout(timer); // cleanup
   }, [path]);
 
   return (

@@ -35,7 +35,7 @@ export default function MainWorks({ page }: MainProps) {
         color={color}
       >
         <Mdx code={page.body.code} />
-        <div className='h-4 w-full' />
+        {page.body.raw && <div className='h-4 w-full' />}
         <ListTech page={page} />
         <div className='h-10 w-full' />
         <ListProject page={page} />

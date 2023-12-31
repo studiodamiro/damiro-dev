@@ -39,19 +39,23 @@ export default function SectionWriteup({
           </span>
         )}
 
-        <span
-          style={{ textWrap: 'balance' }}
-          className='font-fauna text-2xl md:text-3xl -ml-0.5 pt-1 md:pt-1.5 leading-snug md:leading-normal max-w-lg md:max-w-xl lg:max-w-3xl text-zinc-500'
-        >
-          {description}
-        </span>
+        {description && (
+          <span
+            style={{ textWrap: 'balance' }}
+            className='font-fauna text-2xl md:text-3xl -ml-0.5 pt-1 md:pt-1.5 leading-snug md:leading-normal max-w-lg md:max-w-xl lg:max-w-3xl text-zinc-500'
+          >
+            {description}
+          </span>
+        )}
 
-        <span
-          style={{ textWrap: 'balance' }}
-          className='font-fauna text-lg lg:text-xl pt-4 leading-snug md:leading-normal max-w-lg md:max-w-xl lg:max-w-3xl'
-        >
-          {smallDesc}
-        </span>
+        {smallDesc && (
+          <span
+            style={{ textWrap: 'balance' }}
+            className='font-fauna text-lg lg:text-xl pt-4 leading-snug md:leading-normal max-w-lg md:max-w-xl lg:max-w-3xl'
+          >
+            {smallDesc}
+          </span>
+        )}
 
         {subText && (
           <span style={{ textWrap: 'balance' }} className='allcap-span'>

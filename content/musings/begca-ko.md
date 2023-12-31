@@ -2,6 +2,7 @@
 title: Begca Ko
 description: React Server Components allow developers to build applications that span the server and client.
 date: '2023-01-08'
+colors: ff0000, 0000ff
 tags: project, web dev't, identity
 ---
 

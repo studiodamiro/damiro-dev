@@ -33,19 +33,17 @@ export default function PillSocial({ social }: PillSocialProps) {
   };
 
   return (
-    <>
-      <Link
-        href={socialLink[social as keyof typeof socialIcons]}
-        target='_blank'
-        className={cn(
-          buttonVariants({ variant: 'secondary' }),
-          'no-underline flex flex-row items-center gap-2.5 tracking-wider  hover:bg-background/50'
-          // socialColor[social as keyof typeof socialIcons]
-        )}
-      >
-        <span>{socialIcons[social as keyof typeof socialIcons]}</span>
-        {social}
-      </Link>
-    </>
+    <Link
+      href={socialLink[social as keyof typeof socialIcons]}
+      target='_blank'
+      className={cn(
+        buttonVariants({ variant: 'secondary' }),
+        'no-underline flex flex-row items-center gap-2.5 tracking-wider  hover:bg-background/50'
+        // socialColor[social as keyof typeof socialIcons]
+      )}
+    >
+      <span>{socialIcons[social as keyof typeof socialIcons]}</span>
+      {social}
+    </Link>
   );
 }

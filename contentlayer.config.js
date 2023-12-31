@@ -51,6 +51,7 @@ export const Musings = defineDocumentType(() => ({
     pretext: { type: 'string' },
     subtext: { type: 'string' },
     description: { type: 'string' },
+    tags: { type: 'string' },
     date: { type: 'date', required: true },
     colors: { type: 'string' },
   },

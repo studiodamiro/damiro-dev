@@ -22,12 +22,12 @@ export default function Copyright({ rotate = false }: CopyrightProps) {
         )}
       >
         {/* TODO: CHECK LINKS */}
-        <div onClick={() => setPath('/works')} className={cn('opacity-80 cursor-pointer', rotate && 'rotate-180')}>
+        <div onClick={() => setPath('/')} className={cn('opacity-80 cursor-pointer', rotate && 'rotate-180')}>
           Damiro
         </div>
         <Logo />
         <div
-          onClick={() => setPath('/contact')}
+          onClick={() => setPath('/')}
           className={cn('opacity-80 whitespace-nowrap cursor-pointer', rotate && 'rotate-180')}
         >
           <span className='hidden md:inline'>All rights reserved </span>© 2023

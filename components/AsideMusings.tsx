@@ -1,13 +1,15 @@
 import { allMusings } from '@/.contentlayer/generated';
-import Link from 'next/link';
+import { usePath } from '@/providers/PathProvider';
 
 export default function AsideMusings() {
+  const { setPath } = usePath();
+
   return (
     <section className='relative flex flex-col items-start'>
       {allMusings.map((musing) => (
-        <Link href={musing.slug} key={musing.slug}>
+        <span key={musing.slug} onClick={() => setPath(musing.slug)} className='cursor-pointer'>
           <span>{musing.title}</span>
-        </Link>
+        </span>
       ))}
     </section>
   );

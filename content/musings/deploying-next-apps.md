@@ -2,6 +2,7 @@
 title: Deploying Next.js Apps
 description: How to deploy your Next.js apps on Vercel. Trying `.md`
 date: 2023-01-02
+tags: project, web dev't, identity
 ---
 
 Lets try `.md` files. Mds with Mdx capabilities! Are we live?

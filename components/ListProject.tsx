@@ -4,6 +4,7 @@ import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
 import { FaGit, FaLink } from 'react-icons/fa6';
 import { IoBulbOutline } from 'react-icons/io5';
+import { usePath } from '@/providers/PathProvider';
 
 type ListProjectProps = {
   page: Work;
@@ -11,6 +12,8 @@ type ListProjectProps = {
 };
 
 export default function ListProject({ page }: ListProjectProps) {
+  const { setPath } = usePath();
+
   return (
     <>
       <span className='allcap-span'>Project Links</span>
@@ -29,18 +32,17 @@ export default function ListProject({ page }: ListProjectProps) {
           </Link>
         )}
         {page.links?.split(', ').map((link, index) => (
-          <Link
+          <div
             key={index}
-            href={index === 0 ? `https://${link}` : `/musings/${link}`}
-            target={index === 0 ? '_blank' : '_self'}
+            onClick={() => (index === 0 ? window.open(`https://${link}`, '_ blank') : setPath(`/musings/${link}`))}
             className={cn(
               buttonVariants({ variant: index === 0 ? 'default' : 'secondary' }),
-              'no-underline flex flex-row items-center gap-2 tracking-wider'
+              'no-underline flex flex-row items-center gap-2 tracking-wider cursor-pointer'
             )}
           >
             {index === 0 ? <FaLink /> : <IoBulbOutline />}
             {index === 0 ? link : 'Project Musings'}
-          </Link>
+          </div>
         ))}
       </div>
     </>

@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ContactFormValidator, TContactFormValidator } from '@/lib/validators/contactForm';
@@ -9,9 +8,11 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { cn } from '@/lib/utils';
+import { usePath } from '@/providers/PathProvider';
 
 export default function AsideContact() {
-  const router = useRouter();
+  // const router = useRouter();
+  const { setPath } = usePath();
 
   const {
     register,
@@ -28,9 +29,11 @@ export default function AsideContact() {
       });
 
       if (response.ok) {
-        router.push('/message-sent');
+        // router.push('/message-sent');
+        setPath('/message-sent');
       } else {
         console.error('Error:', response.status);
+        setPath('/not-found');
       }
     } catch (error) {
       console.error('Error:', error);

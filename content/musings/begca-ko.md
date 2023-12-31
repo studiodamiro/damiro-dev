@@ -2,6 +2,7 @@
 title: Begca Ko
 description: React Server Components allow developers to build applications that span the server and client.
 date: '2023-01-08'
+tags: project, web dev't, identity
 ---
 
 Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.

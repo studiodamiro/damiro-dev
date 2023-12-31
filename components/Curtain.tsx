@@ -19,23 +19,30 @@ export default function Curtain() {
   const radius = 1;
 
   useEffect(() => {
-    setTimeout(() => {
-      setInit(false);
-    }, duration * 1000);
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => setHypotenous(Math.hypot(window.innerWidth, window.innerHeight));
     handleResize(); // Set the initial value on mount
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    console.log('start');
+    setCover(true);
+
+    const timer = setTimeout(() => {
+      console.log('uncover');
+      setInit(false);
+      setCover(false);
+    }, duration * 1000);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
     setCover(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       route.push(path);
     }, duration * 1000);
+    return () => clearTimeout(timer);
   }, [path]);
 
   return (

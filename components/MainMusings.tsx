@@ -24,9 +24,10 @@ export default function MainMusings({ page }: MainProps) {
   return (
     <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
       <SectionWriteup
-        title={page.title}
-        preText={page.pretext}
-        description={page.description}
+        title={page.tags?.split(', ')[0] === 'project' ? 'work' : 'musings'}
+        preText={page.tags?.split(', ').join(' / ')}
+        description={page.title}
+        smallDesc={page.description}
         subText={page.subtext}
         color={color}
       >

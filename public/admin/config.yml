@@ -50,5 +50,6 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Subtext', name: 'subtext', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Tags', name: 'tegs', widget: 'string' }
       - { label: 'Colors', name: 'colors', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

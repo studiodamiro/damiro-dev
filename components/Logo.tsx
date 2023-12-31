@@ -1,9 +1,9 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { useColor } from '@/providers/ColorProvider';
 import { useTheme } from 'next-themes';
+import { useColor } from '@/providers/ColorProvider';
 import { usePath } from '@/providers/PathProvider';
+import { cn } from '@/lib/utils';
 
 type LogoProps = {
   damiro?: boolean;

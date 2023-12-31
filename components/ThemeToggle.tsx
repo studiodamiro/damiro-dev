@@ -2,19 +2,16 @@
 
 import { useTheme } from 'next-themes';
 import { useColor } from '@/providers/ColorProvider';
-import { isDarkColor } from '@/lib/isDarkColor';
+import { Hydrate } from './Hydrate';
+import { cn } from '@/lib/utils';
 import SunRays from './assets/SunRays';
 import Star from './assets/Star';
 import Commet from './assets/Commet';
-import { cn } from '@/lib/utils';
-import { Hydrate } from './Hydrate';
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
-  const { color, lightColor, darkColor } = useColor();
-  // const themeColor = isDarkColor(color) ? darkColor : lightColor;
+  const { lightColor, darkColor } = useColor();
   const themeColor = theme === 'light' ? lightColor : darkColor;
-  // const bgColor = theme === 'light' ? '#3f3f46' : '#d4d4d8';
 
   return (
     <button

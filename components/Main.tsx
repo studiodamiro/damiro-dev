@@ -21,7 +21,7 @@ export default function Main({ page }: MainProps) {
   const { color, setColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor('#71717a'); // Default primary color
+    setColor && setColor('#71717a'); // Default primary color zinc-500
 
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);

@@ -25,7 +25,6 @@ export default function Curtain() {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      // cleanup
       window.removeEventListener('resize', handleResize);
       clearTimeout(timer);
     };

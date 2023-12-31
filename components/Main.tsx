@@ -22,7 +22,9 @@ export default function Main({ page }: MainProps) {
 
   useEffect(() => {
     setColor && setColor('#71717a'); // Default primary color
-    setCover(false);
+
+    const timer = setTimeout(() => setCover(false), 500);
+    return () => clearTimeout(timer);
   }, []);
 
   const renderAsideComponent = () => {

@@ -22,7 +22,9 @@ export default function MainWorks({ page }: MainProps) {
 
   useEffect(() => {
     setColor && setColor(`#${page.colors.split(', ')[0]}`);
-    setCover(false);
+
+    const timer = setTimeout(() => setCover(false), 500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

@@ -22,13 +22,12 @@ export default function Curtain() {
     const handleResize = () => setHypotenous(Math.hypot(window.innerWidth, window.innerHeight));
     handleResize(); // Set the initial value on mount
     window.addEventListener('resize', handleResize);
-    console.log('start');
-    setCover(true);
 
+    // setCover(true);
+    console.log('cover:', cover);
     const timer = setTimeout(() => {
-      console.log('uncover');
       setInit(false);
-      setCover(false);
+      console.log('cover:', cover);
     }, duration * 1000);
 
     return () => {
@@ -42,6 +41,7 @@ export default function Curtain() {
     const timer = setTimeout(() => {
       route.push(path);
     }, duration * 1000);
+
     return () => clearTimeout(timer);
   }, [path]);
 

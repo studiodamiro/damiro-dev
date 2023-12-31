@@ -1,6 +1,6 @@
 import { allPages } from 'contentlayer/generated';
-import Main from '@/components/Main';
 import { notFound } from 'next/navigation';
+import Main from '@/components/Main';
 
 export default function Home() {
   const mdFile = 'hello';

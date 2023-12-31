@@ -1,12 +1,11 @@
-'use client';
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { allPages } from 'contentlayer/generated';
+import { notFound } from 'next/navigation';
+import Main from '@/components/Main';
 
 export default function NotFound() {
-  const route = useRouter();
+  const mdFile = 'not-found';
+  const page = allPages.find((page) => page.slugAsParams === mdFile);
+  if (!page) notFound();
 
-  useEffect(() => {
-    route.push('/not-found');
-  }, []);
+  return <Main page={page} />;
 }

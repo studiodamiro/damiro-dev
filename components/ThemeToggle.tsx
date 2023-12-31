@@ -36,8 +36,8 @@ export function ThemeToggle() {
         <span
           style={{ backgroundColor: themeColor }}
           className={cn(
-            'transition-all duration-500 ease-in absolute left-1/2 -translate-x-1/2 rounded-full opacity-100',
-            theme === 'light' ? 'w-4 h-4 top-5 delay-500' : 'w-3 h-3 top-1.5'
+            'transition-all duration-500 delay-300 ease-in absolute left-1/2 -translate-x-1/2 rounded-full opacity-100',
+            theme === 'light' ? 'w-4 h-4 top-5' : 'w-3 h-3 top-1.5'
           )}
         />
       </Hydrate>
@@ -47,7 +47,7 @@ export function ThemeToggle() {
         <span
           className={cn(
             'transition-all duration-500 ease-in absolute w-3 h-3 rounded-full top-5 bg-zinc-700 dark:bg-zinc-300',
-            theme === 'light' ? 'right-0.5' : 'right-6'
+            theme === 'light' ? 'right-0.5' : 'right-3'
           )}
         />
       </Hydrate>

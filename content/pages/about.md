@@ -1,10 +1,9 @@
 ---
 title: About
-pretext: A jack of all trades. Master of none.
-description: Technically, creative.
-subtext:
+pretext: Technically, creative.
+description: Weaving narratives through design
 ---
 
-Here, you can find his selected <MdxButton href='/works'>WORKS</MdxButton> that are drawn to tell tales about people, its businesses and its products. Know more <MdxButton href='/about'>ABOUT</MdxButton> Damiro, his background and his processes.
+I weave narratives about my journey, inspirations, and the stories that shape my work. Explore the roots of my creativity and the philosophy that guides every pixelated tale.
 
-Looking for a collab? you can <MdxButton href='/contact'>CONTACT</MdxButton> him and follow his social media accounts: @studioDamiro
+Eager to witness visual stories? Head over to my selected <MdxButton href='/works'>WORKS</MdxButton>. For a deeper dive into my interests and musings, check out <MdxButton href='/musings'>MUSINGS</MdxButton> . If you're ready to embark on a collaborative journey, hop over to <MdxButton href='/contact'>CONTACT</MdxButton>.

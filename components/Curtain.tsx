@@ -14,7 +14,7 @@ export default function Curtain() {
   const [init, setInit] = useState(true);
   const [hypotenous, setHypotenous] = useState(0);
 
-  // INITIALIZE
+  // INITIALIZE`
   useEffect(() => {
     const handleResize = () => setHypotenous(Math.hypot(window.innerWidth, window.innerHeight));
     const timer = setTimeout(() => setInit(false), duration * 1000);

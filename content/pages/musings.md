@@ -1,10 +1,10 @@
 ---
 title: Musings
-pretext: _
-description: Stories behind every project
+pretext: Tale in every pizel
+description: Exploring creative insights
 subtext:
 ---
 
-Here, you can find his selected <MdxButton href='/works'>WORKS</MdxButton> that are made to tell tales about people and its offerings.
+Here I share insights into my creative process and explore my interests. It's a space to delve deeper into the thoughts and inspirations that shape my projects.
 
-Know more <MdxButton href='/about'>ABOUT</MdxButton> Damiro, and <MdxButton href='/contact'>CONTACT</MdxButton> him if you find anything interesting.
+Curious about visual stories? Head over to my selected <MdxButton href='/works'>WORKS</MdxButton>. Want to learn more <MdxButton href='/about'>ABOUT</MdxButton> Damiro? It's just a click away. Ready to chat or collaborate? Direct your steps towards the <MdxButton href='/contact'>CONTACT</MdxButton> page.

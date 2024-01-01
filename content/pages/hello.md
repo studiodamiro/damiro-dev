@@ -1,10 +1,10 @@
 ---
 title: Hello
-pretext: Welcome to the studio
+pretext: Welcome to my studio
 description: This is the digital playground of Dan from MNL PH.
 subtext:
 ---
 
-<MdxButton href='/musings'>MUSINGS</MdxButton>, you can find his selected <MdxButton href='/works'>WORKS</MdxButton> that are drawn to tell tales about people, its businesses and its products. Know more <MdxButton href='/about'>ABOUT</MdxButton> Damiro, his background and his processes.
+Here, you can embark on a visual adventure through my selected <MdxButton href='/works'>WORKS</MdxButton>. Each piece is a pixelated journey, telling tales about people and the narratives they carry. From web design to development, each creation is a chapter waiting to be explored.
 
-Looking for a collab? you can <MdxButton href='/contact'>CONTACT</MdxButton> him and follow his social media accounts: @studioDamiro
+Curious about the mind behind the pixels? Dive into my <MdxButton href='/musings'>MUSINGS</MdxButton> to discover the thoughts and inspirations that fuel my creative process. Learn more <MdxButton href='/about'>ABOUT</MdxButton> Damiro, and feel free to <MdxButton href='/contact'>CONTACT</MdxButton> me if anything sparks your interest.

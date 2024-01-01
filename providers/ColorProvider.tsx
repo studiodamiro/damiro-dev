@@ -31,12 +31,15 @@ interface ColorProviderProps {
 }
 
 export function ColorProvider({ children }: ColorProviderProps) {
-  const [color, setColor] = useState<string>('#71717a');
-  const [lightColor, setLightColor] = useState<string>('#71717a');
-  const [darkColor, setDarkColor] = useState<string>('#71717a');
-  const [secColor, setSecColor] = useState<string>('#3f3f46');
-  const [secLightColor, setSecLightColor] = useState<string>('#3f3f46');
-  const [secDarkColor, setSecDarkColor] = useState<string>('#3f3f46');
+  const initialColor = '#71717a'; // zinc-500
+  const initialSecColor = '#27272a'; // zinc-800
+
+  const [color, setColor] = useState<string>(initialColor);
+  const [lightColor, setLightColor] = useState<string>(initialColor);
+  const [darkColor, setDarkColor] = useState<string>(initialColor);
+  const [secColor, setSecColor] = useState<string>(initialSecColor);
+  const [secLightColor, setSecLightColor] = useState<string>(initialSecColor);
+  const [secDarkColor, setSecDarkColor] = useState<string>(initialSecColor);
 
   useEffect(() => {
     setLightColor(adjustHexColor(color, 'light', 70));

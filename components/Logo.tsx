@@ -7,10 +7,11 @@ import { cn } from '@/lib/utils';
 
 type LogoProps = {
   damiro?: boolean;
+  scrollY?: number;
   className?: string;
 };
 
-export default function Logo({ damiro = false, className }: LogoProps) {
+export default function Logo({ damiro = false, scrollY, className }: LogoProps) {
   const { theme } = useTheme();
   const { color, lightColor, darkColor } = useColor();
   const { setPath } = usePath();
@@ -44,7 +45,8 @@ export default function Logo({ damiro = false, className }: LogoProps) {
         style={{ color: theme === 'dark' ? lightColor : darkColor }}
         className={cn(
           !damiro && 'hidden',
-          'relative text-3xl translate-x-full -ml-8 transition-colors duration-300 ease-out font-fauna'
+          'relative text-3xl translate-x-full -ml-8 opacity-100 transition-all duration-300 ease-out font-fauna',
+          scrollY! > 10 && '-translate-y-16 opacity-0'
         )}
       >
         Damiro

@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePath } from '@/providers/PathProvider';
 import { useRouter } from 'next/navigation';
-import mouseFollower from '@/lib/mouseFollower';
+import useMousePosition from '@/lib/useMousePosition';
 
 export default function Curtain() {
   const duration = 0.5;
-  const mouse = mouseFollower();
+  const mouse = useMousePosition();
   const route = useRouter();
   const { path, cover, setCover } = usePath();
   const [init, setInit] = useState(true);

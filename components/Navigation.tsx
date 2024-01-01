@@ -4,7 +4,12 @@ import { usePath } from '@/providers/PathProvider';
 import { ThemeToggle } from './ThemeToggle';
 import { cn } from '@/lib/utils';
 
-export default function Navigation({ className }: { className?: string }) {
+type NavigationProps = {
+  className?: string;
+  scrollY?: number;
+};
+
+export default function Navigation({ scrollY, className }: NavigationProps) {
   const { setPath } = usePath();
 
   return (
@@ -16,23 +21,39 @@ export default function Navigation({ className }: { className?: string }) {
     >
       <span
         onClick={() => setPath('/about')}
-        className='cursor-pointer bg-red-500/50 flex items-center justify-center rounded-full h-6 aspect-square'
+        className={cn(
+          'cursor-pointer bg-zinc-500/50 flex items-center justify-center rounded-full h-6 aspect-square opacity-100 transition-all duration-300 ease-out delay-150',
+          scrollY! > 10 && 'translate-x-14 lg:translate-x-0 opacity-100'
+        )}
       >
         a
       </span>
       <span
         onClick={() => setPath('/works')}
-        className='cursor-pointer bg-red-500/50 flex items-center justify-center rounded-full h-6 aspect-square'
+        className={cn(
+          'cursor-pointer bg-zinc-500/50 flex items-center justify-center rounded-full h-6 aspect-square opacity-100 transition-all duration-300 ease-out delay-300',
+          scrollY! > 10 && 'translate-x-14 lg:translate-x-0 opacity-100'
+        )}
       >
         w
       </span>
       <span
         onClick={() => setPath('/contact')}
-        className='cursor-pointer bg-red-500/50 flex items-center justify-center rounded-full h-6 aspect-square'
+        className={cn(
+          'cursor-pointer bg-zinc-500/50 flex items-center justify-center rounded-full h-6 aspect-square opacity-100 transition-all duration-300 ease-out delay-100',
+          scrollY! > 10 && 'translate-x-14 lg:translate-x-0 opacity-100'
+        )}
       >
         c
       </span>
-      <ThemeToggle />
+      <span
+        className={cn(
+          'transition-all duration-300 ease-out opacity-100',
+          scrollY! > 10 && 'translate-x-14 lg:translate-x-0 opacity-100'
+        )}
+      >
+        <ThemeToggle />
+      </span>
     </nav>
   );
 }

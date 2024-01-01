@@ -7,14 +7,12 @@ import { useRouter } from 'next/navigation';
 import mouseFollower from '@/lib/mouseFollower';
 
 export default function Curtain() {
+  const duration = 0.5;
   const mouse = mouseFollower();
   const route = useRouter();
   const { path, cover, setCover } = usePath();
   const [init, setInit] = useState(true);
   const [hypotenous, setHypotenous] = useState(0);
-
-  const duration = 0.3;
-  const radius = 1;
 
   // INITIALIZE
   useEffect(() => {
@@ -42,26 +40,18 @@ export default function Curtain() {
       {init && <div className='fixed z-10 w-screen h-screen top-0 left-0 bg-zinc-300 dark:bg-zinc-900' />}
       {cover ? (
         <motion.div
-          initial={{ scale: radius }}
+          initial={{ scale: 1 }}
           animate={{ scale: hypotenous }}
           transition={{ duration: duration, ease: 'easeIn' }}
-          style={{
-            translate: `${mouse.x}px ${mouse.y}px`,
-            width: radius * 2,
-            height: radius * 2,
-          }}
+          style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}
           className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 ring ring-transparent'
         />
       ) : (
         <motion.div
           initial={{ scale: hypotenous }}
-          animate={{ scale: radius }}
+          animate={{ scale: 1 }}
           transition={{ duration: duration, ease: 'easeOut' }}
-          style={{
-            translate: `${mouse.x}px ${mouse.y}px`,
-            width: radius * 2,
-            height: radius * 2,
-          }}
+          style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}
           className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none ring ring-transparent'
         />
       )}

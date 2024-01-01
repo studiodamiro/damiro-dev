@@ -10,6 +10,7 @@ type CopyrightProps = {
 
 export default function Copyright({ rotate = false }: CopyrightProps) {
   const { setPath } = usePath();
+  const year = new Date().getFullYear();
 
   return (
     <div className='fixed ml-0 bottom-0 p-4 md:p-8 z-30'>
@@ -30,7 +31,7 @@ export default function Copyright({ rotate = false }: CopyrightProps) {
           onClick={() => setPath('/')}
           className={cn('opacity-80 whitespace-nowrap cursor-pointer', rotate && 'rotate-180')}
         >
-          <span className='hidden md:inline'>All rights reserved </span>© 2023
+          <span className='hidden md:inline'>All rights reserved </span>© {year}
         </div>
       </div>
     </div>

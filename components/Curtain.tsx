@@ -41,14 +41,14 @@ export default function Curtain() {
       {cover ? (
         <motion.div
           initial={{ scale: 1 }}
-          animate={{ scale: hypotenous }}
+          animate={{ scale: hypotenous * 1.3 }}
           transition={{ duration: duration, ease: 'easeIn' }}
           style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}
           className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 ring ring-transparent'
         />
       ) : (
         <motion.div
-          initial={{ scale: hypotenous }}
+          initial={{ scale: hypotenous * 1.3 }}
           animate={{ scale: 1 }}
           transition={{ duration: duration, ease: 'easeOut' }}
           style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}

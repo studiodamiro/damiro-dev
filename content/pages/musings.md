@@ -1,8 +1,7 @@
 ---
 title: Musings
-pretext: Tale in every pizel
-description: Exploring creative insights
-subtext:
+pretext: Exploring creative insights
+description: Tale in every pixel
 ---
 
 Here I share insights into my creative process and explore my interests. It's a space to delve deeper into the thoughts and inspirations that shape my projects.

@@ -2,7 +2,6 @@
 title: Hello
 pretext: Welcome to my studio
 description: This is the digital playground of Dan from MNL PH.
-subtext:
 ---
 
 Here, you can embark on a visual adventure through my selected <MdxButton href='/works'>WORKS</MdxButton>. Each piece is a pixelated journey, telling tales about people and the narratives they carry. From web design to development, each creation is a chapter waiting to be explored.

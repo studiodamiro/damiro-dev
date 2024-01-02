@@ -2,7 +2,6 @@
 title: Contact
 pretext: You start a conversation
 description: Let's connect & create together
-subtext:
 ---
 
 This is the gateway to collaboration. Let's connect and explore the possibilities of creating something extraordinary together. Whether you have questions, ideas, or just want to say hello, I'm just a message away.

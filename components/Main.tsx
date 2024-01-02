@@ -10,6 +10,7 @@ import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
 import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
+import AsideAbout from './AsideAbout';
 
 type MainProps = {
   page: Page;
@@ -29,10 +30,16 @@ export default function Main({ page }: MainProps) {
 
   const renderAsideComponent = () => {
     switch (page.slugAsParams) {
-      case 'contact':
+      case 'hello':
+        return (
+          <SectionAside paddedTop={false}>
+            <AsideWorks />
+          </SectionAside>
+        );
+      case 'about':
         return (
           <SectionAside paddedTop>
-            <AsideContact />
+            <AsideAbout />
           </SectionAside>
         );
       case 'works':
@@ -47,10 +54,10 @@ export default function Main({ page }: MainProps) {
             <AsideMusings />
           </SectionAside>
         );
-      case 'hello':
+      case 'contact':
         return (
-          <SectionAside paddedTop={false}>
-            <AsideWorks />
+          <SectionAside paddedTop>
+            <AsideContact />
           </SectionAside>
         );
       default:

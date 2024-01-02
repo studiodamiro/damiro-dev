@@ -66,7 +66,10 @@ export default function SectionWriteup({
 
       {/* BODY */}
       {children && (
-        <div className='prose prose-zinc dark:prose-invert prose-sm md:prose-base max-w-lg md:max-w-xl lg:max-w-3xl prose-quoteless leading-loose pl-0 md:pl-[68px] pb-0 lg:pb-8 text-zinc-600 dark:text-zinc-400'>
+        <div
+          style={{ textWrap: 'pretty' }}
+          className='prose prose-zinc dark:prose-invert prose-sm md:prose-base max-w-lg md:max-w-xl lg:max-w-3xl prose-quoteless leading-loose pl-0 md:pl-[68px] pb-0 lg:pb-8 text-zinc-600 dark:text-zinc-400'
+        >
           {children}
         </div>
       )}

@@ -7,7 +7,6 @@ import { Mdx } from './Mdx';
 import { usePath } from '@/providers/PathProvider';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
-import AsideWorks from './AsideWorks';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
 
@@ -37,13 +36,22 @@ export default function MainWorks({ page }: MainProps) {
         color={color}
       >
         <Mdx code={page.body.code} />
-        {page.body.raw && <div className='h-4 w-full' />}
-        <ListTech page={page} />
-        <div className='h-10 w-full' />
-        <ListProject page={page} />
+        <div className='lg:block hidden'>
+          {page.body.raw && <div className='h-4 w-full' />}
+          <ListTech page={page} />
+          <div className='h-10 w-full' />
+          <ListProject page={page} />
+        </div>
       </SectionWriteup>
       <SectionAside fixed padded={false}>
-        <AsideWorks />
+        <div className='w-full aspect-[3/4] sm:aspect-square md:aspect-[4/3] lg:h-full'>
+          <div className='block lg:hidden absolute bottom-9 pl-[70px] md:pl-[152px] pr-8 w-full sm:w-4/5 md:w-3/4'>
+            {page.body.raw && <div className='h-4 w-full' />}
+            <ListTech page={page} />
+            <div className='h-8 md:h-10 w-full' />
+            <ListProject page={page} />
+          </div>
+        </div>
       </SectionAside>
     </main>
   );

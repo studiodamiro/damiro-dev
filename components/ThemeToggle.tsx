@@ -4,9 +4,9 @@ import { useTheme } from 'next-themes';
 import { useColor } from '@/providers/ColorProvider';
 import { Hydrate } from './Hydrate';
 import { cn } from '@/lib/utils';
-import SunRays from './assets/SunRays';
-import Star from './assets/Star';
-import Commet from './assets/Commet';
+import SunRays from './assets/theme/SunRays';
+import Star from './assets/theme/Star';
+import Commet from './assets/theme/Commet';
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();

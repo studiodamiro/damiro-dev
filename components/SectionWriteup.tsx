@@ -32,7 +32,7 @@ export default function SectionWriteup({
   return (
     <section
       className={cn(
-        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pb-10 z-0',
+        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pb-7 z-0',
         showWorks ? 'pt-0 lg:pt-20' : 'lg:pt-20'
       )}
     >

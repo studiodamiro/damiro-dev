@@ -5,13 +5,13 @@ import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import { usePath } from '@/providers/PathProvider';
+import { cn } from '@/lib/utils';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
 import AsideContact from './AsideContact';
 import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
 import AsideAbout from './AsideAbout';
-import { cn } from '@/lib/utils';
 import useMeasure from 'react-use-measure';
 
 type MainProps = {
@@ -22,57 +22,19 @@ type MainProps = {
 export default function Main({ page }: MainProps) {
   const { setCover } = usePath();
   const { color, setColor } = useColor();
-  let [ref, { width }] = useMeasure();
+  let [ref, { width, height }] = useMeasure();
 
   useEffect(() => {
-    setColor && setColor('#71717a'); // Default primary color zinc-500
-
+    setColor && setColor('#71717a');
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);
-
-  const renderAsideComponent = () => {
-    switch (page.slugAsParams) {
-      case 'hello':
-        return (
-          <SectionAside>
-            <AsideWorks />
-          </SectionAside>
-        );
-      case 'about':
-        return (
-          <SectionAside padded>
-            <AsideAbout />
-          </SectionAside>
-        );
-      case 'works':
-        return (
-          <SectionAside>
-            <AsideWorks />
-          </SectionAside>
-        );
-      case 'musings':
-        return (
-          <SectionAside>
-            <AsideMusings />
-          </SectionAside>
-        );
-      case 'contact':
-        return (
-          <SectionAside padded>
-            <AsideContact />
-          </SectionAside>
-        );
-      default:
-        return <SectionAside />;
-    }
-  };
 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(width < 1024 && (page.slugAsParams === 'hello' || page.slugAsParams === 'works'));
-  });
+  }, [width]);
 
   return (
     <main ref={ref} className={cn(isMobile ? 'flex-col-reverse' : 'flex-col', 'w-full min-h-screen flex lg:flex-row')}>
@@ -86,7 +48,44 @@ export default function Main({ page }: MainProps) {
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>
-      {renderAsideComponent()}
+      {renderAsideComponent(page.slugAsParams)}
     </main>
   );
 }
+
+const renderAsideComponent = (slug: string) => {
+  switch (slug) {
+    case 'hello':
+      return (
+        <SectionAside>
+          <AsideWorks />
+        </SectionAside>
+      );
+    case 'about':
+      return (
+        <SectionAside padded>
+          <AsideAbout />
+        </SectionAside>
+      );
+    case 'works':
+      return (
+        <SectionAside>
+          <AsideWorks />
+        </SectionAside>
+      );
+    case 'musings':
+      return (
+        <SectionAside>
+          <AsideMusings />
+        </SectionAside>
+      );
+    case 'contact':
+      return (
+        <SectionAside padded>
+          <AsideContact />
+        </SectionAside>
+      );
+    default:
+      return <SectionAside />;
+  }
+};

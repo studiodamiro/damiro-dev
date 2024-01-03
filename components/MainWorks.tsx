@@ -42,7 +42,7 @@ export default function MainWorks({ page }: MainProps) {
         <div className='h-10 w-full' />
         <ListProject page={page} />
       </SectionWriteup>
-      <SectionAside fixed paddedTop={false}>
+      <SectionAside fixed padded={false}>
         <AsideWorks />
       </SectionAside>
     </main>

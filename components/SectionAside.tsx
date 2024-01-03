@@ -2,12 +2,12 @@ import useMeasure from 'react-use-measure';
 import { cn } from '@/lib/utils';
 
 type SectionAsideProps = {
-  paddedTop?: boolean;
+  padded?: boolean;
   fixed?: boolean;
   children?: React.ReactNode;
 };
 
-export default function SectionAside({ children, paddedTop = false, fixed = false }: SectionAsideProps) {
+export default function SectionAside({ children, padded = false, fixed = false }: SectionAsideProps) {
   let [ref, { width }] = useMeasure();
 
   return (
@@ -20,7 +20,7 @@ export default function SectionAside({ children, paddedTop = false, fixed = fals
           'relative right-0 h-full z-0'
         )}
       >
-        {paddedTop && <span className='hidden lg:block w-full h-0 lg:h-[200px]' />}
+        {padded && <span className='hidden lg:block w-full h-0 lg:h-[200px]' />}
         {children}
       </section>
     </>

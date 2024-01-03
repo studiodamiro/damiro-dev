@@ -38,7 +38,7 @@ export default function MainMusings({ page }: MainProps) {
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>
-      <SectionAside fixed paddedTop={false}>
+      <SectionAside fixed padded={false}>
         <AsideMusings />
       </SectionAside>
     </main>

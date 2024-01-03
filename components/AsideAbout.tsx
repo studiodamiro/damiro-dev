@@ -3,7 +3,7 @@ import PillTech from './PillTech';
 const aboutItems = {
   backgrounds: 'Electronics Engineering, Masters in IT, Self-learned front-end developer',
   technologies:
-    'HTMLS5, CSS3, JavaScript, TypeScript, Tailwind CSS, NPM, Node JS, React JS, Next JS, Vite, Electron JS, Netlify, Vercel, Framer Motion, Flutter, Dart, Amazon Web Services, Google Cloud, PHP, MySQL',
+    'HTMLS5, CSS3, JavaScript, TypeScript, Tailwind CSS, NPM, Node JS, React JS, Next JS, Vite, Electron JS, Wordpress, Netlify, Vercel, Framer Motion, Flutter, Dart, Amazon Web Services, Google Cloud, PHP, MySQL',
   tools: 'Obsidian, VS Code, Github, Figma, Adobe Creative Suite, Open AI, Stable Diffusion, Codeium',
 };
 

@@ -1,6 +1,18 @@
 import { GrTechnology } from 'react-icons/gr';
 import { IoLogoElectron } from 'react-icons/io5';
-import { FaCode, FaGear, FaReact, FaNodeJs, FaHtml5, FaCss3, FaAws, FaGithub, FaPalette, FaPhp } from 'react-icons/fa6';
+import {
+  FaCode,
+  FaGear,
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3,
+  FaGithub,
+  FaPalette,
+  FaPhp,
+  FaAmazon,
+  FaWordpressSimple,
+} from 'react-icons/fa6';
 import {
   SiTailwindcss,
   SiNetlify,
@@ -35,6 +47,7 @@ export default function PillTech({ tech }: PillTechProps) {
     'Electronics Engineering': <FaGear />,
     'Masters in IT': <GrTechnology />,
     'Self-learned front-end developer': <FaCode />,
+
     // Technologies
     HTMLS5: <FaHtml5 />,
     CSS3: <FaCss3 />,
@@ -44,6 +57,7 @@ export default function PillTech({ tech }: PillTechProps) {
     Vite: <SiVite />,
     NPM: <SiNpm />,
     Vercel: <SiVercel />,
+    Wordpress: <FaWordpressSimple />,
     Flutter: <SiFlutter />,
     Dart: <SiDart />,
     PHP: <FaPhp />,
@@ -54,8 +68,9 @@ export default function PillTech({ tech }: PillTechProps) {
     'Node JS': <FaNodeJs />,
     'Electron JS': <IoLogoElectron />,
     'Framer Motion': <TbBrandFramerMotion />,
-    'Amazon Web Services': <FaAws />,
+    'Amazon Web Services': <FaAmazon />,
     'Google Cloud': <SiGooglecloud />,
+
     // Tools
     Obsidian: <SiObsidian />,
     Github: <FaGithub />,
@@ -68,9 +83,9 @@ export default function PillTech({ tech }: PillTechProps) {
   };
 
   return (
-    <div className='py-0.5 px-2.5 rounded-md text-xs md:text-sm flex flex-row items-center gap-1.5 font-medium tracking-wider dark:bg-black bg-zinc-200'>
+    <span className='py-0.5 px-2.5 rounded-md text-xs md:text-sm flex flex-row items-center gap-1.5 font-medium tracking-wider dark:bg-black bg-zinc-200'>
       {techIcons[tech as keyof typeof techIcons]}
       {tech}
-    </div>
+    </span>
   );
 }

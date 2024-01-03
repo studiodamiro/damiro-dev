@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
@@ -11,6 +11,8 @@ import AsideContact from './AsideContact';
 import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
 import AsideAbout from './AsideAbout';
+import { cn } from '@/lib/utils';
+import useMeasure from 'react-use-measure';
 
 type MainProps = {
   page: Page;
@@ -20,6 +22,7 @@ type MainProps = {
 export default function Main({ page }: MainProps) {
   const { setCover } = usePath();
   const { color, setColor } = useColor();
+  let [ref, { width }] = useMeasure();
 
   useEffect(() => {
     setColor && setColor('#71717a'); // Default primary color zinc-500
@@ -44,7 +47,7 @@ export default function Main({ page }: MainProps) {
         );
       case 'works':
         return (
-          <SectionAside fixed paddedTop={false}>
+          <SectionAside paddedTop={false}>
             <AsideWorks />
           </SectionAside>
         );
@@ -65,14 +68,21 @@ export default function Main({ page }: MainProps) {
     }
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(width < 1024 && (page.slugAsParams === 'hello' || page.slugAsParams === 'works'));
+  });
+
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row'>
+    <main ref={ref} className={cn(isMobile ? 'flex-col-reverse' : 'flex-col', 'w-full min-h-screen flex lg:flex-row')}>
       <SectionWriteup
         title={page.title}
         description={page.description}
         subText={page.subtext}
         preText={page.pretext}
         color={color}
+        slug={page.slugAsParams}
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>

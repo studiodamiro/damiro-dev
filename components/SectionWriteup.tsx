@@ -1,5 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useColor } from '@/providers/ColorProvider';
+import { cn } from '@/lib/utils';
+import useMeasure from 'react-use-measure';
 
 type SectionWriteupProps = {
   title?: string;
@@ -9,6 +11,7 @@ type SectionWriteupProps = {
   subText?: string;
   color?: string;
   children?: ReactNode;
+  slug?: string;
 };
 
 export default function SectionWriteup({
@@ -18,15 +21,25 @@ export default function SectionWriteup({
   smallDesc,
   subText,
   children,
+  slug,
 }: SectionWriteupProps) {
   const { color } = useColor();
+  const [showWorks, setShowWorks] = useState(false);
+
+  useEffect(() => {
+    setShowWorks(slug === 'works' || slug === 'hello');
+  }, []);
 
   return (
-    <section className='flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pt-20 pb-10 z-0'>
+    <section
+      className={cn('flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pb-8 z-0')}
+    >
+      <span className={cn('bg-red-500/30 w-full', showWorks ? 'h-0 lg:h-[170px]' : 'h-[170px] lg:h-[170px]')} />
+
       {/* PAGE TITLE */}
       <h1
         style={{ color: color }}
-        className='min-h-[100px] md:min-h-[200px] lg:min-h-[200px] flex items-end max-w-3xl font-fauna lowercase text-5xl md:text-7xl -ml-[4px] md:ml-[-6px] mb-0'
+        className={cn('flex items-end max-w-3xl font-fauna lowercase text-5xl md:text-7xl -ml-[4px] md:ml-[-6px] mb-0')}
       >
         {title}
       </h1>

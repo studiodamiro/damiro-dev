@@ -33,6 +33,7 @@ export default function MainMusings({ page }: MainProps) {
         description={page.title}
         smallDesc={page.description}
         subText={page.subtext}
+        slug={page.slugAsParams}
         color={color}
       >
         <Mdx code={page.body.code} />

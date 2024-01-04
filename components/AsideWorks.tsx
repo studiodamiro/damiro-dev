@@ -7,18 +7,17 @@ import shuffleArray from '@/lib/shuffleArray';
 import WorkEmblem from './WorkEmblem';
 
 export default function AsideWorks() {
-  const gridRows = 6;
-  const gridCols = 3;
-
-  let [ref, { width }] = useMeasure();
+  let [ref, { width, height }] = useMeasure();
+  const [gridRows, setGridRows] = useState(6);
   const [shuffledNumbers, setShuffledNumbers] = useState<number[]>([]);
 
   useEffect(() => {
-    setShuffledNumbers(shuffleArray(gridRows * gridCols));
-  }, []);
+    setShuffledNumbers(shuffleArray(16));
+    setGridRows(width > height ? 6 : 5);
+  }, [width, height]);
 
   return (
-    <section ref={ref} className='relative w-full h-auto lg:h-full flex flex-col justify-center lg:px-8'>
+    <section ref={ref} className='relative w-full h-auto lg:h-full flex flex-col justify-center '>
       <div className='flex flex-wrap'>
         {shuffledNumbers.map((number) =>
           allWorks[number - 1] ? (

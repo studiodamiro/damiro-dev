@@ -3,9 +3,10 @@ import { useState, useEffect, ReactNode } from 'react';
 interface ParallaxEffectProps {
   children: ReactNode;
   intensity: number;
+  enabled?: boolean;
 }
 
-export default function ParallaxEffect({ children, intensity }: ParallaxEffectProps) {
+export default function ParallaxEffect({ children, intensity, enabled = true }: ParallaxEffectProps) {
   const [transform, setTransform] = useState('translate(-50%, -50%)');
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -30,8 +31,14 @@ export default function ParallaxEffect({ children, intensity }: ParallaxEffectPr
   }, [intensity]);
 
   return (
-    <div style={{ transform }} className='transition-transform duration-100 ease-linear'>
-      {children}
-    </div>
+    <>
+      {enabled ? (
+        <div style={{ transform }} className='transition-transform duration-100 ease-linear'>
+          {children}
+        </div>
+      ) : (
+        <div>{children}</div>
+      )}
+    </>
   );
 }

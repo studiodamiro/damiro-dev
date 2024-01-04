@@ -38,7 +38,7 @@ export default function SectionWriteup({
     >
       {/* PAGE TITLE */}
       <h1
-        style={{ color: color }}
+        style={{ textWrap: 'balance', color: color }}
         className={cn(
           showWorks ? 'min-h-[0px] lg:min-h-[200px]' : 'min-h-[150px] md:min-h-[200px] lg:min-h-[200px]',
           'flex items-end max-w-3xl font-fauna lowercase text-5xl md:text-7xl -ml-[4px] md:ml-[-6px] mb-0'

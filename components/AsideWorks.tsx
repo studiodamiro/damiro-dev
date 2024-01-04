@@ -8,7 +8,7 @@ import WorkEmblem from './WorkEmblem';
 
 export default function AsideWorks() {
   const gridRows = 6;
-  const gridCols = 3;
+  const gridCols = 4;
 
   let [ref, { width }] = useMeasure();
   const [shuffledNumbers, setShuffledNumbers] = useState<number[]>([]);

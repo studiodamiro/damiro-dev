@@ -1,5 +1,6 @@
 ---
-company: Reel Reflections
+company: Green grains md
+pretext: Provides green grains
 description: A not so ordinary movie blog
 date: 2023-03-04
 works: web dev't, identity

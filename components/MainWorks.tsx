@@ -22,7 +22,6 @@ export default function MainWorks({ page }: MainProps) {
 
   useEffect(() => {
     setColor && setColor(`#${page.colors.split(', ')[0]}`);
-
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -45,6 +44,7 @@ export default function MainWorks({ page }: MainProps) {
           <ListProject page={page} />
         </div>
       </SectionWriteup>
+
       <SectionAside fixed padded={false}>
         <div className='w-full aspect-[3/4] sm:aspect-square md:aspect-[4/3] lg:h-full bg-red-500/10'>
           <div className='block lg:hidden absolute bottom-9 pl-[70px] md:pl-[152px] pr-8 w-full sm:w-4/5 md:w-3/4'>

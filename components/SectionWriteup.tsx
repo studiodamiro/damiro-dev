@@ -36,6 +36,8 @@ export default function SectionWriteup({
         showWorks ? 'pt-0 lg:pt-20' : 'lg:pt-20'
       )}
     >
+      <div className='fixed top-0 left-0 w-full h-16 z-[29] bg-gradient-to-t from-0% to-80% from-transparent to-zinc-300 dark:from-transparent dark:to-zinc-900' />
+
       {/* PAGE TITLE */}
       <h1
         style={{ textWrap: 'balance', color: color }}
@@ -90,7 +92,7 @@ export default function SectionWriteup({
           className={cn(
             'prose prose-zinc dark:prose-invert prose-sm md:prose-base prose-quoteless',
             'max-w-lg md:max-w-xl lg:max-w-3xl leading-loose',
-            'pl-0 md:pl-[68px] text-zinc-600 dark:text-zinc-400'
+            'pl-0 md:pl-[68px] pb-8 text-zinc-600 dark:text-zinc-400'
           )}
         >
           {children}

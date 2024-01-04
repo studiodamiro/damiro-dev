@@ -1,22 +1,30 @@
 import { useEffect, useState } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { usePath } from '@/providers/PathProvider';
+import getRandomRotation from '@/lib/getRandomRotation';
 
 type WorkEmblemProps = {
+  index?: number;
   work: Work;
   width: number;
   empty?: boolean;
 };
 
-const getRandomRotation = (range: number) => {
-  const min = -range;
-  const max = range;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-export default function WorkEmblem({ work, width, empty = false }: WorkEmblemProps) {
+export default function WorkEmblem({ index, work, width, empty = false }: WorkEmblemProps) {
   const { setPath } = usePath();
   const [isHovered, setIsHovered] = useState(false);
+  const [scale, setScale] = useState(0.5);
+
+  useEffect(() => {
+    if (!work) return;
+    if (work.works.split(', ')[0] === "web dev't") {
+      setScale(0.9);
+    } else if (work.works.split(', ')[0] === 'identity') {
+      setScale(0.6);
+    } else {
+      setScale(0.4);
+    }
+  }, []);
 
   return (
     <>
@@ -32,7 +40,7 @@ export default function WorkEmblem({ work, width, empty = false }: WorkEmblemPro
           onMouseOut={() => setIsHovered(false)}
           style={{
             width: `${width}px`,
-            scale: 0.75,
+            scale: scale,
             backgroundColor: isHovered ? `#${work.colors.split(', ')[0]}` : '#71717a33',
             rotate: isHovered ? '0deg' : `${getRandomRotation(10)}deg`,
           }}

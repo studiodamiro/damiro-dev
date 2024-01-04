@@ -3,12 +3,19 @@ import { cn } from '@/lib/utils';
 
 type SectionAsideProps = {
   padded?: boolean;
+  margined?: boolean;
   fixed?: boolean;
   children?: React.ReactNode;
   className?: string;
 };
 
-export default function SectionAside({ children, padded = false, fixed = false, className }: SectionAsideProps) {
+export default function SectionAside({
+  children,
+  padded = false,
+  margined = false,
+  fixed = false,
+  className,
+}: SectionAsideProps) {
   let [ref, { width }] = useMeasure();
 
   return (
@@ -17,8 +24,9 @@ export default function SectionAside({ children, padded = false, fixed = false, 
       <section
         style={{ width: `${width}px` }}
         className={cn(
-          fixed ? 'lg:fixed' : 'lg:absolute pr-4 md:pr-8 pl-[70px] md:pl-[84px] lg:pl-8 lg:pt-20 pb-8',
-          'relative right-0 h-full',
+          'right-0 h-full',
+          fixed ? 'lg:fixed' : 'lg:absolute lg:pt-20',
+          margined ? 'pl-[70px] md:pl-[84px] lg:pl-8 pr-4 md:pr-8' : 'pl-0',
           className
         )}
       >

@@ -1,9 +1,8 @@
 ---
 company: Mamerto Builders
-description: A reason for being
-date: 2023-03-04
+description: A reason for being is mamerto building
+date: 2023-03-05
 works: identity
-technologies:
 tools: Obsidian, Figma, Adobe Creative Suite
 links: none, mamerto-builders
 colors: 71717a, 27272a, e4e4e7

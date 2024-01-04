@@ -63,7 +63,7 @@ const renderAsideComponent = (slug: string) => {
       );
     case 'about':
       return (
-        <SectionAside padded>
+        <SectionAside padded margined>
           <AsideAbout />
         </SectionAside>
       );
@@ -75,13 +75,13 @@ const renderAsideComponent = (slug: string) => {
       );
     case 'musings':
       return (
-        <SectionAside>
+        <SectionAside padded margined>
           <AsideMusings />
         </SectionAside>
       );
     case 'contact':
       return (
-        <SectionAside padded>
+        <SectionAside padded margined>
           <AsideContact />
         </SectionAside>
       );

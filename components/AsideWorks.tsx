@@ -8,7 +8,7 @@ import WorkEmblem from './WorkEmblem';
 
 export default function AsideWorks() {
   const gridRows = 6;
-  const gridCols = 4;
+  const gridCols = 3;
 
   let [ref, { width }] = useMeasure();
   const [shuffledNumbers, setShuffledNumbers] = useState<number[]>([]);
@@ -18,7 +18,7 @@ export default function AsideWorks() {
   }, []);
 
   return (
-    <section ref={ref} className='relative w-full h-auto lg:h-full flex flex-col justify-center'>
+    <section ref={ref} className='relative w-full h-auto lg:h-full flex flex-col justify-center lg:px-8'>
       <div className='flex flex-wrap'>
         {shuffledNumbers.map((number) =>
           allWorks[number - 1] ? (

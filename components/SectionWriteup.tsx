@@ -32,17 +32,24 @@ export default function SectionWriteup({
   return (
     <section
       className={cn(
-        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full pb-8 lg:h-screen z-0',
+        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full pb-0 md:pb-2 lg:pb-4 lg:h-screen z-0',
         showWorks ? 'pt-0 lg:pt-20' : 'lg:pt-20'
       )}
     >
-      <div className='fixed top-0 left-0 w-full h-16 z-[29] bg-gradient-to-t from-0% to-80% from-transparent to-zinc-300 dark:from-transparent dark:to-zinc-900' />
+      {/* GRADIENT */}
+      <div
+        className={cn(
+          'hidden fixed top-0 left-0 w-full h-16 z-[29] bg-gradient-to-t from-0% to-90%',
+          'from-transparent to-zinc-300 dark:to-zinc-900',
+          'transition-colors duration-1000 ease-out'
+        )}
+      />
 
       {/* PAGE TITLE */}
       <h1
         style={{ textWrap: 'balance', color: color }}
         className={cn(
-          showWorks ? 'min-h-[0px] lg:min-h-[200px]' : 'min-h-[150px] md:min-h-[200px] lg:min-h-[200px]',
+          showWorks ? 'min-h-[0px] lg:min-h-[200px]' : 'min-h-[180px] md:min-h-[200px] lg:min-h-[200px]',
           'flex items-end max-w-3xl font-fauna lowercase text-5xl md:text-7xl -ml-[4px] md:ml-[-6px] mb-0'
         )}
       >

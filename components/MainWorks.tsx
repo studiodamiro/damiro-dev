@@ -9,6 +9,7 @@ import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
+import ListTools from './ListTools';
 
 type MainProps = {
   page: Work;
@@ -38,17 +39,18 @@ export default function MainWorks({ page }: MainProps) {
         <Mdx code={page.body.code} />
         <div className='lg:block hidden'>
           {page.body.raw && <div className='h-4 w-full' />}
-          <ListTech page={page} />
-          <div className='h-10 w-full' />
+          {page.technologies && <ListTech page={page} />}
+          {page.tools && <ListTools page={page} />}
+          {(page.technologies || page.tools) && <div className='h-10 w-full' />}
           <ListProject page={page} />
         </div>
       </SectionWriteup>
       <SectionAside fixed padded={false}>
-        <div className='w-full aspect-[3/4] sm:aspect-square md:aspect-[4/3] lg:h-full'>
+        <div className='w-full aspect-[3/4] sm:aspect-square md:aspect-[4/3] lg:h-full bg-red-500/10'>
           <div className='block lg:hidden absolute bottom-9 pl-[70px] md:pl-[152px] pr-8 w-full sm:w-4/5 md:w-3/4'>
-            {page.body.raw && <div className='h-4 w-full' />}
-            <ListTech page={page} />
-            <div className='h-8 md:h-10 w-full' />
+            {page.technologies && <ListTech page={page} />}
+            {page.tools && <ListTools page={page} />}
+            {(page.technologies || page.tools) && <div className='h-8 md:h-10 w-full' />}
             <ListProject page={page} />
           </div>
         </div>

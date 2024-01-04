@@ -32,7 +32,7 @@ export default function SectionWriteup({
   return (
     <section
       className={cn(
-        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full lg:h-screen pb-7 z-0',
+        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full pb-8 lg:h-screen z-0',
         showWorks ? 'pt-0 lg:pt-20' : 'lg:pt-20'
       )}
     >
@@ -90,7 +90,7 @@ export default function SectionWriteup({
           className={cn(
             'prose prose-zinc dark:prose-invert prose-sm md:prose-base prose-quoteless',
             'max-w-lg md:max-w-xl lg:max-w-3xl leading-loose',
-            'pl-0 md:pl-[68px] pb-0 lg:pb-8 text-zinc-600 dark:text-zinc-400'
+            'pl-0 md:pl-[68px] text-zinc-600 dark:text-zinc-400'
           )}
         >
           {children}

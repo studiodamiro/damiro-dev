@@ -21,7 +21,7 @@ export default function AsideWorks() {
       <div className='flex flex-wrap'>
         {shuffledNumbers.map((number) =>
           allWorks[number - 1] ? (
-            <WorkEmblem key={number} work={allWorks[number - 1]} width={width / gridRows} />
+            <WorkEmblem key={number} work={allWorks[number - 1]} width={width / gridRows} enabled={width > 512} />
           ) : (
             <WorkEmblem key={number} work={allWorks[number - 1]} width={width / gridRows} empty />
           )

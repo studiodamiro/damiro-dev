@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { usePath } from '@/providers/PathProvider';
+import { cn } from '@/lib/utils';
 import getRandomRotation from '@/lib/getRandomRotation';
 import ParallaxEffect from './ParallaxEffect';
-import { cn } from '@/lib/utils';
 
 type WorkEmblemProps = {
   index?: number;
   work: Work;
   width: number;
   empty?: boolean;
+  enabled?: boolean;
 };
 
-export default function WorkEmblem({ index, work, width, empty = false }: WorkEmblemProps) {
+export default function WorkEmblem({ index, work, width, empty = false, enabled = false }: WorkEmblemProps) {
   const { setPath } = usePath();
   const [isHovered, setIsHovered] = useState(false);
   const [scale, setScale] = useState(0.5);
@@ -40,7 +41,7 @@ export default function WorkEmblem({ index, work, width, empty = false }: WorkEm
           className='flex items-center justify-center text-center aspect-square bg-transparent'
         />
       ) : (
-        <ParallaxEffect intensity={scale * (scale / 2)} enabled={width > 1024}>
+        <ParallaxEffect intensity={scale * (scale / 2)} enabled={enabled}>
           <div
             onClick={() => setPath(work.slug)}
             onMouseOver={() => setIsHovered(true)}

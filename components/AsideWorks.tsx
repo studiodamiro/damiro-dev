@@ -46,7 +46,7 @@ export default function AsideWorks() {
   };
 
   return (
-    <section ref={ref} className='relative w-full aspect-[4/3] lg:h-full bg-red-500/0'>
+    <section ref={ref} className='relative w-full aspect-[4/3] lg:h-full bg-red-500/0 '>
       {allWorks.map((work, index) => {
         const position = positions[index];
         if (!position) return null;

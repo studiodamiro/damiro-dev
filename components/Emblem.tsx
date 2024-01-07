@@ -5,8 +5,10 @@ import { cn } from '@/lib/utils';
 import { usePath } from '@/providers/PathProvider';
 import adjustHexColor from '@/lib/adjustHexColor';
 import getRandomRotation from '@/lib/getRandomRotation';
+import { motion } from 'framer-motion';
 
 type EmblemProps = {
+  index?: number;
   style?: CSSProperties;
   work: Work;
   width: number;
@@ -14,7 +16,7 @@ type EmblemProps = {
   position: { left: number; top: number };
 };
 
-export default function Emblem({ width, position, work, parallax = false }: EmblemProps) {
+export default function Emblem({ index = 0, width, position, work, parallax = false }: EmblemProps) {
   const { setPath } = usePath();
   const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
 
@@ -50,17 +52,16 @@ export default function Emblem({ width, position, work, parallax = false }: Embl
   }, [width]);
 
   return (
-    <div
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.3 * index }}
       style={{
         width: width,
         left: position.left + displacement.x,
         top: position.top + displacement.y,
-        scale: isHovered ? 1 : scale,
       }}
-      className={cn(
-        'absolute cursor-pointer aspect-square transition-[scale] duration-300 ease-out bg-red-500/0',
-        isHovered ? 'z-[1]' : 'z-0'
-      )}
+      className={cn('absolute cursor-pointer aspect-square bg-red-500/0', isHovered ? 'z-[1]' : 'z-0')}
     >
       <div
         onClick={() => setPath(work.slug)}
@@ -69,6 +70,7 @@ export default function Emblem({ width, position, work, parallax = false }: Embl
         style={{
           width: width,
           height: width,
+          scale: isHovered ? 1 : scale,
           rotate: isHovered ? '0deg' : `${getRandomRotation(10)}deg`,
           backgroundColor: isHovered
             ? adjustHexColor(`#${work.colors.split(', ')[0]}`, theme === 'dark' ? 'dark' : 'light', 50)
@@ -79,11 +81,11 @@ export default function Emblem({ width, position, work, parallax = false }: Embl
           scale === md && 'lg:blur-[2px]',
           scale === lg && 'lg:blur-none',
           'flex items-center justify-center text-center hover:blur-none rounded-md',
-          'transition-all duration-300 delay-100 ease-out'
+          'transition-[all] duration-300 delay-100 ease-out'
         )}
       >
         {work.company}
       </div>
-    </div>
+    </motion.div>
   );
 }

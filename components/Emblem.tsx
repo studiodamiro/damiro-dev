@@ -10,10 +10,11 @@ type EmblemProps = {
   style?: CSSProperties;
   work: Work;
   width: number;
+  parallax?: boolean;
   position: { left: number; top: number };
 };
 
-export default function Emblem({ width, position, work }: EmblemProps) {
+export default function Emblem({ width, position, work, parallax = false }: EmblemProps) {
   const { setPath } = usePath();
   const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
 
@@ -40,36 +41,34 @@ export default function Emblem({ width, position, work }: EmblemProps) {
     const handleMouseMove = (e: MouseEvent) => {
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
-
       const displacementX = ((e.clientX - centerX) / centerX) * width * scale;
       const displacementY = ((e.clientY - centerY) / centerY) * width * scale;
-
       setDisplacement({ x: -displacementX, y: -displacementY });
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
+    parallax && window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [width]);
 
   return (
     <div
-      onClick={() => setPath(work.slug)}
-      onMouseOver={() => setIsHovered(true)}
-      onMouseOut={() => setIsHovered(false)}
       style={{
         width: width,
         left: position.left + displacement.x,
         top: position.top + displacement.y,
-
-        //
+        scale: isHovered ? 1 : scale,
       }}
-      className={cn('absolute cursor-pointer aspect-square rounded-lg', isHovered ? 'z-10' : 'z-0')}
+      className={cn(
+        'absolute cursor-pointer aspect-square transition-[scale] duration-300 ease-out bg-red-500/0',
+        isHovered ? 'z-[1]' : 'z-0'
+      )}
     >
       <div
+        onClick={() => setPath(work.slug)}
+        onMouseOver={() => setIsHovered(true)}
+        onMouseOut={() => setIsHovered(false)}
         style={{
           width: width,
           height: width,
-          scale: isHovered ? 1 : scale,
           rotate: isHovered ? '0deg' : `${getRandomRotation(10)}deg`,
           backgroundColor: isHovered
             ? adjustHexColor(`#${work.colors.split(', ')[0]}`, theme === 'dark' ? 'dark' : 'light', 50)
@@ -79,7 +78,8 @@ export default function Emblem({ width, position, work }: EmblemProps) {
           scale === sm && 'lg:blur-[6px]',
           scale === md && 'lg:blur-[2px]',
           scale === lg && 'lg:blur-none',
-          'transition-all duration-300 ease-in-out hover:blur-none rounded-md'
+          'flex items-center justify-center text-center hover:blur-none rounded-md',
+          'transition-all duration-300 delay-100 ease-out'
         )}
       >
         {work.company}

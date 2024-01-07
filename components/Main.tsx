@@ -48,16 +48,16 @@ export default function Main({ page }: MainProps) {
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>
-      {renderAsideComponent(page.slugAsParams)}
+      {renderAsideComponent(page.slugAsParams, width)}
     </main>
   );
 }
 
-const renderAsideComponent = (slug: string) => {
+const renderAsideComponent = (slug: string, width: number) => {
   switch (slug) {
     case 'hello':
       return (
-        <SectionAside>
+        <SectionAside margined={width > 1024}>
           <AsideWorks />
         </SectionAside>
       );
@@ -69,7 +69,7 @@ const renderAsideComponent = (slug: string) => {
       );
     case 'works':
       return (
-        <SectionAside>
+        <SectionAside margined={width > 1024}>
           <AsideWorks />
         </SectionAside>
       );

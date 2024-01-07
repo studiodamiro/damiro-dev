@@ -2,19 +2,19 @@
 
 import { useEffect, useState } from 'react';
 import { allWorks } from '@/.contentlayer/generated';
+import { cn } from '@/lib/utils';
 import useMeasure from 'react-use-measure';
 import Emblem from './Emblem';
 
 export default function AsideWorks() {
   let [ref, { width, height }] = useMeasure();
-  const [gridRows, setGridRows] = useState(6);
-
+  const [gridRows, setGridRows] = useState(7);
   const [positions, setPositions] = useState<{ left: number; top: number }[]>([]);
 
   useEffect(() => {
-    // setGridRows(width > height ? 7 : 5);
+    // setGridRows(width < 512 ? 6 : 6);
     setPositions(generatePositions(allWorks.length));
-  }, [width, height, allWorks.length]);
+  }, [width]);
 
   const getRandomPosition = (): { left: number; top: number } => ({
     left: Math.random() * (width - width / gridRows),
@@ -46,7 +46,7 @@ export default function AsideWorks() {
   };
 
   return (
-    <section ref={ref} className='relative w-full aspect-[4/3] lg:h-full bg-red-500/0 '>
+    <section ref={ref} className={cn('relative w-full aspect-[4/3] md:aspect-video h-full bg-red-500/0 -lg:mb-8')}>
       {allWorks.map((work, index) => {
         const position = positions[index];
         if (!position) return null;
@@ -57,6 +57,7 @@ export default function AsideWorks() {
             work={work}
             width={width / gridRows}
             position={{ left: position.left, top: position.top }}
+            parallax={width > 768}
           />
         );
       })}

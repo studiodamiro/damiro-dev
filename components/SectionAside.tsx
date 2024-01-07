@@ -26,7 +26,7 @@ export default function SectionAside({
         className={cn(
           'right-0 h-full',
           fixed ? 'lg:fixed' : 'lg:absolute lg:pt-20',
-          margined ? 'pl-[70px] md:pl-[84px] lg:pl-8 pr-4 md:pr-8' : 'pl-0',
+          margined ? 'pl-[70px] md:pl-[84px] lg:pl-8 pr-4 md:pr-8 pb-8' : 'pl-0',
           className
         )}
       >

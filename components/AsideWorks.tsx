@@ -56,7 +56,7 @@ export default function AsideWorks() {
             work={work}
             width={width / gridRows}
             position={{ left: position.left, top: position.top }}
-            parallax={width > 768}
+            parallax={width > 512}
             index={index}
           />
         );

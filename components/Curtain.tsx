@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import useMousePosition from '@/lib/useMousePosition';
 
 export default function Curtain() {
-  const duration = 0.5;
+  const duration = 0.7;
   const mouse = useMousePosition();
   const route = useRouter();
   const { path, cover, setCover } = usePath();

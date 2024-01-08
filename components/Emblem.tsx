@@ -95,7 +95,7 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
         {RenderEmblem ? (
           <RenderEmblem
             color={isHovered ? `#${work.colors.split(', ')[0]}` : theme === 'light' ? '#09090b' : '#fafafa'}
-            secColor={isHovered ? `#${work.colors.split(', ')[1]}` : theme === 'light' ? '#3f3f46' : '#d4d4d8'}
+            secColor={isHovered ? `#${work.colors.split(', ')[1]}` : theme === 'light' ? '#52525b' : '#a1a1aa'}
           />
         ) : (
           work.slugAsParams

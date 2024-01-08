@@ -6,6 +6,7 @@ import { usePath } from '@/providers/PathProvider';
 import adjustHexColor from '@/lib/adjustHexColor';
 import getRandomRotation from '@/lib/getRandomRotation';
 import { motion } from 'framer-motion';
+import { projectEmblems } from '@/data/projectEmblems';
 
 type EmblemProps = {
   index?: number;
@@ -38,6 +39,8 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
       setScale(sm);
     }
   }, []);
+
+  const RenderEmblem = projectEmblems[work.slugAsParams as keyof typeof projectEmblems];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -73,18 +76,30 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
           scale: isHovered ? 1 : scale,
           rotate: isHovered ? '0deg' : `${getRandomRotation(10)}deg`,
           backgroundColor: isHovered
-            ? adjustHexColor(`#${work.colors.split(', ')[0]}`, theme === 'dark' ? 'dark' : 'light', 50)
-            : adjustHexColor('#71717a', theme === 'dark' ? 'dark' : 'light', 100 - scale * 100),
+            ? theme === 'light'
+              ? `#${work.colors.split(', ')[work.colors.split(', ').length - 2]}`
+              : `#${work.colors.split(', ')[work.colors.split(', ').length - 1]}`
+            : theme === 'light'
+            ? '#e4e4e7'
+            : '#27272a',
         }}
         className={cn(
           scale === sm && 'lg:blur-[6px]',
           scale === md && 'lg:blur-[2px]',
           scale === lg && 'lg:blur-none',
           'flex items-center justify-center text-center hover:blur-none rounded-md',
-          'transition-[all] duration-300 delay-100 ease-out'
+          'transition-[all] duration-300 delay-100 ease-out',
+          'w-full h-full aspect-square overflow-hidden'
         )}
       >
-        {work.company}
+        {RenderEmblem ? (
+          <RenderEmblem
+            color={isHovered ? `#${work.colors.split(', ')[0]}` : theme === 'light' ? '#09090b' : '#fafafa'}
+            secColor={isHovered ? `#${work.colors.split(', ')[1]}` : theme === 'light' ? '#3f3f46' : '#d4d4d8'}
+          />
+        ) : (
+          work.slugAsParams
+        )}
       </div>
     </motion.div>
   );

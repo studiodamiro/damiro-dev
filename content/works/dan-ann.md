@@ -6,5 +6,5 @@ works: identity, branding
 technologies:
 tools: Obsidian, Figma, Adobe Creative Suite
 links: none, dan-ann-nuptials
-colors: 613548, EEE08E, A1AE64, 24817D, 1A3525
+colors: BFAA4D, DFD5AF, 362E0D
 ---

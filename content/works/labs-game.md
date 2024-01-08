@@ -6,5 +6,5 @@ works: identity, game dev't
 technologies:
 tools: Obsidian, Figma, Adobe Creative Suite
 links: none, labs-game
-colors: 613548, EEE08E, A1AE64, 24817D, 1A3525
+colors: ffffff, 7E7E7E, 0F0F0F
 ---

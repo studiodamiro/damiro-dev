@@ -8,11 +8,10 @@ import Emblem from './Emblem';
 
 export default function AsideWorks() {
   let [ref, { width, height }] = useMeasure();
-  const [gridRows, setGridRows] = useState(7);
+  const [gridRows] = useState(7);
   const [positions, setPositions] = useState<{ left: number; top: number }[]>([]);
 
   useEffect(() => {
-    // setGridRows(width < 512 ? 6 : 6);
     setPositions(generatePositions(allWorks.length));
   }, [width]);
 
@@ -22,7 +21,7 @@ export default function AsideWorks() {
   });
 
   const doesOverlap = (pos1: { left: number; top: number }, pos2: { left: number; top: number }): boolean => {
-    const emblemSize = width / gridRows;
+    const emblemSize = width < height ? width / gridRows : height / gridRows;
     const horizontalOverlap = pos1.left < pos2.left + emblemSize && pos1.left + emblemSize > pos2.left;
     const verticalOverlap = pos1.top < pos2.top + emblemSize && pos1.top + emblemSize > pos2.top;
     return horizontalOverlap && verticalOverlap;

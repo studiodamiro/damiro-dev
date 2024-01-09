@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import { Mdx } from './Mdx';
+import { useTheme } from 'next-themes';
 import { usePath } from '@/providers/PathProvider';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
-import { useTheme } from 'next-themes';
 
 type MainProps = {
   page: Work;
@@ -20,10 +20,11 @@ type MainProps = {
 export default function MainWorks({ page }: MainProps) {
   const { setCover } = usePath();
   const { theme } = useTheme();
-  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
+  const { setColor, setColorArray, lightColor, darkColor } = useColor();
 
   useEffect(() => {
     setColorArray && setColorArray(page.colors.split(', '));
+    setColor && setColor(`#${page.colors.split(', ')[0]}`);
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);

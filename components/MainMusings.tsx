@@ -5,6 +5,7 @@ import { Mdx } from './Mdx';
 import { useEffect } from 'react';
 import { useColor } from '@/providers/ColorProvider';
 import { usePath } from '@/providers/PathProvider';
+import { useTheme } from 'next-themes';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import AsideMusings from './AsideMusings';
@@ -16,10 +17,12 @@ type MainProps = {
 
 export default function MainMusings({ page }: MainProps) {
   const { setCover } = usePath();
-  const { color, setColor } = useColor();
+  const { theme } = useTheme();
+  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor(`#${page.colors?.split(', ')[0]}`);
+    setColorArray && setColorArray(page.colors!.split(', '));
+    setColor && setColor(`#${page.colors!.split(', ')[0]}`);
 
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
@@ -34,7 +37,7 @@ export default function MainMusings({ page }: MainProps) {
         smallDesc={page.description}
         subText={page.subtext}
         slug={page.slugAsParams}
-        color={color}
+        color={theme === 'light' ? darkColor : lightColor}
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>

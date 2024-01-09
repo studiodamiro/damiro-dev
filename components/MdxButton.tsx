@@ -4,6 +4,8 @@ import { ReactNode, useState } from 'react';
 import { useColor } from '@/providers/ColorProvider';
 import { isDarkColor } from '@/lib/isDarkColor';
 import { usePath } from '@/providers/PathProvider';
+import { useTheme } from 'next-themes';
+import adjustHexColor from '@/lib/adjustHexColor';
 
 type MdxButtonProps = {
   href: string;
@@ -11,6 +13,7 @@ type MdxButtonProps = {
 };
 
 export default function MdxButton({ href, children }: MdxButtonProps) {
+  const { theme } = useTheme();
   const { color, lightColor, darkColor } = useColor();
   const [isHovered, setIsHovered] = useState(false);
   const { setPath } = usePath();
@@ -22,7 +25,13 @@ export default function MdxButton({ href, children }: MdxButtonProps) {
       onClick={() => setPath(href)}
       style={{
         color: isDarkColor(color) ? '#f4f4f5' : '#18181b',
-        backgroundColor: isHovered ? color : isDarkColor(color) ? darkColor : lightColor,
+        backgroundColor: isHovered
+          ? isDarkColor(color)
+            ? adjustHexColor(color, 'light', 20)
+            : adjustHexColor(color, 'dark', 20)
+          : isDarkColor(color)
+          ? darkColor
+          : lightColor,
       }}
       className='py-1 pl-3 pr-2.5 text-[0.85rem] font-semibold rounded-sm tracking-widest no-underline transition-colors duration-150 ease-out cursor-pointer'
     >

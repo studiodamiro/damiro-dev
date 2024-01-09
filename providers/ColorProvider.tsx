@@ -27,8 +27,8 @@ interface ColorProviderProps {
 }
 
 export function ColorProvider({ children }: ColorProviderProps) {
-  const initialColor = '#71717a';
-  const initialColorArray = ['e4e4e7', 'a1a1aa', '52525b', '27272a'];
+  const initialColor = '#52525b';
+  const initialColorArray = ['52525b', 'd4d4d8', 'a1a1aa', '3f3f46'];
 
   const [color, setColor] = useState<string>(initialColor);
   const [colorArray, setColorArray] = useState<string[]>(initialColorArray);

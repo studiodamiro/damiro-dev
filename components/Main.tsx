@@ -22,12 +22,13 @@ type MainProps = {
 
 export default function Main({ page }: MainProps) {
   const { theme } = useTheme();
-  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
+  const { setColor, setColorArray, lightColor, darkColor } = useColor();
   let [ref, { width }] = useMeasure();
   const { setCover } = usePath();
 
   useEffect(() => {
-    setColorArray && setColorArray(['e4e4e7', 'a1a1aa', '52525b', '27272a']);
+    setColorArray && setColorArray(['52525b', 'd4d4d8', 'a1a1aa', '3f3f46']);
+    setColor && setColor('#52525b');
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);

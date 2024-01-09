@@ -10,6 +10,7 @@ import SectionAside from './SectionAside';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
+import { useTheme } from 'next-themes';
 
 type MainProps = {
   page: Work;
@@ -18,10 +19,11 @@ type MainProps = {
 
 export default function MainWorks({ page }: MainProps) {
   const { setCover } = usePath();
-  const { color, setColor } = useColor();
+  const { theme } = useTheme();
+  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
 
   useEffect(() => {
-    setColor && setColor(`#${page.colors.split(', ')[0]}`);
+    setColorArray && setColorArray(page.colors.split(', '));
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -33,7 +35,7 @@ export default function MainWorks({ page }: MainProps) {
         description={page.description}
         subText={page.subtext}
         preText={page.works.split(', ').join(' / ')}
-        color={color}
+        color={theme === 'light' ? darkColor : lightColor}
       >
         <Mdx code={page.body.code} />
         <div className='lg:block hidden'>

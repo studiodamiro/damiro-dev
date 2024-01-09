@@ -45,7 +45,10 @@ export default function AsideWorks() {
   };
 
   return (
-    <section ref={ref} className={cn('relative w-full aspect-[4/3] md:aspect-video h-full bg-red-500/0 -lg:mb-8')}>
+    <section
+      ref={ref}
+      className={cn('relative w-full aspect-[4/3] md:aspect-video h-full mt-8 sm:mt-0 -lg:mb-8 bg-red-500/0')}
+    >
       {allWorks.map((work, index) => {
         const position = positions[index];
         if (!position) return null;
@@ -56,7 +59,7 @@ export default function AsideWorks() {
             work={work}
             width={width / gridRows}
             position={{ left: position.left, top: position.top }}
-            parallax={width > 512}
+            parallax={window.innerWidth > 1024}
             index={index}
           />
         );

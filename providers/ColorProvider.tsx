@@ -1,21 +1,17 @@
 'use client';
 
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
-import adjustHexColor from '@/lib/adjustHexColor';
+import { getLightestAndDarkest } from '@/lib/getLightestAndDarkest';
 
 interface ColorProps {
   color: string;
-  secColor?: string;
+  colorArray?: string[];
   lightColor?: string;
-  secLightColor?: string;
   darkColor?: string;
-  secDarkColor?: string;
   setColor?: Dispatch<SetStateAction<string>>;
-  setSecColor?: Dispatch<SetStateAction<string>>;
+  setColorArray?: Dispatch<SetStateAction<string[]>>;
   setLightColor?: Dispatch<SetStateAction<string>>;
-  setSecLightColor?: Dispatch<SetStateAction<string>>;
   setDarkColor?: Dispatch<SetStateAction<string>>;
-  setSecDarkColor?: Dispatch<SetStateAction<string>>;
 }
 
 const ColorContext = createContext<ColorProps | undefined>(undefined);
@@ -31,38 +27,31 @@ interface ColorProviderProps {
 }
 
 export function ColorProvider({ children }: ColorProviderProps) {
-  const initialColor = '#71717a'; // zinc-500
-  const initialSecColor = '#27272a'; // zinc-800
+  const initialColor = '#71717a';
+  const initialColorArray = ['e4e4e7', 'a1a1aa', '52525b', '27272a'];
 
   const [color, setColor] = useState<string>(initialColor);
+  const [colorArray, setColorArray] = useState<string[]>(initialColorArray);
   const [lightColor, setLightColor] = useState<string>(initialColor);
   const [darkColor, setDarkColor] = useState<string>(initialColor);
-  const [secColor, setSecColor] = useState<string>(initialSecColor);
-  const [secLightColor, setSecLightColor] = useState<string>(initialSecColor);
-  const [secDarkColor, setSecDarkColor] = useState<string>(initialSecColor);
 
   useEffect(() => {
-    setLightColor(adjustHexColor(color, 'light', 70));
-    setDarkColor(adjustHexColor(color, 'dark', 30));
-    setSecLightColor(adjustHexColor(secColor, 'light', 20));
-    setSecDarkColor(adjustHexColor(secColor, 'dark', 20));
-  }, [color, secColor]);
+    const [lightestColor, darkestColor] = getLightestAndDarkest(colorArray);
+    setLightColor(`#${lightestColor}`);
+    setDarkColor(`#${darkestColor}`);
+  }, [colorArray]);
 
   return (
     <ColorContext.Provider
       value={{
         color,
+        colorArray,
         lightColor,
         darkColor,
-        secLightColor,
-        secColor,
-        secDarkColor,
         setColor,
+        setColorArray,
         setLightColor,
         setDarkColor,
-        setSecColor,
-        setSecLightColor,
-        setSecDarkColor,
       }}
     >
       {children}

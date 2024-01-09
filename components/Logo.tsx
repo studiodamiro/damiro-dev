@@ -13,7 +13,7 @@ type LogoProps = {
 
 export default function Logo({ damiro = false, scrollY, className }: LogoProps) {
   const { theme } = useTheme();
-  const { color, lightColor, darkColor } = useColor();
+  const { lightColor, darkColor } = useColor();
   const { setPath } = usePath();
 
   return (

@@ -1,12 +1,12 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import { Work } from '@/.contentlayer/generated/types';
 import { useTheme } from 'next-themes';
-import { cn } from '@/lib/utils';
 import { usePath } from '@/providers/PathProvider';
-import adjustHexColor from '@/lib/adjustHexColor';
-import getRandomRotation from '@/lib/getRandomRotation';
 import { motion } from 'framer-motion';
 import { projectEmblems } from '@/data/projectEmblems';
+import { cn } from '@/lib/utils';
+import getRandomRotation from '@/lib/getRandomRotation';
+import adjustHexColor from '@/lib/adjustHexColor';
 
 type EmblemProps = {
   index?: number;
@@ -64,7 +64,7 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
         left: position.left + displacement.x,
         top: position.top + displacement.y,
       }}
-      className={cn('absolute cursor-pointer aspect-square bg-red-500/0', isHovered ? 'z-[1]' : 'z-0')}
+      className={cn(isHovered ? 'z-[1]' : 'z-0', 'absolute cursor-pointer aspect-square bg-red-500/0')}
     >
       <div
         onClick={() => setPath(work.slug)}
@@ -72,13 +72,12 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
         onMouseOut={() => setIsHovered(false)}
         style={{
           width: width,
-          height: width,
           scale: isHovered ? 1 : scale,
           rotate: isHovered ? '0deg' : `${getRandomRotation(10)}deg`,
           backgroundColor: isHovered
             ? theme === 'light'
-              ? `#${work.colors.split(', ')[work.colors.split(', ').length - 2]}`
-              : `#${work.colors.split(', ')[work.colors.split(', ').length - 1]}`
+              ? `#${work.colors.split(', ')[work.colors.split(', ').length - 2]}` // second to the last color
+              : `#${work.colors.split(', ')[work.colors.split(', ').length - 1]}` // last color
             : theme === 'light'
             ? '#e4e4e7'
             : '#27272a',
@@ -88,8 +87,8 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
           scale === md && 'lg:blur-[2px]',
           scale === lg && 'lg:blur-none',
           'flex items-center justify-center text-center hover:blur-none rounded-md',
-          'transition-[all] duration-300 delay-100 ease-out',
-          'w-full h-full aspect-square overflow-hidden'
+          'w-full h-full aspect-square overflow-hidden',
+          'transition-[scale,rotate,background-color,filter] duration-300 delay-100 ease-out'
         )}
       >
         {RenderEmblem ? (

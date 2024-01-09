@@ -22,7 +22,7 @@ export default function MdxButton({ href, children }: MdxButtonProps) {
       onClick={() => setPath(href)}
       style={{
         color: isDarkColor(color) ? '#f4f4f5' : '#18181b',
-        backgroundColor: isHovered ? (isDarkColor(color) ? darkColor : lightColor) : color,
+        backgroundColor: isHovered ? color : isDarkColor(color) ? darkColor : lightColor,
       }}
       className='py-1 pl-3 pr-2.5 text-[0.85rem] font-semibold rounded-sm tracking-widest no-underline transition-colors duration-150 ease-out cursor-pointer'
     >

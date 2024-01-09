@@ -40,7 +40,7 @@ export default function Curtain() {
       {init && <div className='fixed z-10 w-screen h-screen top-0 left-0 bg-zinc-300 dark:bg-zinc-900' />}
       {cover ? (
         <motion.div
-          initial={{ scale: 1 }}
+          initial={{ scale: 0 }}
           animate={{ scale: hypotenous * 1.3 }}
           transition={{ duration: duration, ease: 'easeIn' }}
           style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}
@@ -49,7 +49,7 @@ export default function Curtain() {
       ) : (
         <motion.div
           initial={{ scale: hypotenous * 1.3 }}
-          animate={{ scale: 1 }}
+          animate={{ scale: 0 }}
           transition={{ duration: duration, ease: 'easeOut' }}
           style={{ translate: `${mouse.x}px ${mouse.y}px`, width: 2, height: 2 }}
           className='fixed z-10 bg-zinc-300 dark:bg-zinc-900 rounded-full origin-center aspect-square top-0 left-0 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none ring ring-transparent'

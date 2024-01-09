@@ -5,6 +5,7 @@ import { Mdx } from '@/components/Mdx';
 import { Page } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
 import { usePath } from '@/providers/PathProvider';
+import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import SectionAside from './SectionAside';
 import SectionWriteup from './SectionWriteup';
@@ -20,12 +21,13 @@ type MainProps = {
 };
 
 export default function Main({ page }: MainProps) {
+  const { theme } = useTheme();
+  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
+  let [ref, { width }] = useMeasure();
   const { setCover } = usePath();
-  const { color, setColor } = useColor();
-  let [ref, { width, height }] = useMeasure();
 
   useEffect(() => {
-    setColor && setColor('#71717a');
+    setColorArray && setColorArray(['e4e4e7', 'a1a1aa', '52525b', '27272a']);
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -43,7 +45,7 @@ export default function Main({ page }: MainProps) {
         description={page.description}
         subText={page.subtext}
         preText={page.pretext}
-        color={color}
+        color={theme === 'light' ? darkColor : lightColor}
         slug={page.slugAsParams}
       >
         <Mdx code={page.body.code} />

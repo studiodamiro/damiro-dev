@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { useColor } from '@/providers/ColorProvider';
 import { cn } from '@/lib/utils';
+import { useTheme } from 'next-themes';
 
 type SectionWriteupProps = {
   title?: string;
@@ -22,7 +23,8 @@ export default function SectionWriteup({
   children,
   slug,
 }: SectionWriteupProps) {
-  const { color } = useColor();
+  const { theme } = useTheme();
+  const { lightColor, darkColor } = useColor();
   const [showWorks, setShowWorks] = useState(false);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function SectionWriteup({
 
       {/* PAGE TITLE */}
       <h1
-        style={{ textWrap: 'balance', color: color }}
+        style={{ textWrap: 'balance', color: theme === 'light' ? darkColor : lightColor }}
         className={cn(
           showWorks ? 'min-h-[0px] lg:min-h-[200px]' : 'min-h-[180px] md:min-h-[200px] lg:min-h-[200px]',
           'flex items-end max-w-3xl font-fauna lowercase text-5xl md:text-7xl -ml-[4px] md:ml-[-6px] mb-0'
@@ -99,7 +101,7 @@ export default function SectionWriteup({
           className={cn(
             'prose prose-zinc dark:prose-invert prose-sm md:prose-base prose-quoteless',
             'max-w-lg md:max-w-xl lg:max-w-3xl leading-loose',
-            'pl-0 md:pl-[68px] pb-8 text-zinc-600 dark:text-zinc-400'
+            'pl-0 md:pl-[68px] pb-8 text-zinc-700 dark:text-zinc-300'
           )}
         >
           {children}

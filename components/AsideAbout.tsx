@@ -10,7 +10,7 @@ const aboutItems = {
 export default function AsideAbout() {
   return (
     <div>
-      <div className='flex flex-col w-full md:w-4/5 lg:w-full pl-0 md:pl-[68px] lg:pl-0 pr-4 md:pr-8 mb-8'>
+      <div className='flex flex-col w-full md:w-4/5 lg:w-full pl-0 md:pl-[68px] lg:pl-0 pr-4 md:pr-8 mb-0'>
         <div className='h-10 w-full hidden lg:block' />
         <span className='allcap-span pt-2 lg:pt-0 pb-2'>Bits & pieces of me</span>
         <div className='flex flex-col gap-6'>

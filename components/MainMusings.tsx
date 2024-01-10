@@ -18,12 +18,9 @@ type MainProps = {
 export default function MainMusings({ page }: MainProps) {
   const { setCover } = usePath();
   const { theme } = useTheme();
-  const { color, setColor, setColorArray, lightColor, darkColor } = useColor();
+  const { lightColor, darkColor } = useColor();
 
   useEffect(() => {
-    setColorArray && setColorArray(page.colors!.split(', '));
-    setColor && setColor(`#${page.colors!.split(', ')[0]}`);
-
     const timer = setTimeout(() => setCover(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -41,8 +38,8 @@ export default function MainMusings({ page }: MainProps) {
       >
         <Mdx code={page.body.code} />
       </SectionWriteup>
-      <SectionAside fixed padded={false}>
-        <AsideMusings />
+      <SectionAside fixed padded>
+        {/* <AsideMusings /> */}
       </SectionAside>
     </main>
   );

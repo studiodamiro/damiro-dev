@@ -12,6 +12,7 @@ import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
 import PrevAndNextButtons from './PrevAndNextButtons';
+import { cn } from '@/lib/utils';
 
 type MainProps = {
   page: Work;
@@ -53,8 +54,9 @@ export default function MainWorks({ page }: MainProps) {
         <PrevAndNextButtons className='z-[1]' />
       </span>
 
-      <SectionAside fixed>
-        <div className='block lg:hidden absolute bottom-9 w-full pl-[68px] md:pl-[152px]'>
+      <SectionAside fixed padded>
+        <div className={cn('w-full aspect-[4/3] bg-pink-500/20')} />
+        <div className='block lg:hidden w-full pl-[70px] md:pl-[152px] my-8'>
           {page.technologies && <ListTech page={page} />}
           {page.tools && <ListTools page={page} />}
           {(page.technologies || page.tools) && <div className='h-8 md:h-10 w-full' />}

@@ -66,7 +66,7 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
       className={cn(
         isHovered ? 'z-[1]' : 'z-0',
         'absolute cursor-pointer aspect-square bg-red-500/0',
-        'transition-all duration-300 ease-out'
+        'transition-all duration-100 ease-out delay-0'
       )}
     >
       <div

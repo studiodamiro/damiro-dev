@@ -1,5 +1,5 @@
 ---
-company: Wycliffe Ph
+company: Wycliffe PH
 description: Passionate for Bible translation
 date: 2023-03-04
 works: identity

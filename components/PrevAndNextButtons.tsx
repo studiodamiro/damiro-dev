@@ -38,12 +38,15 @@ export default function PrevAndNextButtons() {
             <div
               onClick={() => setPath(allWorks[prevIndex].slugAsParams)}
               className={cn(
-                'cursor-pointer text-sm font-semibold tracking-widest uppercase flex flex-row gap-1 items-center justify-end pl-4 pr-3.5 rounded-sm',
+                'cursor-pointer flex flex-row gap-1.5 items-center justify-end py-1.5 pl-4 pr-2 rounded-sm',
                 'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
               )}
             >
-              {allWorks[prevIndex].company}
-              <div style={{ width: '40px' }} className='w-2 aspect-square'>
+              <div className='flex flex-col items-end justify-center gap-0'>
+                <span className='text-xs font-semibold tracking-widest uppercase'>Previous</span>
+                <span className='font-fauna text-sm'>{allWorks[prevIndex].company}</span>
+              </div>
+              <div style={{ width: '40px' }} className='w-3 aspect-square'>
                 {RenderPrevEmblem && (
                   <RenderPrevEmblem
                     color={theme === 'light' ? '#09090b' : '#fafafa'}
@@ -51,19 +54,22 @@ export default function PrevAndNextButtons() {
                   />
                 )}
               </div>
-              Prev
             </div>
           )}
+
           {allWorks[nextIndex] && (
             <div
               onClick={() => setPath(allWorks[nextIndex].slugAsParams)}
               className={cn(
-                'cursor-pointer text-sm font-semibold tracking-widest uppercase flex flex-row gap-1 items-center justify-end pl-4 pr-3.5 rounded-sm',
+                'cursor-pointer flex flex-row gap-1.5 items-center justify-end py-1.5 pl-4 pr-2 rounded-sm',
                 'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
               )}
             >
-              {allWorks[nextIndex].company}
-              <div style={{ width: '40px' }} className='w-2 aspect-square'>
+              <div className='flex flex-col items-end justify-center gap-0'>
+                <span className='text-xs font-semibold tracking-widest uppercase'>Next</span>
+                <span className='font-fauna text-sm'>{allWorks[nextIndex].company}</span>
+              </div>
+              <div style={{ width: '40px' }} className='w-3 aspect-square'>
                 {RenderNextEmblem && (
                   <RenderNextEmblem
                     color={theme === 'light' ? '#09090b' : '#fafafa'}
@@ -71,7 +77,6 @@ export default function PrevAndNextButtons() {
                   />
                 )}
               </div>
-              Next
             </div>
           )}
         </div>

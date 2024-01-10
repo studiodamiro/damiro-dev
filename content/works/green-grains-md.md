@@ -1,5 +1,5 @@
 ---
-company: Green grains md
+company: Green Grains MD
 pretext: Provides green grains
 description: A not so ordinary movie blog
 date: 2023-03-04

@@ -6,7 +6,11 @@ import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function PrevAndNextButtons() {
+type PrevAndNextButtonsProps = {
+  className?: string;
+};
+
+export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProps) {
   const url = usePathname().split('/');
   const [pagename, setPagename] = useState('');
   const [category, setCategory] = useState('');
@@ -33,52 +37,60 @@ export default function PrevAndNextButtons() {
   return (
     <>
       {category === 'works' && (
-        <div className='z-[1] absolute bottom-8 right-4 md:right-8 flex flex-col gap-2 items-end'>
-          {allWorks[prevIndex] && (
-            <div
-              onClick={() => setPath(allWorks[prevIndex].slugAsParams)}
-              className={cn(
-                'cursor-pointer flex flex-row gap-1.5 items-center justify-end py-1.5 pl-4 pr-2 rounded-sm',
-                'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
-              )}
-            >
-              <div className='flex flex-col items-end justify-center gap-0'>
-                <span className='text-xs font-semibold tracking-widest uppercase'>Previous</span>
-                <span className='font-fauna text-sm'>{allWorks[prevIndex].company}</span>
-              </div>
-              <div style={{ width: '40px' }} className='w-3 aspect-square'>
-                {RenderPrevEmblem && (
-                  <RenderPrevEmblem
-                    color={theme === 'light' ? '#09090b' : '#fafafa'}
-                    secColor={theme === 'light' ? '#52525b' : '#a1a1aa'}
-                  />
-                )}
-              </div>
-            </div>
+        <div
+          className={cn(
+            'relative md:fixed flex flex-col md:items-end bottom-0 md:bottom-8 md:right-8 pt-10 md:pt-0',
+            className
           )}
+        >
+          <span className='allcap-span mb-1.5 pr-0.5'>MORE PROJECTS</span>
+          <div className='flex flex-wrap md:flex-col lg:flex-row gap-2 md:items-end'>
+            {allWorks[prevIndex] && (
+              <div
+                onClick={() => setPath(allWorks[prevIndex].slugAsParams)}
+                className={cn(
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-1.5 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm',
+                  'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
+                )}
+              >
+                <div style={{ width: '40px' }} className='w-3 aspect-square'>
+                  {RenderPrevEmblem && (
+                    <RenderPrevEmblem
+                      color={theme === 'light' ? '#09090b' : '#fafafa'}
+                      secColor={theme === 'light' ? '#52525b' : '#a1a1aa'}
+                    />
+                  )}
+                </div>
+                <div className='flex flex-col items-start md:items-end justify-center gap-0'>
+                  <span className='text-xs font-semibold tracking-widest uppercase'>PREVIOUS</span>
+                  <span className='font-fauna text-sm'>{allWorks[prevIndex].company}</span>
+                </div>
+              </div>
+            )}
 
-          {allWorks[nextIndex] && (
-            <div
-              onClick={() => setPath(allWorks[nextIndex].slugAsParams)}
-              className={cn(
-                'cursor-pointer flex flex-row gap-1.5 items-center justify-end py-1.5 pl-4 pr-2 rounded-sm',
-                'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
-              )}
-            >
-              <div className='flex flex-col items-end justify-center gap-0'>
-                <span className='text-xs font-semibold tracking-widest uppercase'>Next</span>
-                <span className='font-fauna text-sm'>{allWorks[nextIndex].company}</span>
-              </div>
-              <div style={{ width: '40px' }} className='w-3 aspect-square'>
-                {RenderNextEmblem && (
-                  <RenderNextEmblem
-                    color={theme === 'light' ? '#09090b' : '#fafafa'}
-                    secColor={theme === 'light' ? '#52525b' : '#a1a1aa'}
-                  />
+            {allWorks[nextIndex] && (
+              <div
+                onClick={() => setPath(allWorks[nextIndex].slugAsParams)}
+                className={cn(
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-1.5 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm',
+                  'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
                 )}
+              >
+                <div style={{ width: '40px' }} className='w-3 aspect-square'>
+                  {RenderNextEmblem && (
+                    <RenderNextEmblem
+                      color={theme === 'light' ? '#09090b' : '#fafafa'}
+                      secColor={theme === 'light' ? '#52525b' : '#a1a1aa'}
+                    />
+                  )}
+                </div>
+                <div className='flex flex-col items-start md:items-end justify-center gap-0'>
+                  <span className='text-xs font-semibold tracking-widest uppercase'>NEXT</span>
+                  <span className='font-fauna text-sm'>{allWorks[nextIndex].company}</span>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )}
     </>

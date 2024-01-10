@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import useMousePosition from '@/lib/useMousePosition';
 
 export default function Curtain() {
-  const duration = 0.7;
+  const duration = 0.5;
   const mouse = useMousePosition();
   const route = useRouter();
   const { path, cover, setCover } = usePath();
@@ -44,7 +44,7 @@ export default function Curtain() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.1, delay: duration, ease: 'easeIn' }}
+          transition={{ duration: 0.1, delay: duration - 0.1, ease: 'easeIn' }}
           className='fixed z-[9] w-screen h-screen top-0 left-0 bg-zinc-300 dark:bg-zinc-900 pointer-events-none'
         />
       ) : (

@@ -31,7 +31,7 @@ export default function MainWorks({ page }: MainProps) {
   }, []);
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row'>
+    <main className='w-full min-h-screen flex flex-col lg:flex-row '>
       <SectionWriteup
         title={page.company}
         description={page.description}
@@ -44,19 +44,22 @@ export default function MainWorks({ page }: MainProps) {
           {page.body.raw && <div className='h-4 w-full' />}
           {page.technologies && <ListTech page={page} />}
           {page.tools && <ListTools page={page} />}
-          {(page.technologies || page.tools) && <div className='h-10 w-full' />}
+          {(page.technologies || page.tools) && <div className='h-10 w-1/2' />}
           <ListProject page={page} />
         </div>
       </SectionWriteup>
 
-      <PrevAndNextButtons />
+      <span className='lg:block hidden'>
+        <PrevAndNextButtons className='z-[1]' />
+      </span>
 
       <SectionAside fixed>
-        <div className='block lg:hidden absolute bottom-9 w-full pl-[68px] md:pl-[152px] bg-red-500/40'>
+        <div className='block lg:hidden absolute bottom-9 w-full pl-[68px] md:pl-[152px]'>
           {page.technologies && <ListTech page={page} />}
           {page.tools && <ListTools page={page} />}
           {(page.technologies || page.tools) && <div className='h-8 md:h-10 w-full' />}
           <ListProject page={page} />
+          <PrevAndNextButtons />
         </div>
       </SectionAside>
     </main>

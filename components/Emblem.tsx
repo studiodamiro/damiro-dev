@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { projectEmblems } from '@/data/projectEmblems';
 import { cn } from '@/lib/utils';
 import getRandomRotation from '@/lib/getRandomRotation';
+import useMousePosition from '@/lib/useMousePosition';
 
 type EmblemProps = {
   index?: number;
@@ -20,13 +21,15 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
   const { setPath } = usePath();
   const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
 
+  const mouse = useMousePosition();
+
   const { theme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
   const [scale, setScale] = useState(0.5);
 
   const sm = 0.3;
-  const md = 0.5;
-  const lg = 0.8;
+  const md = 0.6;
+  const lg = 0.9;
 
   useEffect(() => {
     if (!work) return;
@@ -39,19 +42,19 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
     }
   }, []);
 
-  const RenderEmblem = projectEmblems[work.slugAsParams as keyof typeof projectEmblems];
+  const handleMouseMove = () => {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const displacementX = ((mouse.x - centerX) / centerX) * width * scale;
+    const displacementY = ((mouse.y - centerY) / centerY) * width * scale;
+    setDisplacement({ x: -displacementX, y: -displacementY });
+  };
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const displacementX = ((e.clientX - centerX) / centerX) * width * scale;
-      const displacementY = ((e.clientY - centerY) / centerY) * width * scale;
-      setDisplacement({ x: -displacementX, y: -displacementY });
-    };
-    parallax && window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [width]);
+    parallax && handleMouseMove();
+  }, [mouse]);
+
+  const RenderEmblem = projectEmblems[work.slugAsParams as keyof typeof projectEmblems];
 
   return (
     <motion.div
@@ -63,11 +66,7 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
         left: position.left + displacement.x,
         top: position.top + displacement.y,
       }}
-      className={cn(
-        isHovered ? 'z-[1]' : 'z-0',
-        'absolute cursor-pointer aspect-square bg-red-500/0',
-        'transition-all duration-100 ease-out delay-0'
-      )}
+      className={cn(isHovered ? 'z-[1]' : 'z-0', 'absolute cursor-pointer aspect-square bg-red-500/0')}
     >
       <div
         onClick={() => setPath(work.slug)}
@@ -91,7 +90,7 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
           scale === lg && 'lg:blur-none',
           'flex items-center justify-center text-center hover:blur-none rounded-md',
           'w-full h-full aspect-square overflow-hidden',
-          'transition-[scale,rotate,background-color,filter] duration-300 delay-100 ease-out'
+          'transition-all duration-300 delay-100 ease-out'
         )}
       >
         {RenderEmblem ? (

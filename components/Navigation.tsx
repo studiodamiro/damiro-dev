@@ -19,7 +19,7 @@ export default function Navigation({ scrollY, className }: NavigationProps) {
         className
       )}
     >
-      <span
+      {/* <span
         onClick={() => setPath('/about')}
         className={cn(
           'cursor-pointer bg-zinc-500/50 flex items-center justify-center rounded-full h-6 aspect-square opacity-100 transition-all duration-300 ease-out delay-150',
@@ -27,7 +27,7 @@ export default function Navigation({ scrollY, className }: NavigationProps) {
         )}
       >
         a
-      </span>
+      </span> */}
 
       <span
         className={cn(

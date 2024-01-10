@@ -5,7 +5,14 @@ type LogoProps = {
 
 export default function TechedgePh({ color = '#F8981D', secColor = '#ED2024' }: LogoProps) {
   return (
-    <svg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
+      viewBox='0 0 200 200'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M150.204 51.8856C135.763 37.7133 116.017 29 94.2234 29C67.2833 29 43.4941 42.28 29 62.6461C32.8336 59.2867 50.2685 44.747 70.1191 43.0148C50.216 54.7201 36.8772 76.346 36.8772 101.069C36.8772 127.629 52.2641 150.619 74.6354 161.59C58.8284 150.199 48.5355 131.67 48.5355 110.727C48.5355 76.136 76.5784 48.0539 111.186 48.0539C139.281 48.0539 163.018 66.5303 171 91.9355C168.847 76.1885 161.285 62.1737 150.204 51.8331V51.8856Z'
         fill={color}

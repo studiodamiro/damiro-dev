@@ -11,7 +11,14 @@ export default function WitsInc({ color = '#1E194D', secColor = '#ffffff' }: Log
   const adjustedColor = theme === 'light' ? color : adjustHexColor(color, 'light', 100);
 
   return (
-    <svg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
+      viewBox='0 0 200 200'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M144.155 109.475C139.474 104.416 141.086 96.2134 147.761 91.154C154.436 86.0945 163.642 86.0945 168.322 91.154C173.003 96.2134 171.391 104.416 164.716 109.475C158.041 114.535 148.835 114.535 144.231 109.475H144.155Z'
         fill={adjustedColor}

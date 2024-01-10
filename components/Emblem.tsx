@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { projectEmblems } from '@/data/projectEmblems';
 import { cn } from '@/lib/utils';
 import getRandomRotation from '@/lib/getRandomRotation';
-import adjustHexColor from '@/lib/adjustHexColor';
 
 type EmblemProps = {
   index?: number;
@@ -58,13 +57,17 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
     <motion.div
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.3 * index }}
+      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.15 * index }}
       style={{
         width: width,
         left: position.left + displacement.x,
         top: position.top + displacement.y,
       }}
-      className={cn(isHovered ? 'z-[1]' : 'z-0', 'absolute cursor-pointer aspect-square bg-red-500/0')}
+      className={cn(
+        isHovered ? 'z-[1]' : 'z-0',
+        'absolute cursor-pointer aspect-square bg-red-500/0',
+        'transition-all duration-300 ease-out'
+      )}
     >
       <div
         onClick={() => setPath(work.slug)}

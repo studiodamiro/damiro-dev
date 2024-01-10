@@ -5,7 +5,14 @@ type LogoProps = {
 
 export default function WycliffePh({ color = '#032940', secColor = '#A60303' }: LogoProps) {
   return (
-    <svg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
+      viewBox='0 0 200 200'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M98 116C88.5511 69.8624 41.8723 68.0103 41.8723 68.0103C41.3764 67.9666 40.9066 68.0627 40.4628 68.2811C38.4617 68.9014 37 70.7623 37 72.9726C37 75.6984 39.2013 77.9 41.9158 77.9C41.9768 77.9 42.0377 77.8826 42.0986 77.8826C84.2095 82.0062 98 116 98 116Z'
         fill={color}

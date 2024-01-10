@@ -43,7 +43,7 @@ type PillTechProps = {
 
 export default function PillTech({ tech }: PillTechProps) {
   return (
-    <span className='py-0.5 px-2.5 rounded-md text-xs md:text-sm flex flex-row items-center gap-1.5 font-medium tracking-wider dark:bg-black bg-zinc-200'>
+    <span className='py-0.5 px-2.5 rounded-sm text-xs md:text-sm flex flex-row items-center gap-1.5 font-medium tracking-wider dark:bg-black bg-zinc-200'>
       {techIcons[tech as keyof typeof techIcons]}
       {tech}
     </span>

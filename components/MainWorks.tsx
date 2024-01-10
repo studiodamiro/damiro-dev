@@ -11,6 +11,7 @@ import SectionAside from './SectionAside';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
+import PrevAndNextButtons from './PrevAndNextButtons';
 
 type MainProps = {
   page: Work;
@@ -47,6 +48,8 @@ export default function MainWorks({ page }: MainProps) {
           <ListProject page={page} />
         </div>
       </SectionWriteup>
+
+      <PrevAndNextButtons />
 
       <SectionAside fixed>
         <div className='block lg:hidden absolute bottom-9 w-full pl-[68px] md:pl-[152px] bg-red-500/40'>

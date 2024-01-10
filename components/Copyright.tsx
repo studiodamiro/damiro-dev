@@ -31,7 +31,7 @@ export default function Copyright({ rotate = false }: CopyrightProps) {
           onClick={() => setPath('/')}
           className={cn('opacity-80 whitespace-nowrap cursor-pointer', rotate && 'rotate-180')}
         >
-          <span className='hidden md:inline'>All rights reserved </span>© {year}
+          <span className='hidden md:inline'>All rights reserved </span>© 2003 - {year}
         </div>
       </div>
     </div>

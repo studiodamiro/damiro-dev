@@ -16,7 +16,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className='transition-all duration-500 ease-in relative w-6 h-10 rounded-full bg-zinc-700 dark:bg-zinc-300 overflow-hidden'
+      className='transition-all duration-500 ease-in relative w-6 h-10 rounded-full bg-zinc-700 hover:bg-black dark:bg-zinc-300 dark:hover:bg-white overflow-hidden group'
     >
       <span className='sr-only'>Toggle Theme Button</span>
 
@@ -46,7 +46,7 @@ export function ThemeToggle() {
       <Hydrate>
         <span
           className={cn(
-            'transition-all duration-500 ease-in absolute w-3 h-3 rounded-full top-5 bg-zinc-700 dark:bg-zinc-300',
+            'transition-all duration-500 ease-in absolute w-3 h-3 rounded-full top-5 bg-zinc-700 dark:bg-zinc-300 group-hover:bg-black dark:group-hover:bg-white',
             theme === 'light' ? 'right-0.5' : 'right-3'
           )}
         />

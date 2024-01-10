@@ -6,8 +6,9 @@ type LogoProps = {
 export default function BegcaKo({ color = '#DEAB26', secColor = '#182F58' }: LogoProps) {
   return (
     <svg
-      width='200'
-      height='200'
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
       viewBox='0 0 200 200'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

@@ -5,7 +5,14 @@ type LogoProps = {
 
 export default function LabsGame({ color = '#ffffff' }: LogoProps) {
   return (
-    <svg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
+      viewBox='0 0 200 200'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M62.2524 62.7032C63.0615 65.7231 66.1743 67.5129 69.2049 66.7008L75.2434 89.2367L62.4922 136.533C59.715 146.835 69.1406 156.275 79.4463 153.513L139.455 137.434C149.761 134.673 153.203 121.785 145.647 114.252L110.956 79.6674L104.918 57.1316C107.949 56.3195 109.749 53.2131 108.94 50.1933C108.131 47.1734 105.018 45.3836 101.988 46.1956L66.2746 55.7649C63.244 56.577 61.4432 59.6834 62.2524 62.7032Z'
         fill={color}

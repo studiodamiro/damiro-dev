@@ -5,7 +5,14 @@ type LogoProps = {
 
 export default function MamertoBuilders({ color = '#F7941D', secColor = '#666666' }: LogoProps) {
   return (
-    <svg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      preserveAspectRatio='xMidYMid meet'
+      viewBox='0 0 200 200'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M85.1539 41.77L100.039 29.0007V29L152.269 59.1553L170.771 69.8372L152.269 80.5191L133.768 69.8372L85.1539 41.77Z'
         fill={color}

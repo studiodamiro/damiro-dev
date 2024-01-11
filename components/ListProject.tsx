@@ -15,7 +15,7 @@ export default function ListProject({ page }: ListProjectProps) {
   const { setPath } = usePath();
 
   return (
-    <div className='w-full md:w-1/2 lg:w-full'>
+    <div className='w-full md:w-1/2 lg:w-full pr-4'>
       <span className='allcap-span'>Project Links</span>
       <div className='flex flex-wrap gap-2 items-center pt-1'>
         {page.repo && (

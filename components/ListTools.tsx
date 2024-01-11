@@ -1,16 +1,18 @@
 import { Work } from '@/.contentlayer/generated';
+import { cn } from '@/lib/utils';
 import PillTech from './PillTech';
 
 type ListToolsProps = {
   page: Work;
   color?: string;
+  className?: string;
 };
 
-export default function ListTools({ page }: ListToolsProps) {
+export default function ListTools({ page, className }: ListToolsProps) {
   return (
-    <div className='w-full md:w-1/2 lg:w-full'>
+    <div className={cn(className)}>
       <span className='allcap-span'>Tools</span>
-      <div className='flex flex-wrap gap-2 mt-0.5'>
+      <div className='flex flex-wrap justify-start lg:justify-end gap-2 pr-4 lg:pr-0 mt-0.5'>
         {page.tools && page.tools.split(', ').map((tool, index) => <PillTech key={index} tech={tool} />)}
       </div>
     </div>

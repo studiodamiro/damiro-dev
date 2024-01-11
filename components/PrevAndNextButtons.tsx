@@ -37,14 +37,9 @@ export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProp
   return (
     <>
       {category === 'works' && (
-        <div
-          className={cn(
-            'relative md:fixed flex flex-col md:items-end bottom-0 md:bottom-8 md:right-8 pt-10 md:pt-0',
-            className
-          )}
-        >
+        <div className={cn('flex flex-col items-start md:items-end pt-10', className)}>
           <span className='allcap-span mb-1.5 pr-0.5'>MORE PROJECTS</span>
-          <div className='flex flex-wrap md:flex-col lg:flex-row gap-2 md:items-end'>
+          <div className='flex flex-wrap md:flex-col lg:flex-row gap-2 md:items-end md:justify-end'>
             {allWorks[prevIndex] && (
               <div
                 onClick={() => setPath(allWorks[prevIndex].slugAsParams)}

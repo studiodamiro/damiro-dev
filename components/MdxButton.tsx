@@ -25,8 +25,8 @@ export default function MdxButton({ href, children }: MdxButtonProps) {
         color: isDarkColor(color) ? '#f4f4f5' : '#18181b',
         backgroundColor: isHovered
           ? isDarkColor(color)
-            ? adjustHexColor(color, 'light', 30)
-            : adjustHexColor(color, 'dark', 30)
+            ? adjustHexColor(color, 'light', 60)
+            : adjustHexColor(color, 'light', 20)
           : isDarkColor(color)
           ? darkColor
           : lightColor,

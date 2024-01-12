@@ -3,7 +3,7 @@ company: Damiro
 description: Drawn beyond the lines of reason
 date: 2023-03-04
 works: identity, branding, web dev't
-technologies: React JS, Tailwind CSS, Netlify, Next JS, Framer Motion, NPM, Node JS, React JS, Tailwind CSS, Netlify, Next JS, Framer Motion, NPM, Node JS, React JS, Tailwind CSS, Netlify, Next JS, Framer Motion, NPM, Node JS
+technologies: React JS, Tailwind CSS, Netlify, Next JS, Framer Motion, NPM, Node JS
 links: damiro.dev, damiro
 colors: 52525b, d4d4d8, a1a1aa, 3f3f46
 ---

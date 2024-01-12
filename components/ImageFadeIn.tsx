@@ -1,18 +1,19 @@
 'use client';
 
 import Image from 'next/image';
+import placeholder from '@/public/placeholder.png';
 import { SyntheticEvent, useState } from 'react';
 import { cn } from '@/lib/utils';
-import placeholder from '@/public/placeholder.png';
 
 interface ImageFadeInProps {
   src: string;
   alt: string;
   priority?: boolean;
+  isStatic?: boolean;
   className?: string;
 }
 
-export function ImageFadeIn({ src, alt, priority = false, className }: ImageFadeInProps) {
+export function ImageFadeIn({ src, alt, priority = false, isStatic = false, className }: ImageFadeInProps) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ export function ImageFadeIn({ src, alt, priority = false, className }: ImageFade
         const target = event.target as HTMLImageElement;
         if (target.src.indexOf('data:image/gif;base64') < 0) setImageIsLoaded(true); // next/image use an 1x1 px git as placeholder. We only want the onLoad event on the actual image
       }}
-      className={cn('opacity-0', className, imageIsLoaded && 'opacity-100 transition-opacity duration-300 ease-in')}
+      className={cn('opacity-0', imageIsLoaded && 'opacity-100 transition-opacity duration-300 ease-in', className)}
     />
   );
 }

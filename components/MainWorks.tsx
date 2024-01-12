@@ -6,13 +6,13 @@ import { useColor } from '@/providers/ColorProvider';
 import { Mdx } from './Mdx';
 import { useTheme } from 'next-themes';
 import { usePath } from '@/providers/PathProvider';
+import { projectFigures } from '@/data/projectFigures';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
 import PrevAndNextButtons from './PrevAndNextButtons';
-import { projectFigures } from '@/data/projectFigures';
 
 type MainProps = {
   page: Work;
@@ -31,7 +31,7 @@ export default function MainWorks({ page }: MainProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const RenderFigure = page && projectFigures[page.slugAsParams as keyof typeof projectFigures];
+  const RenderFigure = projectFigures[page.slugAsParams as keyof typeof projectFigures];
 
   return (
     <main className='w-full min-h-screen flex flex-col lg:flex-row '>
@@ -58,8 +58,8 @@ export default function MainWorks({ page }: MainProps) {
       <SectionAside fixed className='lg:h-screen lg:flex items-center'>
         {RenderFigure && <RenderFigure />}
         <div className='block lg:hidden w-full pl-[70px] md:pl-[152px] my-8'>
-          {page.technologies && <ListTech page={page} className='w-2/3' />}
-          {page.tools && <ListTools page={page} />}
+          {page.technologies && <ListTech page={page} className='w-full md:w-2/3' />}
+          {page.tools && <ListTools page={page} className='w-full md:w-2/3' />}
           {(page.technologies || page.tools) && <div className='h-8 md:h-10 w-full' />}
           <ListProject page={page} />
           <PrevAndNextButtons className='md:hidden pr-4' />

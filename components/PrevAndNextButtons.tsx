@@ -5,6 +5,7 @@ import { usePath } from '@/providers/PathProvider';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Button, buttonVariants } from './ui/button';
 
 type PrevAndNextButtonsProps = {
   className?: string;
@@ -44,8 +45,8 @@ export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProp
               <div
                 onClick={() => setPath(allWorks[prevIndex].slugAsParams)}
                 className={cn(
-                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-1.5 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm',
-                  'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
+                  buttonVariants({ variant: 'secondary' }),
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm'
                 )}
               >
                 <div style={{ width: '40px' }} className='w-3 aspect-square'>
@@ -67,8 +68,8 @@ export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProp
               <div
                 onClick={() => setPath(allWorks[nextIndex].slugAsParams)}
                 className={cn(
-                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-1.5 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm',
-                  'bg-white/30 hover:bg-white/80 dark:bg-black/30 dark:hover:bg-black/80 transition-colors duration-300 ease-out'
+                  buttonVariants({ variant: 'secondary' }),
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm'
                 )}
               >
                 <div style={{ width: '40px' }} className='w-3 aspect-square'>

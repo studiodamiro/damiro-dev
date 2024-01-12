@@ -34,7 +34,7 @@ export default function SectionWriteup({
   return (
     <section
       className={cn(
-        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full pb-0 md:pb-2 lg:pb-4 lg:h-screen z-0',
+        'flex flex-col gap-10 pr-8 pl-[70px] md:pl-[84px] w-full 2xl:w-4/5 h-full pb-0 md:pb-2 lg:pb-4 lg:h-screen z-[5]',
         showWorks ? 'pt-0 lg:pt-20' : 'lg:pt-20'
       )}
     >

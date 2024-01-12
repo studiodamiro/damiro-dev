@@ -1,14 +1,17 @@
 import DamiroFigure from '@/components/assets/damiro/DamiroFigure';
+import GreenGrainsMdFigure from '@/components/assets/green-grains-md/GreenGrainsMdFigure';
+import IkigaiBroFigure from '@/components/assets/ikigai-bro/IkigaiBroFigure';
+import SmartgridPhFigure from '@/components/assets/smartgrid-ph/SmartgridPhFigure';
 
 export const projectFigures = {
   damiro: DamiroFigure,
+  'ikigai-bro': IkigaiBroFigure,
+  'smartgrid-ph': SmartgridPhFigure,
+  'green-grains-md': GreenGrainsMdFigure,
   // 'reel-reflections': ReelReflectionsFigure,
-  // 'smartgrid-ph': SmartgridPhFigure,
   // 'begca-ko': BegcaKoFigure,
   // 'labs-game': LabsGameFigure,
-  // 'green-grains-md': GreenGrainsMdFigure,
   // 'iiee-mw': IieeMwFigure,
-  // 'ikigai-bro': IkigaiBroFigure,
   // 'mamerto-builders': MamertoBuildersFigure,
   // 'dan-ann': DanAnnFigure,
   // 'wits-inc': WitsIncFigure,

@@ -1,3 +1,4 @@
+import BegcaKoFigure from '@/components/assets/begca-ko/BegcaKoFigure';
 import DamiroFigure from '@/components/assets/damiro/DamiroFigure';
 import GreenGrainsMdFigure from '@/components/assets/green-grains-md/GreenGrainsMdFigure';
 import IkigaiBroFigure from '@/components/assets/ikigai-bro/IkigaiBroFigure';
@@ -8,8 +9,8 @@ export const projectFigures = {
   'ikigai-bro': IkigaiBroFigure,
   'smartgrid-ph': SmartgridPhFigure,
   'green-grains-md': GreenGrainsMdFigure,
+  'begca-ko': BegcaKoFigure,
   // 'reel-reflections': ReelReflectionsFigure,
-  // 'begca-ko': BegcaKoFigure,
   // 'labs-game': LabsGameFigure,
   // 'iiee-mw': IieeMwFigure,
   // 'mamerto-builders': MamertoBuildersFigure,

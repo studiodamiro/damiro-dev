@@ -46,7 +46,7 @@ export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProp
                 onClick={() => setPath(allWorks[prevIndex].slugAsParams)}
                 className={cn(
                   buttonVariants({ variant: 'secondary' }),
-                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm'
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2'
                 )}
               >
                 <div style={{ width: '40px' }} className='w-3 aspect-square'>
@@ -69,7 +69,7 @@ export default function PrevAndNextButtons({ className }: PrevAndNextButtonsProp
                 onClick={() => setPath(allWorks[nextIndex].slugAsParams)}
                 className={cn(
                   buttonVariants({ variant: 'secondary' }),
-                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2 rounded-sm'
+                  'cursor-pointer flex flex-row md:flex-row-reverse gap-1.5 items-center py-6 pl-2 pr-4 md:pl-4 md:pr-2'
                 )}
               >
                 <div style={{ width: '40px' }} className='w-3 aspect-square'>

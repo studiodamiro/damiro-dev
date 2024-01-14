@@ -9,11 +9,10 @@ interface ImageFadeInProps {
   src: string;
   alt: string;
   priority?: boolean;
-  isStatic?: boolean;
   className?: string;
 }
 
-export function ImageFadeIn({ src, alt, priority = false, isStatic = false, className }: ImageFadeInProps) {
+export function ImageFadeIn({ src, alt, priority = false, className }: ImageFadeInProps) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   return (

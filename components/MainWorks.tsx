@@ -3,10 +3,11 @@
 import { useEffect } from 'react';
 import { Work } from '@/.contentlayer/generated';
 import { useColor } from '@/providers/ColorProvider';
-import { Mdx } from './Mdx';
 import { useTheme } from 'next-themes';
 import { usePath } from '@/providers/PathProvider';
 import { projectFigures } from '@/data/projectFigures';
+import { projectBackgrounds } from '@/data/projectBackgrounds';
+import { Mdx } from './Mdx';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import ListTech from './ListTech';
@@ -32,9 +33,10 @@ export default function MainWorks({ page }: MainProps) {
   }, []);
 
   const RenderFigure = projectFigures[page.slugAsParams as keyof typeof projectFigures];
+  const RenderBackground = projectBackgrounds[page.slugAsParams as keyof typeof projectBackgrounds];
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row '>
+    <main className='w-full min-h-screen flex flex-col lg:flex-row overflow-x-hidden overflow-y-scroll'>
       <SectionWriteup
         title={page.company}
         description={page.description}
@@ -55,7 +57,7 @@ export default function MainWorks({ page }: MainProps) {
         <PrevAndNextButtons className='hidden md:flex flex-col items-end bottom-8 right-8' />
       </span>
 
-      <SectionAside fixed className='lg:h-screen lg:flex items-center'>
+      <SectionAside fixed className='lg:h-screen lg:flex items-center lg:pointer-events-none'>
         {RenderFigure && <RenderFigure />}
         <div className='block lg:hidden w-full pl-[70px] md:pl-[152px] my-8'>
           {page.technologies && <ListTech page={page} className='w-full md:w-2/3' />}
@@ -65,6 +67,8 @@ export default function MainWorks({ page }: MainProps) {
           <PrevAndNextButtons className='md:hidden pr-4' />
         </div>
       </SectionAside>
+
+      {RenderBackground && <RenderBackground />}
     </main>
   );
 }

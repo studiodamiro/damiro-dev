@@ -17,7 +17,7 @@ export default function BegcaKoBackground() {
         <ImageFadeIn
           src='/images/begca-bg.webp'
           alt='Begca Ko background image of buildings'
-          className=' opacity-10 dark:opacity-5 bg-blend-overlay object-cover 2xl:object-contain object-right'
+          className='opacity-10 dark:opacity-5 bg-blend-overlay object-cover 2xl:object-contain object-right'
         />
       </div>
     </>

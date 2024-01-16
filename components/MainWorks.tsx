@@ -14,6 +14,8 @@ import ListTech from './ListTech';
 import ListProject from './ListProject';
 import ListTools from './ListTools';
 import PrevAndNextButtons from './PrevAndNextButtons';
+import { useSize } from '@/providers/SizeProvider';
+import useMeasure from 'react-use-measure';
 
 type MainProps = {
   page: Work;
@@ -21,6 +23,8 @@ type MainProps = {
 };
 
 export default function MainWorks({ page }: MainProps) {
+  let [ref, { width, height }] = useMeasure();
+  const { setW, setH } = useSize();
   const { setCover } = usePath();
   const { theme } = useTheme();
   const { setColor, setColorArray, lightColor, darkColor } = useColor();
@@ -32,11 +36,16 @@ export default function MainWorks({ page }: MainProps) {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    setW(width);
+    setH(height);
+  }, [width, height]);
+
   const RenderFigure = projectFigures[page.slugAsParams as keyof typeof projectFigures];
   const RenderBackground = projectBackgrounds[page.slugAsParams as keyof typeof projectBackgrounds];
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row overflow-x-hidden overflow-y-scroll'>
+    <main ref={ref} className='w-full min-h-screen flex flex-col lg:flex-row overflow-x-hidden overflow-y-scroll'>
       <SectionWriteup
         title={page.company}
         description={page.description}

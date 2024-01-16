@@ -7,6 +7,7 @@ import { projectEmblems } from '@/data/projectEmblems';
 import { cn } from '@/lib/utils';
 import getRandomRotation from '@/lib/getRandomRotation';
 import useMousePosition from '@/lib/useMousePosition';
+import { useSize } from '@/providers/SizeProvider';
 
 type EmblemProps = {
   index?: number;
@@ -18,6 +19,7 @@ type EmblemProps = {
 };
 
 export default function Emblem({ index = 0, width, position, work, parallax = false }: EmblemProps) {
+  const { w, h } = useSize();
   const { setPath } = usePath();
   const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
 
@@ -43,8 +45,8 @@ export default function Emblem({ index = 0, width, position, work, parallax = fa
   }, []);
 
   const handleMouseMove = () => {
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
+    const centerX = w / 2;
+    const centerY = h / 2;
     const displacementX = ((mouse.x - centerX) / centerX) * width * scale;
     const displacementY = ((mouse.y - centerY) / centerY) * width * scale;
     setDisplacement({ x: -displacementX, y: -displacementY });

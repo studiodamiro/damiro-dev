@@ -26,7 +26,7 @@ interface ColorProviderProps {
   children: ReactNode;
 }
 
-export function ColorProvider({ children }: ColorProviderProps) {
+export default function ColorProvider({ children }: ColorProviderProps) {
   const initialColor = '#52525b';
   const initialColorArray = ['52525b', 'd4d4d8', 'a1a1aa', '3f3f46'];
 

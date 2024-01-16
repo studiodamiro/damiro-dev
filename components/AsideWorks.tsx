@@ -5,9 +5,11 @@ import { allWorks } from '@/.contentlayer/generated';
 import { cn } from '@/lib/utils';
 import useMeasure from 'react-use-measure';
 import Emblem from './Emblem';
+import { useSize } from '@/providers/SizeProvider';
 
 export default function AsideWorks() {
   let [ref, { width, height }] = useMeasure();
+  const { w } = useSize();
   const [gridRows] = useState(7);
   const [positions, setPositions] = useState<{ left: number; top: number }[]>([]);
 
@@ -59,7 +61,7 @@ export default function AsideWorks() {
             work={work}
             width={width / gridRows}
             position={{ left: position.left, top: position.top }}
-            parallax={window.innerWidth > 1024}
+            parallax={Boolean(w && w > 1024)}
             index={index}
           />
         );

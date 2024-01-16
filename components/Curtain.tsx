@@ -5,8 +5,10 @@ import { motion } from 'framer-motion';
 import { usePath } from '@/providers/PathProvider';
 import { useRouter } from 'next/navigation';
 import useMousePosition from '@/lib/useMousePosition';
+import { useSize } from '@/providers/SizeProvider';
 
 export default function Curtain() {
+  const { w, h } = useSize();
   const duration = 0.5;
   const mouse = useMousePosition();
   const route = useRouter();
@@ -16,17 +18,17 @@ export default function Curtain() {
 
   // INITIALIZE`
   useEffect(() => {
-    const handleResize = () => setHypotenous(Math.hypot(window.innerWidth, window.innerHeight));
+    const handleResize = () => setHypotenous(Math.hypot(w, h));
     const timer = setTimeout(() => setInit(false), duration * 1000);
 
     handleResize(); // Set the initial value on mount
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      if (typeof window !== 'undefined') window.removeEventListener('resize', handleResize);
       clearTimeout(timer);
     };
-  }, []);
+  }, [w, h]);
 
   // DETECT ROUTE
   useEffect(() => {

@@ -9,6 +9,8 @@ import { useTheme } from 'next-themes';
 import SectionWriteup from './SectionWriteup';
 import SectionAside from './SectionAside';
 import AsideMusings from './AsideMusings';
+import useMeasure from 'react-use-measure';
+import { useSize } from '@/providers/SizeProvider';
 
 type MainProps = {
   page: Musing;
@@ -16,9 +18,16 @@ type MainProps = {
 };
 
 export default function MainMusings({ page }: MainProps) {
+  let [ref, { width, height }] = useMeasure();
+  const { setW, setH } = useSize();
   const { setCover } = usePath();
   const { theme } = useTheme();
   const { lightColor, darkColor } = useColor();
+
+  useEffect(() => {
+    setW(width);
+    setH(height);
+  }, [width, height]);
 
   useEffect(() => {
     const timer = setTimeout(() => setCover(false), 500);
@@ -26,7 +35,7 @@ export default function MainMusings({ page }: MainProps) {
   }, []);
 
   return (
-    <main className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
+    <main ref={ref} className='w-full min-h-screen flex flex-col lg:flex-row gap-16 lg:gap-0'>
       <SectionWriteup
         title={page.tags?.split(', ')[0] === 'project' ? 'work' : 'musings'}
         preText={page.tags?.split(', ').join(' / ')}

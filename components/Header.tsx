@@ -10,9 +10,8 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    console.log('scrollY', scrollY);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [window.scrollY]);
+  }, []);
 
   return (
     <>

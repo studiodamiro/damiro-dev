@@ -36,7 +36,9 @@ export default function ListProject({ page }: ListProjectProps) {
             link !== 'none' && (
               <div
                 key={index}
-                onClick={() => (index === 0 ? window.open(`https://${link}`, '_ blank') : setPath(`/musings/${link}`))}
+                onClick={() =>
+                  index === 0 ? typeof window && window.open(`https://${link}`, '_ blank') : setPath(`/musings/${link}`)
+                }
                 className={cn(
                   buttonVariants({ variant: index === 0 ? 'default' : 'secondary' }),
                   'no-underline flex flex-row items-center gap-2 tracking-wider cursor-pointer'

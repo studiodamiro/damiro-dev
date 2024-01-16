@@ -8,8 +8,10 @@ export default function useMousePosition() {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
-    return () => window.removeEventListener('mousemove', updateMousePosition);
+    if (typeof window !== 'undefined') window.addEventListener('mousemove', updateMousePosition);
+    return () => {
+      if (typeof window !== 'undefined') window.removeEventListener('mousemove', updateMousePosition);
+    };
   }, []);
 
   return mousePosition;

@@ -1,8 +1,10 @@
 import { cn } from '@/lib/utils';
 import { ImageFadeIn } from '@/components/ImageFadeIn';
 import DannAnnLogo from './DannAnnLogo';
+import { useSize } from '@/providers/SizeProvider';
 
 export default function DanAnnFigure() {
+  const { w, h } = useSize();
   return (
     <>
       {/* lg */}
@@ -11,10 +13,7 @@ export default function DanAnnFigure() {
       </div>
 
       {/* sm */}
-      <div
-        style={{ height: window.innerWidth }}
-        className='flex lg:hidden z-[-1] w-screen rotate-90 overflow-visible bg-red-500/20'
-      >
+      <div style={{ height: w }} className='flex lg:hidden z-[-1] w-screen rotate-90 overflow-visible bg-red-500/20'>
         <ImageFadeIn
           src='/images/danann-bg.webp'
           alt='Dan / Ann Nuptials textured background of recycled paper'

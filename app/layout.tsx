@@ -4,11 +4,12 @@ import { ReactNode } from 'react';
 import { Fauna_One, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { cn } from '@/lib/utils';
-import { ColorProvider } from '@/providers/ColorProvider';
+import PathProvider from '@/providers/PathProvider';
+import SizeProvider from '@/providers/SizeProvider';
+import ColorProvider from '@/providers/ColorProvider';
 import Copyright from '@/components/Copyright';
 import Header from '@/components/Header';
 import Curtain from '@/components/Curtain';
-import PathProvider from '@/providers/PathProvider';
 
 const fira = Fira_Sans({ subsets: ['latin'], weight: ['400', '700'], display: 'swap', variable: '--font-fira' });
 const fauna = Fauna_One({ subsets: ['latin'], weight: ['400'], display: 'swap', variable: '--font-fauna' });
@@ -36,12 +37,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <PathProvider>
-            <ColorProvider>
-              <Header />
-              <Curtain />
-              <div>{children}</div>
-              <Copyright rotate />
-            </ColorProvider>
+            <SizeProvider>
+              <ColorProvider>
+                <Header />
+                <Curtain />
+                <div>{children}</div>
+                <Copyright rotate />
+              </ColorProvider>
+            </SizeProvider>
           </PathProvider>
         </ThemeProvider>
       </body>

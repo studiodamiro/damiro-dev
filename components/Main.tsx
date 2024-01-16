@@ -14,6 +14,7 @@ import AsideWorks from './AsideWorks';
 import AsideMusings from './AsideMusings';
 import AsideAbout from './AsideAbout';
 import useMeasure from 'react-use-measure';
+import { useSize } from '@/providers/SizeProvider';
 
 type MainProps = {
   page: Page;
@@ -21,10 +22,13 @@ type MainProps = {
 };
 
 export default function Main({ page }: MainProps) {
+  let [ref, { width, height }] = useMeasure();
+
   const { theme } = useTheme();
   const { setColor, setColorArray, lightColor, darkColor } = useColor();
-  let [ref, { width }] = useMeasure();
+  const { setW, setH } = useSize();
   const { setCover } = usePath();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setColorArray && setColorArray(['52525b', 'd4d4d8', 'a1a1aa', '3f3f46']);
@@ -33,11 +37,11 @@ export default function Main({ page }: MainProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
+    setW(width);
+    setH(height);
     setIsMobile(width < 1024 && (page.slugAsParams === 'hello' || page.slugAsParams === 'works'));
-  }, [width]);
+  }, [width, height]);
 
   return (
     <main ref={ref} className={cn(isMobile ? 'flex-col-reverse' : 'flex-col', 'w-full min-h-screen flex lg:flex-row')}>

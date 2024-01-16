@@ -5,9 +5,9 @@ import { usePath } from '@/providers/PathProvider';
 import { motion } from 'framer-motion';
 import { projectEmblems } from '@/data/projectEmblems';
 import { cn } from '@/lib/utils';
+import { useSize } from '@/providers/SizeProvider';
 import getRandomRotation from '@/lib/getRandomRotation';
 import useMousePosition from '@/lib/useMousePosition';
-import { useSize } from '@/providers/SizeProvider';
 
 type EmblemProps = {
   index?: number;
@@ -19,13 +19,12 @@ type EmblemProps = {
 };
 
 export default function Emblem({ index = 0, width, position, work, parallax = false }: EmblemProps) {
-  const { w, h } = useSize();
-  const { setPath } = usePath();
-  const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
-
   const mouse = useMousePosition();
 
+  const { w, h } = useSize();
+  const { setPath } = usePath();
   const { theme } = useTheme();
+  const [displacement, setDisplacement] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [scale, setScale] = useState(0.5);
 

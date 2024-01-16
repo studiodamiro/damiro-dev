@@ -4,7 +4,7 @@ export default function BegcaKoBackground() {
   return (
     <>
       {/* sm */}
-      <div className='flex lg:hidden z-[-1] w-screen aspect-square rotate-90 translate-y-[-100%] -mb-[100%]'>
+      <div className='relative flex lg:hidden z-[-1] w-screen aspect-square rotate-90 translate-y-[-100%] -mb-[100%]'>
         <ImageFadeIn
           src='/images/begca-bg.webp'
           alt='Begca Ko background image of buildings'

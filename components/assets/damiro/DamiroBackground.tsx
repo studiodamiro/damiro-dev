@@ -7,8 +7,8 @@ export default function DamiroBackground() {
   return (
     <>
       {/* sm */}
-      <div className='block lg:hidden z-[-1] relative w-screen aspect-[1/1.5] overflow-hidden'>
-        <Bg color={theme === 'light' ? '#52525b' : '#52525b'} className='origin-center opacity-100' />
+      <div className='block lg:hidden z-[-1] relative w-screen aspect-[1/1.5] -mt-[150%] overflow-hidden'>
+        <Bg color={theme === 'light' ? '#52525b' : '#52525b'} className='origin-center opacity-40' />
       </div>
 
       {/* lg */}

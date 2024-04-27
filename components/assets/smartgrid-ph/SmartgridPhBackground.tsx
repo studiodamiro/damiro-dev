@@ -4,7 +4,7 @@ import Clouds from './Clouds';
 export default function SmartgridPhBackground() {
   return (
     <>
-      <Clouds className='absolute top-8 left-1/2 -translate-x-1/2 w-4/5 h-auto dark:opacity-10' />
+      <Clouds className='hidden lg:block absolute top-8 left-1/2 -translate-x-1/2 w-4/5 h-auto dark:opacity-10' />
 
       {/* sm */}
       <div className='flex lg:hidden z-[-1] items-end w-screen h-32 overflow-visible'>
